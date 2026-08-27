@@ -5,7 +5,32 @@
 本仓库包含：
 
 - 根目录 AGENTS.md：整合五个 Skill 的项目规则、阶段流程、交接协议、验证门槛和外部操作边界；
-- skills/：五个项目级 Skill 的详细执行说明。
+- skills/：五个项目级 Skill 的入口文件和按任务加载的 references。
+
+## 目录结构
+
+```text
+AGENTS.md
+README.md
+skills/
+├── game-site-research/
+│   ├── SKILL.md
+│   └── references/
+├── game-site-level4-builder/
+│   ├── SKILL.md
+│   └── references/
+├── wiki-page-builder/
+│   ├── SKILL.md
+│   └── references/
+├── youtube-keyframe-extractor/
+│   ├── SKILL.md
+│   └── references/
+└── seo-agent-site-optimization/
+    ├── SKILL.md
+    └── references/
+```
+
+每个 SKILL.md 保留触发条件、硬边界、主流程、输出和完成标准；详细方法、Schema、提示词、模板和检查清单放在对应 references 中，按当前任务读取。
 
 ## 五个 Skill
 
@@ -18,7 +43,7 @@
 ## 推荐使用方式
 
 1. 将 AGENTS.md 复制到新站根目录；
-2. 按需将 skills/ 下的 Skill 复制到新站的 .agents/skills/；
+2. 将需要的整个 skills/<skill-name>/ 目录（包括 references）复制到新站的 .agents/skills/；
 3. 替换 AGENTS.md 中的 [项目名]、[游戏名]、[正式域名] 等占位符；
 4. 根据新项目实际文件名调整 Docs/、src/ 和 public/assets/ 约定；
 5. 按 game-site-research → game-site-level4-builder → wiki-page-builder 执行；
