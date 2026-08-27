@@ -8,3 +8,10 @@ dist
 .tanstack
 playwright-report
 test-results
+
+# Inlang and Paraglide generate these files during install/compile.
+project.inlang/.gitignore
+project.inlang/.meta.json
+project.inlang/README.md
+project.inlang/cache
+src/locale
