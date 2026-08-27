@@ -2,7 +2,7 @@
 
 > 用法：把本文件复制到新项目根目录并重命名为 `AGENTS.md`，再把仓库中的 `skills/` 复制到新项目的 `.agents/skills/`。替换 `[项目名]`、`[游戏名]`、`[正式域名]` 等占位符后开始工作。
 
-本文件是总控层，不重复五个 Skill 的全部细节。具体任务必须按本文件的路由加载相应 `SKILL.md`，再按其中的“Required references”读取相关 reference。
+本文件是总控层，不重复项目 Skill 的全部细节。具体任务必须按本文件的路由加载相应 `SKILL.md`，再按其中的“Required references”读取相关 reference。
 
 ## 1. 项目身份和目标
 
@@ -127,6 +127,7 @@ Google 用于发现搜索表达，不把搜索摘要当事实。社区来源只�
 | 做一个具体 Wiki/Guide 内页 | `wiki-page-builder` | 页面任务、动作链、视觉和验收 references |
 | 找视频时间点或实机截图 | `youtube-keyframe-extractor` | 视频访问、字幕定位、抽帧和素材登记 references |
 | 看 GSC、和 SEO Agent 沟通、改站 | `seo-agent-site-optimization` | GSC、Agent 对话、站内改造和报告 references |
+| 找外链渠道、准备外展稿或规划引荐复盘 | `game-site-external-link-outreach` | 资产矩阵、渠道评分、渠道工作法、授权和复盘 references |
 
 ### 5.2 标准顺序
 
@@ -152,6 +153,17 @@ seo-agent-site-optimization
 ```
 
 不要因为 SEO Agent 提到一个词，就跳过来源研究直接批量生成页面。
+
+外链研究或外展可以在有可引用的深层页后单独启动，也可以由 SEO 复盘发现机会后接入：
+
+```text
+可引用内容资产
+→ game-site-external-link-outreach 只读研究/评分/起草
+→ 明确授权后执行单一外部动作
+→ 状态核验与 7/14/30 天复盘
+```
+
+本 Skill 不会自动获得发帖、发邮件、编辑第三方页面、创建账号或付费建链权限。
 
 ### 5.3 Reference 读取原则
 
