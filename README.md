@@ -26,8 +26,8 @@ skills/
 │   ├── SKILL.md
 │   └── references/
 ├── seo-agent-site-optimization/
-    ├── SKILL.md
-    └── references/
+│   ├── SKILL.md
+│   └── references/
 └── game-site-external-link-outreach/
     ├── SKILL.md
     └── references/
