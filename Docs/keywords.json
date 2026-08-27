@@ -1,0 +1,7 @@
+{
+  "project": "Replace with the site project name",
+  "game": "Replace with the verified game name",
+  "collectedAt": "YYYY-MM-DD",
+  "notes": "Use this file as a planning input. Keep raw query sources and exclusions in keyword-materials.md.",
+  "keywords": []
+}

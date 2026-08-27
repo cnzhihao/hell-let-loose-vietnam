@@ -37,11 +37,12 @@ Measure title and description length with a script when the project specifies a 
 Run the project-equivalent checks, commonly:
 
 ```bash
-jq empty Docs/keywords.json Docs/首页开发信息.json public/assets/asset-manifest.json
-npm run typecheck
-npm run build
+jq empty Docs/keywords.json public/assets/asset-manifest.json
+pnpm content:check
+pnpm check
+pnpm build
 git diff --check
-npm run dev -- --host 127.0.0.1
+pnpm dev
 ```
 
 Use curl or a local browser to inspect the homepage, Wiki, Guide, at least one real entry, all implemented routes and static assets. Record status codes, metadata, heading structure, navigation, official CTAs, Sources/Related pages, image loading and desktop/narrow-screen behavior.
@@ -58,4 +59,4 @@ Separate three states:
 | Website implementation complete | Local homepage, index, entry, Guide and checks pass | Live, indexed or receiving traffic |
 | Delivery loop complete | Screenshots, code version and assignment materials are organized/submitted | GSC/GA has search data |
 
-Do not deploy, buy a domain or configure GSC/GA unless the user explicitly asks.
+In this starter, template mode should also be checked: robots must disallow crawling, sitemap should be empty and placeholder entries must be noindex. Do not deploy, buy a domain or configure GSC/GA unless the user explicitly asks.

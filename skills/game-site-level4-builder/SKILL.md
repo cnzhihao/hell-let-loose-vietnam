@@ -1,13 +1,13 @@
 ---
 name: game-site-level4-builder
-description: Build or review a player-first game Wiki or game hot-word site from verified keyword materials. Use for Level 4 site implementation, reference-object study, homepage/Wiki/Guide routes, real game assets, local SEO checks or Level 4 handoff. Do not treat local implementation as deployment.
+description: Build or review a player-first game Wiki or game information site from verified keyword materials, using the reusable TanStack starter when available. Use for homepage/Wiki/Guide routes, real game assets, local SEO checks or site implementation handoff. Do not treat local implementation as deployment.
 ---
 
 # Game Site Level 4 Builder
 
 ## Purpose
 
-Turn verified keywords, page matrices, materials and assets into a player-first Wiki site that can be visited locally. This Skill owns Level 4 content generation, frontend implementation and local delivery; deployment, domain, GSC/GA and data review are later scopes unless explicitly requested.
+Turn verified keywords, page matrices, materials and assets into a player-first Wiki site that can be visited locally. This Skill owns site implementation and local delivery; deployment, domain, GSC/GA and data review are later scopes unless explicitly requested. When this repository is the baseline, keep its framework/config/content separation intact.
 
 ## Use when
 
@@ -26,6 +26,8 @@ If the request is only research, use `game-site-research`. If it is one inner pa
 - Facts must come from verified materials; never invent mechanisms, recipes, dates, platforms, codes, URLs or transcripts;
 - Reference sites are for structure study, not copied content, code, branding, images or links;
 - Keep content in a data layer and routes in a route layer;
+- In this starter, use `src/config/` for site/game identity and `src/content/` for categories, entries, sources and relationships;
+- Keep template mode safe until source-backed content is ready; do not flip `websiteConfig.isTemplate` merely to make a demo look live;
 - New assets require an inventory entry and valid `asset-manifest.json`;
 - Use `apply_patch`, preserve user changes and do not write secrets;
 - Keep local implementation, GitHub, deployment, indexing and traffic as separate states;
@@ -40,10 +42,10 @@ Read the required files and inspect the existing routes, components, data, style
 1. **Read the project and establish scope.** Use the preflight reference; do not immediately edit.
 2. **Study reference objects.** Compare official Wiki, database Wiki, beginner guide and one supplemental reference. Record structure mapping in project Docs.
 3. **Model content.** Map each page to keyword, intent, cluster, evidence state, sources and internal links. Use `references/content-model-and-site-implementation.md`.
-4. **Implement the minimum site.** Provide homepage search/quick entries/categories, Wiki index, at least one real entry and a beginner Guide. Adapt route names to the project.
+4. **Implement the minimum site.** Provide homepage search/quick entries/categories, Wiki index, at least one real entry and a beginner Guide. With this starter, prefer the existing generic routes and data model before adding bespoke route files.
 5. **Collect and integrate assets.** Use official sources first and register every new asset according to `references/assets-seo-and-validation.md`.
 6. **Check SEO and accessibility.** Verify metadata, one H1, heading hierarchy, links, images, Not found behavior, mobile layout and old-project residue.
-7. **Validate locally.** Run project-equivalent JSON, typecheck, build, diff, route, asset and browser checks.
+7. **Validate locally.** Run project-equivalent JSON, content, typecheck, build, diff, route, asset and browser checks. Regenerate route/locale/Cloudflare outputs instead of editing generated files.
 8. **Update the Level 4 record and hand off.** Report files, completed state, unfinished work, actual checks and the next minimum action.
 
 ## Required references

@@ -5,18 +5,17 @@
 Before editing, read:
 
 - `README.md` and `AGENTS.md`;
-- `Docs/首页开发信息.json`;
-- `Docs/关键词素材.md`;
-- `Docs/keywords.json`;
+- `Docs/keyword-materials.md` or the project equivalent;
+- `Docs/keywords.json` or the project equivalent;
 - the README page matrix;
-- `Docs/参考对象.md` or `Docs/关卡4-参考网站、内容与结构.md`;
+- `Docs/reference-objects.md` or the project equivalent;
 - `Docs/素材清单.md` and `public/assets/asset-manifest.json` when present;
 - `package.json`, Vite/Wrangler configuration, routes, components and data;
 - `git status --short --branch`.
 
 Record which parts are complete: research, code, local validation, screenshots, GitHub, deployment and analytics. Do not overwrite changes whose meaning is unknown.
 
-If the user requires Cloudflare and TanStack is appropriate, prefer `TanStack Start + React + TanStack Router` with Cloudflare Workers configuration and record that choice. Otherwise choose the smallest runnable stack instead of guessing from an absent `package.json`.
+This repository already uses `TanStack Start + React + TanStack Router` with Cloudflare Workers configuration. Preserve that baseline for a new clone; do not replace it with an unrelated stack during content implementation. If the Skill is reused in another project, inspect its actual `package.json` before making a framework claim.
 
 ## Reference-object study
 

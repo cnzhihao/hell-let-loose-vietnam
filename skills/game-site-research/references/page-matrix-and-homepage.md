@@ -17,6 +17,18 @@ Each row must contain:
 | Evidence status | One of the project evidence states |
 | Internal links | Parent, siblings and official CTA targets |
 
+For this repository, also record the fields that will be handed to the content layer:
+
+| Template field | What to decide |
+|---|---|
+| slug | Stable URL-safe identifier |
+| categorySlug | Existing or proposed Wiki category |
+| path | Optional custom canonical path, for example a Guide route |
+| pageType | entry, guide, access or update |
+| indexable | false until the page is useful and source-backed |
+| Sources | URLs and source types that support the page |
+| relatedSlugs | Parent, sibling or next-action pages |
+
 Common clusters:
 
 - Entry: homepage and beginner guide;
@@ -41,7 +53,7 @@ When requested, prepare Markdown and, when useful, JSON containing:
 - Language priority based on official support and available sources;
 - Self-check for title, description, pure-string stats, four cards, label/value stats, footer copy and code availability.
 
-Use only verified figures. Omit dynamic or uncertain numbers, or mark them for recheck.
+Use only verified figures. Omit dynamic or uncertain numbers, or mark them for recheck. In a fresh template clone, do not turn the starter examples into a game claim; use the brief as a schema and wait for actual research.
 
 ## Icon prompt
 

@@ -1,6 +1,6 @@
 ---
 name: youtube-keyframe-extractor
-description: Extract traceable gameplay screenshots from YouTube videos for game Wiki and Guide pages. Use for video source inspection, subtitles, timestamps, keyframes, arrows, attribution or page placement. Do not use video frames as a substitute for verified mechanics or a full article.
+description: Extract traceable gameplay screenshots from YouTube videos for game Wiki and Guide pages. Use for video source inspection, subtitles, timestamps, keyframes, arrows, attribution or page placement in the reusable site template. Do not use video frames as a substitute for verified mechanics or a full article.
 ---
 
 # YouTube Keyframe Extractor
@@ -34,7 +34,7 @@ If the task only needs an article, use `wiki-page-builder`. If it needs both vid
 - Never claim a complete transcript from a title, description, chapters or partial inspection;
 - Official frames support visible UI/mechanics; player frames support that player’s example only;
 - Community frames must be labeled and cannot prove fixed coordinates, recipes, universal Seeds or official rules;
-- New frames require inventory and manifest records with source, timestamp and credit;
+- New frames require inventory and manifest records with source, timestamp and credit; in this starter use `Docs/素材清单.md` and `public/assets/asset-manifest.json`;
 - Preserve user changes, use `apply_patch` for edits and do not publish externally unless authorized.
 
 ## Main workflow

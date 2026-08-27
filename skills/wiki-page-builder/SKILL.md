@@ -1,6 +1,6 @@
 ---
 name: wiki-page-builder
-description: Produce, rewrite, enrich or audit one player-first game Wiki, Guide or mechanism page from verified materials. Use for Map, Water, Lava, resource, building, research, Seed or Mod pages, actionable instructions, screenshots, keyframes, arrows and source attribution. Do not use it for whole-site architecture or deployment.
+description: Produce, rewrite, enrich or audit one player-first game Wiki, Guide or mechanism page from verified materials. Use for Map, Water, Lava, resource, building, research, Seed or Mod pages, actionable instructions, screenshots, keyframes, arrows and source attribution in the reusable site template. Do not use it for whole-site architecture or deployment.
 ---
 
 # Wiki Page Builder
@@ -25,6 +25,7 @@ For keyword research use `game-site-research`; for site-wide routes use `game-si
 - Facts must come from reliable sources; label community cases and pending claims;
 - Do not turn incomplete subtitles, player workarounds, exact recipes, keys, prices, Seeds or version assumptions into facts;
 - Keep data, route, visuals and source layers separate;
+- In this starter, put the entry in `src/content/` with a stable `slug`, `categorySlug`, optional canonical `path`, evidence state and sources; do not put article prose in a route component;
 - New images require inventory and manifest updates;
 - Preserve user changes and use `apply_patch`;
 - Review-only requests are read-only; do not deploy, change GSC/GA or publish externally unless explicitly asked.
@@ -36,7 +37,7 @@ For keyword research use `game-site-research`; for site-wide routes use `game-si
 3. **Verify facts.** Separate official mechanism, official demonstration, community example and pending lead.
 4. **Build the action chain and article.** Use the task-first structure in the page-writing reference; each core H2 solves one action.
 5. **Match visuals to actions.** Use `references/visual-evidence-and-annotations.md`; do not use unrelated covers as tutorial evidence.
-6. **Integrate content and sources.** Put data in the content layer, add captions/credits/timestamped links and update asset records.
+6. **Integrate content and sources.** Put data in the content layer, add captions/credits/timestamped links and update asset records. Keep `indexable: false` until the page evidence and launch decision are complete.
 7. **Validate from player and engineering views.** Use `references/page-acceptance-and-handoff.md`.
 8. **Hand off accurately.** Report files, completed page steps, pending evidence, checks and the next minimum action.
 

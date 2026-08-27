@@ -1,6 +1,6 @@
 ---
 name: game-site-research
-description: Research and plan a trustworthy game hot-word website from real search intent and traceable sources. Use when the user asks to research a game, keywords, page matrix, homepage brief, icon prompt, or Level 3-style materials. Do not use it to implement or deploy the website.
+description: Research and plan a trustworthy game Wiki or game information site from real search intent and traceable sources. Use when the user asks to research a game, keywords, page matrix, homepage brief, icon prompt, or pre-build materials for this template. Do not use it to implement or deploy the website.
 ---
 
 # Game Site Research
@@ -13,7 +13,7 @@ Turn one game topic and a keyword list into a source-bound content system:
 keyword → player intent → route/page role → source → safe fact → evidence state → internal links
 ```
 
-This Skill researches and plans. It does not build, deploy or publish the site.
+This Skill researches and plans. It does not build, deploy or publish the site. Its handoff must be usable by the template content model without hardcoding a specific game or old project path.
 
 ## Use when
 
@@ -50,12 +50,12 @@ Ask one short question only if the game or project cannot be determined safely.
 
 ## Main workflow
 
-1. **Establish the source of truth.** Inspect the project, count valid keywords, read current Docs and record conflicts between old and new materials.
+1. **Establish the source of truth.** Inspect the project, count valid keywords, read current Docs and record conflicts between old and new materials. In a fresh clone, use the templates in Docs as empty scaffolding rather than treating their examples as facts.
 2. **Build the page matrix.** Before prose, assign each valid keyword an intent, route, cluster, role, priority, evidence state and internal-link role. Read `references/page-matrix-and-homepage.md`.
 3. **Prepare homepage/icon inputs when requested.** Use the homepage and icon schemas in that reference; verified facts only.
 4. **Research each keyword.** Use Google for discovery, YouTube for practical context, official sources for facts, and community sources only as labeled supplements. Read `references/source-and-evidence.md`.
 5. **Cross-check and classify.** Resolve high-risk claims, record collection dates and keep unsupported topics as pending.
-6. **Write the material package.** Follow `references/research-material-and-validation.md` for the per-keyword structure and handoff fields.
+6. **Write the material package.** Follow `references/research-material-and-validation.md` for the per-keyword structure and handoff fields. Include the eventual `slug`, `categorySlug`, `path`, `pageType`, `indexable` decision, `sources` and `relatedSlugs` needed by `src/content/types.ts`.
 7. **Validate and hand off.** Run the checks in that reference and state what is publishable, pending or needs rechecking.
 
 ## Output

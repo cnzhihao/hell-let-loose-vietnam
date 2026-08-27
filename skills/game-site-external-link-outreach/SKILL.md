@@ -1,11 +1,11 @@
 ---
 name: game-site-external-link-outreach
-description: Research, prioritize, and execute ethical external-link outreach for game Wiki, guide, and hot-word sites. Use this skill when the user asks for backlink channels, off-site SEO, Medium or community publishing, developer or creator outreach, newsletter/media contact, game-directory contributions, link tracking, or a plan to make other site owners notice and trust an actively maintained game resource—even when they do not use the word backlink.
+description: Research, prioritize, and execute ethical external-link outreach for a live game Wiki, guide, or information site after it has useful source-backed pages. Use when the user asks for backlink channels, off-site SEO, community publishing, developer or creator outreach, media contact, directory contributions, link tracking, or referral planning. Do not use it to initialize a new clone.
 ---
 
 # Game Site External Link Outreach
 
-把外链工作做成可复查的“内容资产 → 相关外部语境 → 授权动作 → 状态核验 → 引荐复盘”链路。目标是让真实玩家发现并信任一个持续维护的游戏 Wiki，不是堆链接数量或购买所谓高质量外链。
+把外链工作做成可复查的“内容资产 → 相关外部语境 → 授权动作 → 状态核验 → 引荐复盘”链路。目标是让真实玩家发现并信任一个持续维护的游戏 Wiki，不是堆链接数量或购买所谓高质量外链。新站必须先有可引用的深层内容资产。
 
 ## 使用边界
 
@@ -21,6 +21,7 @@ description: Research, prioritize, and execute ethical external-link outreach fo
 ## 硬边界
 
 - 先做只读研究和草稿，不因用户说“找外链”就自动发帖、发邮件、提交表单或创建账号。
+- 模板初始化和站内 SEO readiness 不属于本 Skill；没有真实页面承接时，先回到研究/建站 Skill。
 - 发布文章、社区回答、目录条目、邮件、私信和评论都代表用户对外沟通；执行前必须得到对具体渠道、目标页面、正文和动作的明确授权。
 - 不买 guest post、link insertion、PBN、包月建链或链接交换；不自动评论、批量私信、猜邮箱、绕过登录、冒充官方或灌录目录。
 - 不把草稿、已发送、Pending、公开 URL、已核验链接和引荐流量混写；“有链接”也不等于 dofollow、排名提升或长期访问。
@@ -81,4 +82,3 @@ description: Research, prioritize, and execute ethical external-link outreach fo
 8. 下一步最小动作：只给一个相关且可验证的动作。
 
 当用户只要求“找渠道/规划”时，停在研究和草稿阶段；只有用户明确确认具体渠道、具体内容和具体动作，才执行对外操作。
-

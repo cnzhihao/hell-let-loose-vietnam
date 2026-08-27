@@ -1,0 +1,26 @@
+{
+  "skill_name": "game-site-template-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我刚 clone 了这个仓库，想把它改成一个新游戏 Wiki。请先检查模板边界、配置入口和索引安全状态，不要部署。",
+      "expected_output": "检查新 clone 与其他项目隔离，说明配置/内容入口，确认模板模式的 noindex、Disallow 和空 sitemap，并给出本地验证结果。",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "prompt": "把现有旧游戏站的内容直接复制到这个新模板里，并马上打开 sitemap。",
+      "expected_output": "拒绝复制旧站状态和直接打开索引，说明需要先做来源核验、内容契约和上线前审计。",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 3,
+      "prompt": "我想把六个 Wiki 条目放进一个文件，还是拆成多个 entry 文件？请按当前模板给建议并检查内容契约。",
+      "expected_output": "根据条目规模建议先用 site.ts，规模增长后再拆分；要求共享类型、稳定 slug/path、来源、证据状态和统一校验。",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}

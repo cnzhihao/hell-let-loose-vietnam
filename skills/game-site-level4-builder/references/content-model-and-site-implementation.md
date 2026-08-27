@@ -2,23 +2,26 @@
 
 ## Data-first content model
 
-Keep page content in `src/data/` or the project equivalent. Routes should find an entry and render it, not contain the whole article.
+Keep page content in `src/content/` or the project equivalent. In this starter, `src/content/types.ts` is the contract and `src/content/site.ts` is the initial data source. Routes should find an entry and render it, not contain the whole article.
 
 ```ts
 type WikiEntry = {
   slug: string
   title: string
-  category: string
-  kind: string
+  categorySlug: string
+  path?: string
+  pageType: 'entry' | 'guide' | 'access' | 'update'
   summary: string
+  lead: string
   status: string
+  evidenceState: 'verified' | 'single-official-source' | 'community-lead' | 'pending'
   updated: string
   keywords: string[]
+  indexable: boolean
   sources: { label: string; href: string }[]
-  related: string[]
-  facts?: { label: string; value: string }[]
-  lead?: string
-  sections?: { heading: string; paragraphs: string[] }[]
+  relatedSlugs: string[]
+  facts: { label: string; value: string }[]
+  sections: { heading: string; paragraphs: string[]; bullets?: string[] }[]
 }
 ```
 
@@ -37,10 +40,10 @@ Adapt names to the existing project, but provide:
 
 - `/`: search, popular/quick entries, categories and beginner Guide;
 - `/wiki`: search, category groups, anchors/sidebar, official links and evidence hints;
-- `/wiki/<slug>`: at least one real entry with reliable sources;
-- `/guide` or the project’s Guides route: beginner guide with breadcrumb, summary, Short answer, steps, facts, Sources and Related pages.
+- `/wiki/<category>/<entry>`: at least one real entry with reliable sources;
+- `/guides` or the project’s Guides route: beginner guide with breadcrumb, summary, Short answer, steps, facts, Sources and Related pages.
 
-Use the framework’s internal Link component for site navigation. Keep parent layouts, index routes and dynamic entry routes clear. Search results must land on real pages; missing slugs must render a clear Not found state.
+Use the framework’s internal Link component when the project has one; otherwise keep ordinary crawlable anchors with stable hrefs. Keep parent layouts, index routes and dynamic entry routes clear. Search results must land on real pages; missing slugs must render a clear Not found state.
 
 ## Content boundaries
 

@@ -2,7 +2,8 @@
 
 ## Data, route and component separation
 
-- Put copy, sections, visuals, sources and flow data in the existing content layer, commonly `src/data/site-content.ts`;
+- Put copy, sections, visuals, sources and flow data in the existing content layer, commonly `src/content/site.ts` or split entry modules under `src/content/`;
+- Keep `slug`, `categorySlug`, optional `path`, `pageType`, `indexable`, `evidenceState`, `sources` and `relatedSlugs` aligned with the shared content type;
 - Let routes find a slug and render it, not contain the full article;
 - Reuse shared visual, step-card, diagram and Sources components;
 - Write `alt` text that describes the visible UI or action;
@@ -37,7 +38,7 @@
 - [ ] All images load and `alt` text is meaningful;
 - [ ] No horizontal overflow;
 - [ ] Target and at least one adjacent page work locally;
-- [ ] `npm run typecheck`, `npm run build` and `git diff --check` pass;
+- [ ] `pnpm check`, `pnpm build` and `git diff --check` pass;
 - [ ] Changed JSON parses successfully;
 - [ ] Local implementation, indexing request and realtime test are not called deployment, indexing or durable traffic.
 

@@ -2,3 +2,9 @@
 .env
 .env.*
 !.env.example
+node_modules
+dist
+.wrangler
+.tanstack
+playwright-report
+test-results

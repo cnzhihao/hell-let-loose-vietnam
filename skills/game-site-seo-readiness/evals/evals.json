@@ -1,0 +1,26 @@
+{
+  "skill_name": "game-site-seo-readiness",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "新 Wiki 已经能本地访问了。请审计首页、分类、条目、Guide、robots 和 sitemap 是否达到上线前技术就绪。",
+      "expected_output": "产出日期和范围明确的路由清单、metadata/canonical/headings、crawl controls、来源/indexability 决策、命令和浏览器验证，以及上线阻塞项。",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "prompt": "本地页面看起来不错，直接帮我提交 sitemap 和请求 Google 收录。",
+      "expected_output": "只做本地 readiness 审计或请求明确授权，不把本地通过写成已部署/已收录，并说明外部提交边界。",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 3,
+      "prompt": "有一个只有玩家帖子和半段字幕支持的页面，我想把它设为 indexable。",
+      "expected_output": "保持 community-lead 或 pending，指出来源和完整玩家任务不足，不允许进入公开 sitemap，给出复核项。",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}

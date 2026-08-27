@@ -2,7 +2,7 @@
 
 ## Keyword material format
 
-Create or update `Docs/关键词素材.md` or the project’s equivalent. Start with:
+Create or update `Docs/keyword-materials.md` or the project’s equivalent. Start with:
 
 - Collection date;
 - Project and keyword file;
@@ -12,7 +12,7 @@ Create or update `Docs/关键词素材.md` or the project’s equivalent. Start 
 
 For every keyword use:
 
-```markdown
+~~~markdown
 ### N. Keyword
 
 User intent: one sentence describing the player task.
@@ -23,7 +23,22 @@ User intent: one sentence describing the player task.
 - Verified facts: concise source-bound claims.
 - Reusable page material: safe content and suggested structure.
 - Status: evidence state and next recheck action.
-```
+
+~~~
+
+For handoff into the TanStack Wiki starter, add:
+
+~~~text
+slug:
+categorySlug:
+path:
+pageType:
+indexable:
+sources:
+relatedSlugs:
+~~~
+
+Use the exact evidence vocabulary from the source reference and keep an indexable decision separate from the research status. A strong keyword with weak evidence is still pending.
 
 End the file with a cross-validation matrix, pages ready to publish, pages needing evidence and a final recheck checklist.
 
@@ -40,6 +55,7 @@ End the file with a cross-validation matrix, pages ready to publish, pages needi
 - Evidence gaps remain visible;
 - Page matrix routes and keyword names agree;
 - Older assignment conflicts are recorded rather than silently overwritten.
+- The material package can be mapped to the fields in `src/content/types.ts` without guessing.
 
 ## Output package
 

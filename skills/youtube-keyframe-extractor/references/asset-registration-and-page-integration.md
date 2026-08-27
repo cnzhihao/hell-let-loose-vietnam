@@ -71,4 +71,4 @@ When handing off, use:
 - Caption, timestamp, version or rights limits
 ```
 
-For record-only work run `jq empty public/assets/asset-manifest.json` and `git diff --check`; when connected to a page also run `npm run typecheck`, `npm run build` and local browser checks.
+For record-only work run `jq empty public/assets/asset-manifest.json` and `git diff --check`; when connected to a page in this starter also run `pnpm content:check`, `pnpm check`, `pnpm build` and local browser checks.

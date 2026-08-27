@@ -1,6 +1,6 @@
 ---
 name: seo-agent-site-optimization
-description: Run an evidence-driven Google Search Console → SEO Agent → website optimization loop for a live game site. Use for GSC exports, SEO Agent analysis, search-data-driven site changes, verification, authorized deployment and follow-up review.
+description: Run an evidence-driven Google Search Console → SEO Agent → website optimization loop for a live game site after launch. Use for GSC exports, SEO Agent analysis, search-data-driven site changes, verification, authorized deployment and follow-up review; do not use it to initialize a fresh clone.
 ---
 
 # GSC → SEO Agent → Website Optimization
@@ -13,7 +13,7 @@ Turn a dated GSC snapshot into a traceable optimization loop:
 GSC → SEO Agent → evidence/priority → safe site changes → validation → authorized deployment → recheck
 ```
 
-This is a closed loop, not a one-off SEO opinion. It applies to the user’s named domain and local project only.
+This is a closed loop, not a one-off SEO opinion. It applies only to the user’s named live property and local project. For a fresh clone or pre-deployment audit, use `game-site-template-builder` and `game-site-seo-readiness` first.
 
 ## Use when
 
@@ -27,6 +27,7 @@ This is a closed loop, not a one-off SEO opinion. It applies to the user’s nam
 
 - Resolve the exact GSC Property; never infer it from a similar project name;
 - Start read-only and inspect `AGENTS.md`, `README.md`, current SEO reports, routes/data, scripts and Git status;
+- Do not invent GSC history for a new clone; no-data sites use the technical/readiness workflow instead;
 - Keep report period, search type, timezone and filters explicit;
 - Separate GSC observations from third-party estimates and hypotheses;
 - Evaluate all relevant safe on-site tasks, not only P0;

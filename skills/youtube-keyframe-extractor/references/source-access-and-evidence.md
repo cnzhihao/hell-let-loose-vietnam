@@ -2,7 +2,7 @@
 
 ## Preflight
 
-Read `README.md`, `AGENTS.md`, the project’s Wiki-page production plan, `Docs/素材清单.md`, `public/assets/asset-manifest.json`, target page data, shared visual components and Git status. Confirm the target page, target section, existing assets and user changes.
+Read `README.md`, `AGENTS.md`, the project’s Wiki-page production plan when it exists, `Docs/素材清单.md`, `public/assets/asset-manifest.json`, target page data, shared visual components and Git status. Confirm the target page, target section, existing assets and user changes.
 
 ## Visual task brief
 
