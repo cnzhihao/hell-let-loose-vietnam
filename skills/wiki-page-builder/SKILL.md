@@ -25,6 +25,7 @@ For keyword research use `game-site-research`; for site-wide routes use `game-si
 - Facts must come from reliable sources; label community cases and pending claims;
 - Do not turn incomplete subtitles, player workarounds, exact recipes, keys, prices, Seeds or version assumptions into facts;
 - Keep data, route, visuals and source layers separate;
+- When the page comes from a GSC intent split, preserve the handoff query/player task, parent Hub, canonical path, related pages and indexability decision; do not create a second URL for the same task;
 - In this starter, put the entry in `src/content/` with a stable `slug`, `categorySlug`, optional canonical `path`, evidence state and sources; do not put article prose in a route component;
 - New images require inventory and manifest updates;
 - Preserve user changes and use `apply_patch`;

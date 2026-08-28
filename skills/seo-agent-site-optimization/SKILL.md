@@ -1,6 +1,6 @@
 ---
 name: seo-agent-site-optimization
-description: Run an evidence-driven Google Search Console → SEO Agent → website optimization loop for a live game site after launch. Use for GSC exports, SEO Agent analysis, search-data-driven site changes, verification, authorized deployment and follow-up review; do not use it to initialize a fresh clone.
+description: Run an evidence-driven Google Search Console → SEO Agent → website optimization loop for a live game site after launch. Use for GSC exports, query-to-page intent splits, Hub-and-Spoke internal-link planning, SEO Agent analysis, search-data-driven site changes, verification, authorized deployment and follow-up review; do not use it to initialize a fresh clone.
 ---
 
 # GSC → SEO Agent → Website Optimization
@@ -21,6 +21,7 @@ This is a closed loop, not a one-off SEO opinion. It applies only to the user’
 - Uploading a GSC XLSX to the user’s SEO Agent;
 - Asking for today’s SEO goal or continuing the Agent conversation;
 - Optimizing titles, descriptions, headings, internal links, canonical, robots, sitemap, structured data or content gaps;
+- Detecting one page that is receiving several distinct search tasks, deciding whether to split or strengthen it, and mapping a Hub-and-Spoke internal-link cluster;
 - Verifying, deploying and reviewing search-data-driven changes.
 
 ## Non-negotiable contract
@@ -41,8 +42,8 @@ This is a closed loop, not a one-off SEO opinion. It applies only to the user’
 1. **Establish scope and access.** Confirm domain, Property, period, timezone, filters and whether work is local-only or may be deployed. Read `references/scope-and-gsc.md`.
 2. **Export and verify GSC.** Keep the original XLSX, verify its identity/format and record clicks, impressions, CTR, average position, top queries, top pages and limitations.
 3. **Upload to the matching SEO Agent session.** Check the displayed domain character-for-character before confirmation; avoid duplicate reports/sessions.
-4. **Run a deliberate multi-turn analysis.** Use `references/agent-conversation-and-decisions.md` to reconcile query/page data, inspect intent, prioritize work and classify every recommendation.
-5. **Implement safe site changes.** Map recommendations to exact routes/data/metadata/index files. Use `references/site-changes-and-validation.md`; use the project’s research/page Skill for source-backed new content.
+4. **Run a deliberate multi-turn analysis.** Use `references/agent-conversation-and-decisions.md` to reconcile query/page data, inspect intent, build a query-to-page decision matrix and classify every recommendation. When one page receives distinct tasks, apply `references/query-intent-split-and-internal-links.md` before creating a new route.
+5. **Implement safe site changes.** Map recommendations to exact routes/data/metadata/index files. Use `references/site-changes-and-validation.md`; use the project’s research/page Skill for source-backed new content. Every split must have unique intent, evidence, a stable canonical and a deliberate Hub-and-Spoke link path; close variants stay consolidated behind the existing canonical.
 6. **Validate and deploy only if authorized.** Check local and, when authorized, public pages, assets, robots and sitemap. Keep code, deployment, submission and indexing as separate facts.
 7. **Send results back and continue.** Recheck the new state for 2–4 meaningful rounds, then stop when remaining work is observation-only, unsupported, repetitive or authorization-bound.
 8. **Record the handoff.** Use `references/report-template.md` and report evidence, decisions, changes, validation, deployment, external actions and observation dates.
@@ -51,6 +52,7 @@ This is a closed loop, not a one-off SEO opinion. It applies only to the user’
 
 - GSC scope, export, upload and no-data handling: `references/scope-and-gsc.md`;
 - Agent prompts, follow-ups, decision classes and stop condition: `references/agent-conversation-and-decisions.md`;
+- Query-to-page intent splitting, consolidation and Hub-and-Spoke internal links: `references/query-intent-split-and-internal-links.md`;
 - Site changes, validation, deployment and completion: `references/site-changes-and-validation.md`;
 - External publishing boundary: `references/external-action-boundary.md`;
 - Dated report structure: `references/report-template.md`.
@@ -63,4 +65,4 @@ If GSC has no usable data, do not invent SEO recommendations. Perform technical/
 
 ## Completion boundary
 
-The loop is complete only when the exact report was verified/uploaded, relevant Agent recommendations were investigated, safe in-scope changes were implemented or classified, checks passed, a dated report exists and remaining work has an explicit state.
+The loop is complete only when the exact report was verified/uploaded, relevant Agent recommendations were investigated, every meaningful query/page signal has a split, strengthen, consolidate, observe or defer decision, safe in-scope changes were implemented or classified, checks passed, a dated report exists and remaining work has an explicit state.

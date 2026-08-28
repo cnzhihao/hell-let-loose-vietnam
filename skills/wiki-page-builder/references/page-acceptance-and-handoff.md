@@ -6,6 +6,7 @@
 - Keep `slug`, `categorySlug`, optional `path`, `pageType`, `indexable`, `evidenceState`, `sources` and `relatedSlugs` aligned with the shared content type;
 - Let routes find a slug and render it, not contain the full article;
 - Reuse shared visual, step-card, diagram and Sources components;
+- For a GSC-driven intent page, carry the query/player task, parent Hub, canonical path, related-page targets and indexability decision into the page brief;
 - Write `alt` text that describes the visible UI or action;
 - Keep images and cards in one width container;
 - Do not modify unrelated site navigation, SEO, deployment configuration or pages;
