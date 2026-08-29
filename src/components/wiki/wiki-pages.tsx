@@ -17,18 +17,35 @@ function TemplateNotice() {
 
   return (
     <aside className="mt-8 rounded-[12px] border-2 border-ink bg-lavender p-5 text-ink shadow-brutal">
-      <strong className="block text-lg">Template mode</strong>
+      <strong className="block text-lg">Research preview · noindex</strong>
       <p className="mt-1 max-w-[70ch] text-sm leading-6">
-        These pages are deliberately marked noindex and use placeholder content.
-        Replace the site identity, game configuration, sources and entries
-        before setting <code>websiteConfig.isTemplate</code> to false.
+        The HLL: Vietnam facts on this local build are source-backed, but the
+        production origin is not configured yet. Crawling is blocked and every
+        entry stays out of the public index until the launch audit and explicit
+        deployment approval are complete.
       </p>
     </aside>
   );
 }
 
 function pageTypeLabel(entry: WikiEntry) {
-  return entry.pageType === 'guide' ? 'Guide' : entry.pageType;
+  const labels = {
+    access: 'Access',
+    entry: 'Wiki',
+    guide: 'Guide',
+    update: 'Update',
+  } as const;
+  return labels[entry.pageType];
+}
+
+function evidenceLabel(entry: WikiEntry) {
+  const labels = {
+    'community-lead': 'Community lead',
+    pending: 'Pending verification',
+    'single-official-source': 'Single official source',
+    verified: 'Verified across official sources',
+  } as const;
+  return labels[entry.evidenceState];
 }
 
 function EntryCard({ entry }: { entry: WikiEntry }) {
@@ -67,7 +84,8 @@ function CategoryCard({ category }: { category: WikiCategory }) {
       </div>
       <p className="mt-2 leading-7 text-ink/75">{category.description}</p>
       <span className="mt-5 inline-block text-sm font-black">
-        {category.entrySlugs.length} starter pages
+        {category.entrySlugs.length}{' '}
+        {category.entrySlugs.length === 1 ? 'page' : 'pages'}
       </span>
     </a>
   );
@@ -82,18 +100,18 @@ export function WikiHomePage() {
         <Container>
           <div className="max-w-4xl">
             <span className="inline-flex rounded-full border-2 border-ink bg-cyan px-4 py-1 text-sm font-black uppercase tracking-[0.12em] shadow-brutal-xs">
-              Player-first game Wiki starter
+              Verified facts · player-first routes
             </span>
             <h1 className="mt-7 text-balance text-[clamp(3rem,8vw,6.5rem)] font-black leading-[0.98] tracking-[-0.05em]">
-              Find the answer.
+              Read the battlefield.
               <span className="block text-orange-strong">
-                Build the next step.
+                Take the next step.
               </span>
             </h1>
             <p className="mt-7 max-w-[68ch] text-lg leading-8 text-ink/75 sm:text-xl">
-              A reusable {gameConfig.name} Wiki shell for turning verified
-              search intent into browsable categories, useful guides and
-              source-backed entry pages.
+              A compact {gameConfig.name} field manual for the questions that
+              matter before and during a match: what is confirmed, where to
+              start, how modes work, and which facts need a fresh recheck.
             </p>
             <div className="mt-9">
               <WikiSearch />
@@ -133,15 +151,15 @@ export function WikiHomePage() {
         <Container>
           <div className="max-w-3xl">
             <span className="text-sm font-black uppercase tracking-[0.14em]">
-              Example content contract
+              Field manual contract
             </span>
             <h2 className="mt-2 text-4xl font-black tracking-[-0.03em] sm:text-5xl">
-              One page, one player question, one useful next step.
+              One player question. One evidence boundary. One next step.
             </h2>
             <p className="mt-5 text-lg leading-8 text-ink/75">
-              Research first, keep evidence visible, then let the route render a
-              content entry. The starter refuses to treat a search result or a
-              placeholder as a verified game fact.
+              Every page separates confirmed facts from things that still need a
+              build or patch check. The result is deliberately smaller than a
+              scraped database, but easier to trust when the match is live.
             </p>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -157,32 +175,32 @@ export function WikiHomePage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_0.7fr] lg:gap-16">
             <div>
               <span className="text-sm font-black uppercase tracking-[0.14em] text-orange-strong">
-                Site recipe
+                How this manual is organized
               </span>
               <h2 className="mt-2 text-4xl font-black tracking-[-0.03em] sm:text-5xl">
-                Research → content → validation
+                Find the right layer quickly
               </h2>
               <ol className="mt-8 grid gap-4">
                 {[
                   [
                     '01',
-                    'Research',
-                    'Map keywords to player intent and reliable sources.',
+                    'Start',
+                    'Use the Beginner Guide if this is your first public match.',
                   ],
                   [
                     '02',
-                    'Model',
-                    'Store categories, entries, sources and relationships in the data layer.',
+                    'Compare',
+                    'Use Game Modes and Launch Maps to understand the battlefield.',
                   ],
                   [
                     '03',
-                    'Build',
-                    'Render Wiki, Guide and access pages through reusable routes.',
+                    'Check',
+                    'Use Access pages for platforms, crossplay and PC requirements.',
                   ],
                   [
                     '04',
-                    'Verify',
-                    'Run content, metadata, route, mobile and build checks before launch.',
+                    'Recheck',
+                    'Read the latest official patch notes for version-sensitive facts.',
                   ],
                 ].map(([number, title, description]) => (
                   <li
@@ -205,8 +223,9 @@ export function WikiHomePage() {
             <aside className="rounded-[12px] border-2 border-ink bg-lavender p-6 text-ink shadow-brutal lg:self-start">
               <h2 className="text-2xl font-black">Official sources</h2>
               <p className="mt-3 leading-7 text-ink/75">
-                Replace the links in <code>src/config/game.ts</code> with
-                verified destinations before publishing.
+                These links are the primary fact boundary for the local research
+                preview. Use the source date on each page when a patch or
+                platform policy changes.
               </p>
               <div className="mt-5 grid gap-2">
                 {gameConfig.officialLinks.map((link) => (
@@ -268,7 +287,7 @@ export function WikiIndexPage() {
         <section className="mt-16" aria-labelledby="entries-heading">
           <div className="flex items-end justify-between gap-4">
             <h2 className="text-3xl font-black" id="entries-heading">
-              Starter pages
+              Wiki entries
             </h2>
             <span className="text-sm font-bold text-muted-foreground">
               {entries.length} pages
@@ -379,7 +398,7 @@ export function WikiEntryPage({
         <article className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-16">
           <div>
             <span className="text-sm font-black uppercase tracking-[0.14em] text-orange-strong">
-              {pageTypeLabel(entry)} · {entry.evidenceState}
+              {pageTypeLabel(entry)} · {evidenceLabel(entry)}
             </span>
             <h1 className="mt-3 text-5xl font-black leading-[1.02] tracking-[-0.04em] sm:text-6xl">
               {entry.title}
@@ -439,11 +458,12 @@ export function WikiEntryPage({
           <aside className="grid content-start gap-5">
             <div className="rounded-[12px] border-2 border-ink bg-lavender p-5 text-ink shadow-brutal">
               <span className="text-sm font-black uppercase tracking-[0.12em]">
-                Page contract
+                Evidence and freshness
               </span>
               <p className="mt-3 leading-7 text-ink/75">
-                This entry should answer one search intent, show its evidence
-                state and link to the next useful page.
+                {evidenceLabel(entry)}. Checked on {entry.updated}; update this
+                page when an official patch, platform policy or launch detail
+                changes.
               </p>
             </div>
             <div className="rounded-[12px] border-2 border-ink bg-surface p-5 shadow-brutal">
@@ -509,8 +529,8 @@ export function GuidesIndexPage() {
             Guides
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted-foreground">
-            Task-first pages for players who need to complete an action, not
-            only look up a term.
+            Task-first pages for players who need to complete a first-match
+            action, not only look up a term.
           </p>
         </div>
         <div className="mt-12 grid gap-5 md:grid-cols-2">

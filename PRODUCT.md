@@ -1,8 +1,8 @@
-# Product — Game Site Agents Template
+# Product — HLL Vietnam Field Manual
 
 ## Product
 
-一个可直接 clone 的游戏 Wiki / 游戏资讯站 starter，同时提供项目级 Agent Skills，帮助从关键词研究推进到本地建站，再进入有数据后的 SEO 和外链运营。
+一个面向 Hell Let Loose: Vietnam 的来源可追溯玩家 Wiki / 游戏资讯站，同时保留项目级 Agent Skills，帮助从关键词研究推进到本地建站，再进入有数据后的 SEO 和外链运营。
 
 ## 技术基础
 

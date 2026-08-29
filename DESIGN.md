@@ -1,4 +1,4 @@
-# Design — Game Wiki Starter
+# Design — HLL Vietnam Field Manual
 
 ## Direction
 
@@ -8,7 +8,7 @@
 
 ## Layout
 
-- 首页：搜索入口 → 分类 → starter/重点页面 → 建站流程和官方来源入口；
+- 首页：搜索入口 → 分类 → 重点页面 → 官方来源入口；
 - Wiki 目录：分类与可索引条目清晰分组；
 - 分类页：先说明分类解决什么问题，再列出条目；
 - 条目页：面包屑 → H1/摘要 → 最短答案 → 事实卡 → 操作型 H2 → 来源 → 相关页面；

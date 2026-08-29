@@ -10,24 +10,24 @@ import {
 import { homeHead, siteOrigin, wikiHead } from '@/lib/seo';
 import { cn } from '@/lib/utils';
 
-describe('Game Wiki starter contracts', () => {
-  it('starts in an isolated template-safe state', () => {
-    expect(websiteConfig.name).toBe('Game Wiki Starter');
+describe('HLL Vietnam field manual contracts', () => {
+  it('keeps the researched site in a template-safe pre-launch state', () => {
+    expect(websiteConfig.name).toBe('HLL Vietnam Field Manual');
     expect(websiteConfig.repository).toBe(
-      'https://github.com/cnzhihao/game-site-agents-template'
+      'https://github.com/cnzhihao/hell-let-loose-vietnam'
     );
     expect(websiteConfig.isTemplate).toBe(true);
     expect(wikiEntries.every((entry) => !entry.indexable)).toBe(true);
     expect(
-      wikiEntries.every((entry) => entry.evidenceState === 'pending')
+      wikiEntries.some((entry) => entry.evidenceState === 'verified')
     ).toBe(true);
   });
 
   it('keeps content paths unique and supports custom Guide paths', () => {
     const paths = wikiEntries.map(getWikiEntryHref);
     expect(new Set(paths).size).toBe(paths.length);
-    const guide = findWikiEntry('starter-guide');
-    if (!guide) throw new Error('starter guide fixture is missing');
+    const guide = findWikiEntry('beginner-guide');
+    if (!guide) throw new Error('beginner guide fixture is missing');
     expect(getWikiEntryHref(guide)).toBe('/guides/beginner');
   });
 
@@ -42,14 +42,14 @@ describe('Game Wiki starter contracts', () => {
       href: 'https://example.com/',
     });
 
-    const entry = findWikiEntry('starter-resource');
+    const entry = findWikiEntry('game-overview');
     const category = findWikiCategory('basics');
-    if (!entry || !category) throw new Error('starter fixture is missing');
+    if (!entry || !category) throw new Error('overview fixture is missing');
     expect(
       wikiHead(entry, category, 'https://example.com').links
     ).toContainEqual({
       rel: 'canonical',
-      href: 'https://example.com/wiki/basics/starter-resource',
+      href: 'https://example.com/wiki/basics/game-overview',
     });
   });
 

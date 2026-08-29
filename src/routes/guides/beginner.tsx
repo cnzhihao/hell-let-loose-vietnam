@@ -5,7 +5,7 @@ import { getRequestOrigin, wikiHead } from '@/lib/seo';
 
 export const Route = createFileRoute('/guides/beginner')({
   loader: () => {
-    const entry = findWikiEntry('starter-guide');
+    const entry = findWikiEntry('beginner-guide');
     const category = findWikiCategory('basics');
     if (!entry || !category) throw notFound();
     return { category, entry };

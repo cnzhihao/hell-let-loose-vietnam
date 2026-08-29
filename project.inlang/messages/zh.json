@@ -1,7 +1,7 @@
 {
-  "site_title": "Game Wiki Starter｜玩家优先的 Wiki 模板",
-  "site_description": "一个基于 React、TanStack Start、SEO 安全路由和 Cloudflare Workers 的可复用游戏 Wiki 模板。",
-  "social_image_alt": "Game Wiki Starter 预览：可搜索的分类和带来源的 Wiki 条目页。",
+  "site_title": "HLL Vietnam Field Manual｜Hell Let Loose: Vietnam Wiki",
+  "site_description": "面向 Hell Let Loose: Vietnam 的来源可追溯玩家手册：模式、地图、平台与当前更新。",
+  "social_image_alt": "HLL Vietnam Field Manual 封面，展示战场网格、已核验事实和玩家攻略。",
   "skip_to_content": "跳转到正文",
   "nav_wiki": "Wiki",
   "nav_guides": "攻略",
@@ -17,10 +17,10 @@
   "language_english": "英文",
   "language_chinese": "简体中文",
   "github_action": "在 GitHub 查看",
-  "footer_tagline": "面向 Cloudflare Workers 的可复用玩家优先 Wiki 模板。",
-  "footer_rights": "保留所有权利。",
-  "not_found_meta_title": "页面不存在｜Game Wiki Starter",
-  "not_found_title": "这个页面不在 Wiki 中。",
-  "not_found_description": "该路由不存在于此模板。返回 Wiki 索引查找已有页面。",
+  "footer_tagline": "非官方、来源可追溯的玩家手册。页面标注日期，方便在更新后复核。",
+  "footer_rights": "非官方玩家资料站；实时信息请以官方来源为准。",
+  "not_found_meta_title": "页面不存在｜HLL Vietnam Field Manual",
+  "not_found_title": "这个页面不在手册中。",
+  "not_found_description": "该路由不存在。返回 Wiki 索引查找已经核验的 HLL: Vietnam 页面。",
   "not_found_action": "打开 Wiki"
 }

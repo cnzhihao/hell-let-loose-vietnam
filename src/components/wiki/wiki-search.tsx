@@ -56,7 +56,7 @@ export function WikiSearch({ compact = false }: { compact?: boolean }) {
           id="wiki-search"
           className="min-w-0 flex-1 bg-transparent px-1 py-3 font-bold outline-none placeholder:text-muted-foreground"
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Search a material, system, guide or player question"
+          placeholder="Search maps, modes, roles, platforms or updates"
           type="search"
           value={query}
         />
@@ -87,8 +87,8 @@ export function WikiSearch({ compact = false }: { compact?: boolean }) {
             </div>
           ) : (
             <p className="p-3 text-sm font-bold text-muted-foreground">
-              No matching page yet. Keep the query as a research lead instead of
-              creating a thin page automatically.
+              No matching page yet. Keep the query as a research lead; this
+              manual does not create thin pages automatically.
             </p>
           )}
         </div>

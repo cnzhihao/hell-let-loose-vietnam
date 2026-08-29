@@ -1,14 +1,14 @@
 export const websiteConfig = {
-  name: 'Game Wiki Starter',
+  name: 'HLL Vietnam Field Manual',
   description:
-    'A player-first game Wiki starter built with TanStack Start and Cloudflare Workers.',
-  /** Set this to the production origin before a real site is launched. */
+    'A source-backed, player-first field manual for Hell Let Loose: Vietnam.',
+  /** Production origin is intentionally unset until the user authorizes launch setup. */
   url: null as string | null,
-  repository: 'https://github.com/cnzhihao/game-site-agents-template',
-  /** Keep true until the placeholder content and site identity are replaced. */
+  repository: 'https://github.com/cnzhihao/hell-let-loose-vietnam',
+  /** Keep true until a real origin is configured and launch is explicitly authorized. */
   isTemplate: true,
   defaultTheme: 'system' as const,
-  themeStorageKey: 'game-wiki-starter-theme',
+  themeStorageKey: 'hll-vietnam-field-manual-theme',
   colors: {
     background: '#fff8e8',
     theme: '#ffd84a',

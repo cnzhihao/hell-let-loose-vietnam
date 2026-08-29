@@ -1,31 +1,39 @@
-# Game Site Agents Template
+# HLL Vietnam Field Manual
 
-这是一个可以直接 clone 的游戏 Wiki / 游戏资讯站起站模板：应用代码基于 [mkfast-lite](https://github.com/MkFastHQ/mkfast-lite)，工作流由仓库内的项目级 Skills 管理。
+这是一个面向 **Hell Let Loose: Vietnam** 的玩家优先 Wiki / 游戏资讯站。应用代码基于 [mkfast-lite](https://github.com/MkFastHQ/mkfast-lite)，工作流由仓库内的项目级 Skills 管理，事实页面均保留官方来源和核验日期。
 
-它的定位是“新站模板”，不是任何现有站点的副本。模板不携带既有游戏资料、域名、统计 ID、部署状态或素材；现有站点无需改动。
+当前仓库是本地研究预览：内容已完成第一轮官方资料核验，但还没有生产域名和部署授权，因此仍保持 `isTemplate: true`、`noindex`、robots 禁止抓取和空 sitemap。
 
 ## 直接开始
 
 ```bash
-git clone https://github.com/cnzhihao/game-site-agents-template.git my-game-wiki
-cd my-game-wiki
+git clone https://github.com/cnzhihao/hell-let-loose-vietnam.git
+cd hell-let-loose-vietnam
 pnpm install
 pnpm dev
 ```
 
-打开 `http://127.0.0.1:3000/`。默认处于模板模式：示例页面可以本地浏览，但 robots 禁止抓取、sitemap 为空，页面使用 `noindex`，不能直接当成正式站发布。
+打开 `http://127.0.0.1:3000/`。本地页面可以浏览和验收，但不能直接当成正式站发布。
 
-## 新站第一次要改什么
+## 当前内容范围
 
-按下面顺序替换模板内容：
+第一轮页面已经覆盖：
 
-1. `src/config/game.ts`：游戏名、简介、官方站点和官方商店链接；只填已核验 URL。
-2. `src/config/website.ts`：站名、正式 URL、导航、主题色和 `isTemplate`。
-3. `project.inlang/messages/`：同步更新界面文案和 SEO 文案；未完成的语言不要新增对应公开路由。
-4. `src/content/site.ts`：分类、条目、Guide、来源、证据状态、更新时间和关联页面。
-5. `Docs/`：关键词、页面矩阵、研究材料、参考对象和素材清单。
-6. `public/assets/`：真实可发布的图标或截图，并同步 `Docs/素材清单.md` 与 `public/assets/asset-manifest.json`。
-7. 页面和来源检查通过后，再把 `websiteConfig.isTemplate` 改为 `false`，配置正式域名和部署环境变量。
+- `/wiki/basics/game-overview`：游戏规模、阵营、地图、角色和平台总览；
+- `/guides/beginner`：Getting Started、首场比赛、沟通和指挥角色边界；
+- `/wiki/battlefield/launch-maps`、`/wiki/battlefield/game-modes`：六张首发地图和四种官方 launch mode；
+- `/wiki/roles/roles-and-units`、`/wiki/systems/*`：角色族、隧道、直升机、巡逻艇、移动与团队配合；
+- `/wiki/access/*`：发行平台、crossplay 和 PC 配置要求；
+- `/wiki/updates/*`：Patch 1.2、Patch 1.3 和带 planned 标记的 2026 路线图。
+
+未写入完整角色名单、逐地图战术、价格、玩家数、评价快照、跨进度和通用按键表，因为当前资料或版本边界不足。
+
+## 上站前必须完成
+
+1. 在 `src/config/website.ts` 写入真实 HTTPS 生产域名；
+2. 复核所有动态事实和页面素材授权；
+3. 按 `AGENTS.md` 重新执行研究、页面和 SEO readiness 流程；
+4. 明确授权后再将 `isTemplate` 改为 `false`、部署并提交索引。
 
 不要只替换游戏名就上线。每个可索引页面都要对应明确搜索意图、真实用户问题和可靠来源。
 

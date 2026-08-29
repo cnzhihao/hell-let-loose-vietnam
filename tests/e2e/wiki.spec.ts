@@ -1,11 +1,11 @@
 import { expect, test } from '@playwright/test';
 
-test.describe('game Wiki starter', () => {
+test.describe('HLL Vietnam field manual', () => {
   test('renders the player-first home in template mode', async ({ page }) => {
     await page.goto('/');
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
     await expect(page.locator('header nav')).toBeVisible();
-    await expect(page.locator('main h1')).toHaveText(/Find the answer/);
+    await expect(page.locator('main h1')).toHaveText(/Read the battlefield/);
     await expect(page.locator('a[href="/wiki"]')).toHaveCount(3);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
       'content',
@@ -27,34 +27,37 @@ test.describe('game Wiki starter', () => {
     await page.locator('a[href="/wiki/basics"]').first().click();
     await expect(page).toHaveURL(/\/wiki\/basics$/);
     await expect(page.locator('main h1')).toHaveText('Basics');
-    await page.locator('a[href="/wiki/basics/starter-resource"]').click();
-    await expect(page).toHaveURL(/\/wiki\/basics\/starter-resource$/);
-    await expect(page.locator('main h1')).toHaveText('Example Resource');
+    await page.locator('a[href="/wiki/basics/game-overview"]').click();
+    await expect(page).toHaveURL(/\/wiki\/basics\/game-overview$/);
+    await expect(page.locator('main h1')).toHaveText(
+      'Hell Let Loose: Vietnam Overview'
+    );
     await expect(page.getByText('Short answer', { exact: true })).toBeVisible();
     await expect(
-      page.getByRole('heading', { name: 'What to verify' })
+      page.getByRole('heading', {
+        name: 'What the official game page confirms',
+      })
     ).toBeVisible();
-    await expect(
-      page.locator('text=No verified source has been added yet')
-    ).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Sources' })).toBeVisible();
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
       'content',
       'noindex, nofollow'
     );
   });
 
-  test('uses a custom Guide path and keeps the old data path redirected', async ({
+  test('uses a custom Guide path and keeps unknown data paths out', async ({
     page,
   }) => {
     await page.goto('/guides');
     await expect(page.locator('main h1')).toHaveText('Guides');
     await page.locator('a[href="/guides/beginner"]').click();
     await expect(page).toHaveURL(/\/guides\/beginner$/);
-    await expect(page.locator('main h1')).toHaveText('Beginner Guide');
+    await expect(page.locator('main h1')).toHaveText(
+      'First Match Beginner Guide'
+    );
 
-    const response = await page.goto('/wiki/basics/starter-guide');
-    expect(response?.status()).toBe(200);
-    await expect(page).toHaveURL(/\/guides\/beginner$/);
+    const response = await page.goto('/wiki/basics/not-a-real-entry');
+    expect(response?.status()).toBe(404);
   });
 
   test('returns 404 for an unknown Wiki page', async ({ page }) => {
@@ -84,7 +87,7 @@ test.describe('game Wiki starter', () => {
       'application/manifest+json'
     );
     const manifestJson = await manifest.json();
-    expect(manifestJson.name).toBe('Game Wiki Starter');
+    expect(manifestJson.name).toBe('HLL Vietnam Field Manual');
     expect(manifestJson.start_url).toBe('/');
   });
 

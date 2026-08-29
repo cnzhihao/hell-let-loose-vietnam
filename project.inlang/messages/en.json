@@ -1,7 +1,7 @@
 {
-  "site_title": "Game Wiki Starter | Player-first Wiki template",
-  "site_description": "A reusable player-first game Wiki starter built with React, TanStack Start, SEO-safe routes, and Cloudflare Workers.",
-  "social_image_alt": "Game Wiki Starter preview showing searchable categories and source-backed entry pages.",
+  "site_title": "HLL Vietnam Field Manual | Hell Let Loose: Vietnam Wiki",
+  "site_description": "A source-backed, player-first field manual for Hell Let Loose: Vietnam: modes, maps, platforms and current updates.",
+  "social_image_alt": "HLL Vietnam Field Manual cover with battlefield grid, verified facts and player guides.",
   "skip_to_content": "Skip to content",
   "nav_wiki": "Wiki",
   "nav_guides": "Guides",
@@ -17,10 +17,10 @@
   "language_english": "English",
   "language_chinese": "Simplified Chinese",
   "github_action": "View on GitHub",
-  "footer_tagline": "A reusable player-first Wiki starter for Cloudflare Workers.",
-  "footer_rights": "All rights reserved.",
-  "not_found_meta_title": "Page not found | Game Wiki Starter",
-  "not_found_title": "That page is not in this Wiki.",
-  "not_found_description": "The route does not exist in this template. Return to the Wiki index to find verified pages.",
+  "footer_tagline": "An unofficial, source-backed field manual. Facts are dated so patch-sensitive pages can be rechecked.",
+  "footer_rights": "Unofficial fan resource; follow the official sources for the live game.",
+  "not_found_meta_title": "Page not found | HLL Vietnam Field Manual",
+  "not_found_title": "That page is not in this field manual.",
+  "not_found_description": "The route does not exist here. Return to the Wiki index to find the verified HLL: Vietnam pages.",
   "not_found_action": "Open Wiki"
 }
