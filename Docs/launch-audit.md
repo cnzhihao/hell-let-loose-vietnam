@@ -55,7 +55,7 @@
 
 ## External operations
 
-- New GitHub repository was created as requested; code is prepared for push to `origin`.
+- New GitHub repository was created as requested; `main` was pushed to `origin` at the end of this audit.
 - No `wrangler deploy` was run.
 - No DNS, Cloudflare production configuration, GSC/Bing/GA setup, index request, outreach, account creation or paid link operation was run.
 
