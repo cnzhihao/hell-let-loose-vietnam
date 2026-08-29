@@ -4,6 +4,20 @@ export type EvidenceState =
   | 'community-lead'
   | 'pending';
 
+export type TopicTag =
+  | 'beginner'
+  | 'gameplay'
+  | 'maps'
+  | 'roles'
+  | 'weapons'
+  | 'vehicles'
+  | 'systems'
+  | 'platforms'
+  | 'technical'
+  | 'buying'
+  | 'updates'
+  | 'community';
+
 export type WikiSource = {
   label: string;
   href: string;
@@ -16,10 +30,40 @@ export type WikiFact = {
   value: string;
 };
 
+export type WikiVisualAnnotation = {
+  label: string;
+  x: number;
+  y: number;
+  width?: number;
+  height?: number;
+};
+
+export type WikiVisual = {
+  src: string;
+  alt: string;
+  caption: string;
+  credit: string;
+  sourceHref: string;
+  sourceLabel: string;
+  evidenceRole: 'official-demonstration' | 'community-example';
+  timestamp?: string;
+  build?: string;
+  annotations?: readonly WikiVisualAnnotation[];
+};
+
+export type WikiStep = {
+  title: string;
+  action: string;
+  successSignal: string;
+  failureCheck?: string;
+  visual?: WikiVisual;
+};
+
 export type WikiSection = {
   heading: string;
   paragraphs: readonly string[];
   bullets?: readonly string[];
+  visuals?: readonly WikiVisual[];
 };
 
 export type WikiEntry = {
@@ -37,8 +81,10 @@ export type WikiEntry = {
   evidenceState: EvidenceState;
   updated: string;
   keywords: readonly string[];
+  tags: readonly TopicTag[];
   indexable: boolean;
   facts: readonly WikiFact[];
+  steps?: readonly WikiStep[];
   sections: readonly WikiSection[];
   sources: readonly WikiSource[];
   relatedSlugs: readonly string[];

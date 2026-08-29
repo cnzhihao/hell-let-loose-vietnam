@@ -1,7 +1,9 @@
 import { gameConfig } from '@/config/game';
-import type { WikiCategory, WikiEntry } from './types';
+import { expansionEntries } from './entries/expansion';
+import type { TopicTag, WikiCategory, WikiEntry } from './types';
+import { officialVisuals } from './visuals';
 
-const checked = '2026-08-29';
+const checked = '2026-08-30';
 
 const official = {
   game: 'https://www.hellletloose.com/game/hll-vietnam',
@@ -29,41 +31,58 @@ export const wikiCategories: readonly WikiCategory[] = [
     title: 'Basics',
     description: 'The game’s verified shape and the safest first-match route.',
     indexable: true,
-    entrySlugs: ['game-overview', 'beginner-guide'],
+    entrySlugs: ['game-overview', 'beginner-guide', 'join-a-squad'],
   },
   {
     slug: 'battlefield',
     title: 'Battlefield',
     description: 'Launch maps, capture rules and the four documented modes.',
     indexable: true,
-    entrySlugs: ['launch-maps', 'game-modes'],
+    entrySlugs: [
+      'launch-maps',
+      'game-modes',
+      'thanh-hoa-bridge',
+      'hue-outskirts',
+      'van-tuong',
+      'quang-ngai',
+      'dak-to-airfield',
+      'cam-ranh-port',
+    ],
   },
   {
     slug: 'roles',
-    title: 'Roles & units',
+    title: 'Roles & classes',
     description:
-      'The official unit structure and the boundary of the current roster data.',
+      'Roles, classes, weapons and vehicles, with roster claims separated from player examples.',
     indexable: true,
-    entrySlugs: ['roles-and-units'],
+    entrySlugs: ['roles-and-units', 'weapons', 'vehicles'],
   },
   {
     slug: 'systems',
-    title: 'Field systems',
+    title: 'Systems & controls',
     description:
-      'Tunnels, aircraft, movement and teamplay signals confirmed by official material.',
+      'Tunnels, aircraft, voice chat, movement and teamplay systems confirmed by official material.',
     indexable: true,
-    entrySlugs: ['tunnels-helicopters', 'movement-and-teamplay'],
+    entrySlugs: [
+      'tunnels-helicopters',
+      'movement-and-teamplay',
+      'voice-chat',
+      'helicopter-controls',
+    ],
   },
   {
     slug: 'access',
-    title: 'Access & technical',
+    title: 'Platforms, PC & fixes',
     description:
-      'Release platforms, cross-platform servers and official PC requirements.',
+      'Release platforms, crossplay, PC requirements, settings and crash checks.',
     indexable: true,
     entrySlugs: [
       'release-and-platforms',
       'crossplay-and-platforms',
       'pc-requirements',
+      'best-settings',
+      'crashing-fixes',
+      'editions-and-buying',
     ],
   },
   {
@@ -76,15 +95,52 @@ export const wikiCategories: readonly WikiCategory[] = [
   },
 ] as const;
 
-export const wikiEntries: readonly WikiEntry[] = [
+export const homepageSearchShortcuts = [
+  { label: 'Beginner guide', query: 'beginner guide' },
+  { label: 'Maps', query: 'maps' },
+  { label: 'Game modes', query: 'game modes' },
+  { label: 'PC requirements', query: 'pc requirements' },
+  { label: 'Crossplay', query: 'crossplay' },
+  { label: 'Latest patch', query: 'patch 1.3' },
+] as const;
+
+export const homepageQuickAnswers = [
+  {
+    description:
+      'Confirm the checked launch date and the PC, PlayStation 5 and Xbox Series X|S platforms.',
+    href: '/wiki/access/release-and-platforms',
+    label: 'Release date & platforms',
+  },
+  {
+    description:
+      'Understand cross-platform, PC-only and console-only server labels before joining a friend.',
+    href: '/wiki/access/crossplay-and-platforms',
+    label: 'Crossplay',
+  },
+  {
+    description:
+      'Compare the official minimum and recommended hardware before installing or buying.',
+    href: '/wiki/access/pc-requirements',
+    label: 'PC requirements',
+  },
+  {
+    description:
+      'Read the newest dated official changes before relying on an older tip or fix.',
+    href: '/wiki/updates/patch-1-3',
+    label: 'Latest patch',
+  },
+] as const;
+
+const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'game-overview',
     categorySlug: 'basics',
     title: 'Hell Let Loose: Vietnam Overview',
     pageType: 'entry',
+    tags: ['beginner', 'gameplay', 'platforms'],
     summary:
-      'The official shape of HLL: Vietnam: 50v50 battles, NVA versus US, six launch maps, 19 specialised roles and three launch platform families.',
-    lead: 'Hell Let Loose: Vietnam is a 50v50 tactical multiplayer game set in the Vietnam War. The official game page confirms NVA versus US, six large-scale maps, 19 specialised roles and infantry, recon, armour, mortar and helicopter units. Steam lists cross-platform multiplayer and a 13 August 2026 release; those dynamic facts were checked on 29 August 2026.',
+      'The official shape of HLL: Vietnam: 50v50 battles, NVA versus US, six launch maps, a role count reported differently by two official storefront/product surfaces, and three launch platform families.',
+    lead: 'Hell Let Loose: Vietnam is a 50v50 tactical multiplayer game set in the Vietnam War. The official game page reports 19 specialised roles and names infantry, recon, armour, mortar and helicopter units, while the current Steam About section reports 17. Steam lists cross-platform multiplayer and a 13 August 2026 release; those dynamic facts were rechecked on 30 August 2026.',
     metaTitle: 'Hell Let Loose: Vietnam Overview — HLL Vietnam Wiki',
     metaDescription:
       'A source-backed overview of Hell Let Loose: Vietnam: match scale, factions, launch maps, specialised roles, movement systems and platforms.',
@@ -104,7 +160,8 @@ export const wikiEntries: readonly WikiEntry[] = [
       { label: 'Launch maps', value: '6 large-scale maps' },
       {
         label: 'Specialised roles',
-        value: '19, according to the official game page',
+        value:
+          '19 on the official game page; 17 in Steam About — reconcile before roster publication',
       },
       {
         label: 'Launch platforms',
@@ -116,7 +173,7 @@ export const wikiEntries: readonly WikiEntry[] = [
       {
         heading: 'What the official game page confirms',
         paragraphs: [
-          'The core match is built around large-scale team play rather than a small competitive arena. Official material names NVA and US forces, 19 specialised roles, and infantry, recon, armour, mortar and helicopter units.',
+          'The core match is built around large-scale team play rather than a small competitive arena. The official product page names NVA and US forces, reports 19 specialised roles, and lists infantry, recon, armour, mortar and helicopter units. Steam’s current About section reports 17 roles, so the total is kept as a source discrepancy rather than a completed roster fact.',
         ],
         bullets: [
           'Tunnel networks, helicopters and patrol boats are part of the Vietnam setting’s battlefield toolkit.',
@@ -154,7 +211,7 @@ export const wikiEntries: readonly WikiEntry[] = [
         label: 'Steam store page',
         href: official.steam,
         type: 'official',
-        note: 'Official store listing checked 2026-08-29 for release, platform and cross-platform labels.',
+        note: 'Official store listing checked 2026-08-30 for release, platform and cross-platform labels.',
       },
     ],
     relatedSlugs: [
@@ -170,6 +227,7 @@ export const wikiEntries: readonly WikiEntry[] = [
     path: '/guides/beginner',
     title: 'First Match Beginner Guide',
     pageType: 'guide',
+    tags: ['beginner', 'gameplay', 'systems'],
     summary:
       'A low-risk first-match route: complete the official tutorial, join a squad, communicate and learn the active objective before taking command roles.',
     lead: 'Start with the official Getting Started tutorial, then join a squad and use communication to learn the active objective. The launch material says the Squad Leader and Commander tutorials are required before those roles, so leave command roles until you have completed their specific tutorials.',
@@ -202,6 +260,39 @@ export const wikiEntries: readonly WikiEntry[] = [
           'You can identify the active objective and stay connected to your squad',
       },
     ],
+    steps: [
+      {
+        title: 'Complete Getting Started',
+        action:
+          'Open the official Getting Started tutorial before the first public match and keep the current in-game movement vocabulary visible.',
+        successSignal:
+          'You can identify the active objective, squad context and basic movement loop before queuing.',
+        failureCheck:
+          'If a tutorial label differs, follow the current build and record the platform rather than copying an older menu screenshot.',
+        visual: officialVisuals.squadMovement,
+      },
+      {
+        title: 'Join a squad',
+        action:
+          'Choose an open squad, take a non-command role you understand and ask what the squad is doing before moving out.',
+        successSignal:
+          'You are attached to a squad and have a clear first destination.',
+      },
+      {
+        title: 'Communicate and follow the objective',
+        action:
+          'Use short calls about position, direction and intent, then keep the active objective on the map while you move.',
+        successSignal:
+          'You can tell where your squad is, why it is moving and when to return to the objective.',
+      },
+      {
+        title: 'Leave command roles for later',
+        action:
+          'Complete the Squad Leader and Commander tutorials before taking those roles in a live match.',
+        successSignal:
+          'Your first match builds map and communication habits without making you responsible for the whole team.',
+      },
+    ],
     sections: [
       {
         heading: '1. Open Getting Started before queuing',
@@ -229,7 +320,7 @@ export const wikiEntries: readonly WikiEntry[] = [
       {
         heading: '4. Choose a specialist role later',
         paragraphs: [
-          'After one or two matches, compare the role families on the Wiki. The official game page confirms 19 specialised roles, but the full roster and role-by-role responsibilities need a separate verified pass before this site turns them into a detailed class guide.',
+          'After one or two matches, compare the role families on the Wiki. The official game page reports 19 specialised roles while Steam’s current About section reports 17; the full roster and role-by-role responsibilities need a reconciliation pass before this site turns them into a detailed class guide.',
         ],
       },
       {
@@ -250,7 +341,7 @@ export const wikiEntries: readonly WikiEntry[] = [
         label: 'Official Steam news feed',
         href: official.news,
         type: 'official',
-        note: 'Publisher/developer news feed checked 2026-08-29 for tutorial and launch-tip context.',
+        note: 'Publisher/developer news feed checked 2026-08-30 for tutorial and launch-tip context.',
       },
       {
         label: 'Official HLL: Vietnam game page',
@@ -266,6 +357,7 @@ export const wikiEntries: readonly WikiEntry[] = [
     categorySlug: 'battlefield',
     title: 'Launch Maps',
     pageType: 'entry',
+    tags: ['maps', 'gameplay'],
     summary:
       'The six maps named by the official launch article, with tactical details kept out until each map has a direct source-backed page.',
     lead: 'The official launch article lists six launch maps: Thanh Hóa Bridge, Huế Outskirts, Vạn Tường, Quảng Ngãi, Đắk Tô Airfield and Cam Ranh Port. This page confirms the roster without inventing cover, route or strongpoint advice that has not been verified map by map.',
@@ -332,6 +424,7 @@ export const wikiEntries: readonly WikiEntry[] = [
     categorySlug: 'battlefield',
     title: 'Game Modes Explained',
     pageType: 'entry',
+    tags: ['gameplay', 'systems'],
     summary:
       'The four modes documented by the official launch material: Warfare, Offensive, Conquest and Domination.',
     lead: 'The official mode guide documents four launch modes. Warfare and Domination use Hard Cap and Soft Cap capture areas, Offensive limits capture contribution to the Hard Cap, and Conquest introduces a Morale resource. The current landing page’s separate six-mode marketing count is kept as a recheck note rather than treated as a launch roster.',
@@ -410,7 +503,7 @@ export const wikiEntries: readonly WikiEntry[] = [
         label: 'Official launch article',
         href: official.launch,
         type: 'official',
-        note: 'Used to cross-check the launch roster on 2026-08-29.',
+        note: 'Used to cross-check the launch roster on 2026-08-30.',
       },
     ],
     relatedSlugs: ['launch-maps', 'beginner-guide', 'game-overview'],
@@ -420,9 +513,10 @@ export const wikiEntries: readonly WikiEntry[] = [
     categorySlug: 'roles',
     title: 'Roles and Units',
     pageType: 'entry',
+    tags: ['roles', 'beginner', 'gameplay'],
     summary:
       'What the official game page confirms about the role count and unit families, without inventing a full roster.',
-    lead: 'The official game page says there are 19 specialised roles and names infantry, recon, armour, mortar and helicopter units. The sources used for this first pass do not expose a complete role-by-role roster, so this page deliberately stops at the verified structure.',
+    lead: 'The official game page reports 19 specialised roles and names infantry, recon, armour, mortar and helicopter units. The current Steam About section reports 17, and neither source exposes a complete role-by-role roster, so this page deliberately stops at the source-qualified structure.',
     metaTitle: 'Roles and Units — Hell Let Loose: Vietnam Wiki',
     metaDescription:
       'The official role count and unit families in Hell Let Loose: Vietnam, with a clear boundary around the not-yet-verified full roster.',
@@ -437,7 +531,10 @@ export const wikiEntries: readonly WikiEntry[] = [
     ],
     indexable: false,
     facts: [
-      { label: 'Specialised roles', value: '19 on the official game page' },
+      {
+        label: 'Specialised roles',
+        value: '19 on official game page; 17 in Steam About section',
+      },
       {
         label: 'Named unit families',
         value: 'Infantry, recon, armour, mortar and helicopter',
@@ -451,7 +548,7 @@ export const wikiEntries: readonly WikiEntry[] = [
       {
         heading: 'Confirmed structure',
         paragraphs: [
-          'The official page frames roles as part of a larger combined-arms structure. It names five unit families and gives the total of 19 specialised roles; that is enough to orient a new player, but not enough to safely publish every role name or responsibility.',
+          'The official page frames roles as part of a larger combined-arms structure. It names five unit families and reports 19 specialised roles, while Steam’s current About section reports 17. That discrepancy is enough reason to orient a new player without publishing every role name or responsibility as settled fact.',
         ],
         bullets: [
           'Infantry and recon cover ground-oriented team functions.',
@@ -497,9 +594,10 @@ export const wikiEntries: readonly WikiEntry[] = [
     categorySlug: 'systems',
     title: 'Tunnels, Helicopters and Patrol Boats',
     pageType: 'entry',
+    tags: ['systems', 'vehicles', 'gameplay'],
     summary:
       'The battlefield systems the official page highlights, plus the current NVA tunnel rule recorded in Patch 1.3.',
-    lead: 'Official material confirms tunnel networks, helicopters, air support and supply drops, and patrol boats as part of the battlefield toolkit. Patch 1.3, checked on 29 August 2026, doubled the NVA tunnel-placement cooldown from five to ten minutes and blocks travel to a hot tunnel destination.',
+    lead: 'Official material confirms tunnel networks, helicopters, air support and supply drops, and patrol boats as part of the battlefield toolkit. Patch 1.3, rechecked on 30 August 2026, doubled the NVA tunnel-placement cooldown from five to ten minutes and blocks travel to a hot tunnel destination.',
     metaTitle: 'Tunnels, Helicopters and Patrol Boats — HLL Vietnam Wiki',
     metaDescription:
       'Source-backed HLL: Vietnam notes on tunnel networks, helicopters, patrol boats and the current Patch 1.3 NVA tunnel cooldown.',
@@ -553,7 +651,7 @@ export const wikiEntries: readonly WikiEntry[] = [
         label: 'Official HLL: Vietnam game page',
         href: official.game,
         type: 'official',
-        note: 'Checked 2026-08-29 for tunnels, helicopters, supply drops and patrol boats.',
+        note: 'Checked 2026-08-30 for tunnels, helicopters, supply drops and patrol boats.',
       },
       {
         label: 'Official Patch 1.3 notes',
@@ -569,6 +667,7 @@ export const wikiEntries: readonly WikiEntry[] = [
     categorySlug: 'systems',
     title: 'Movement and Teamplay',
     pageType: 'entry',
+    tags: ['gameplay', 'systems', 'beginner'],
     summary:
       'A source-backed checklist for the movement features and communication habits that shape a first match.',
     lead: 'The official game page highlights swimming, climbing, fast crawling and dragging teammates. Official launch tips put communication, backup Garrisons, defense and hunting NVA tunnels at the centre of teamplay. Use those as habits, not as a substitute for a verified control guide.',
@@ -632,7 +731,7 @@ export const wikiEntries: readonly WikiEntry[] = [
         label: 'Official launch article',
         href: official.launch,
         type: 'official',
-        note: 'Checked 2026-08-29 for launch tips and teamplay framing.',
+        note: 'Checked 2026-08-30 for launch tips and teamplay framing.',
       },
     ],
     relatedSlugs: ['beginner-guide', 'tunnels-helicopters', 'game-modes'],
@@ -642,6 +741,7 @@ export const wikiEntries: readonly WikiEntry[] = [
     categorySlug: 'access',
     title: 'Release Date and Platforms',
     pageType: 'access',
+    tags: ['platforms', 'buying'],
     summary:
       'The official launch date and supported launch platform families for Hell Let Loose: Vietnam.',
     lead: 'The official launch article says Hell Let Loose: Vietnam is live on PC, PlayStation 5 and Xbox Series X|S. The official Steam listing gives 13 August 2026 as the release date. Prices, subscriptions and regional availability are intentionally excluded because they change by storefront and date.',
@@ -691,7 +791,7 @@ export const wikiEntries: readonly WikiEntry[] = [
         label: 'Official Steam store listing',
         href: official.steam,
         type: 'official',
-        note: 'Checked 2026-08-29 for the release date and PC listing.',
+        note: 'Checked 2026-08-30 for the release date and PC listing.',
       },
     ],
     relatedSlugs: [
@@ -705,6 +805,7 @@ export const wikiEntries: readonly WikiEntry[] = [
     categorySlug: 'access',
     title: 'Crossplay and Platform Servers',
     pageType: 'access',
+    tags: ['platforms', 'gameplay'],
     summary:
       'What the official sources confirm about cross-platform multiplayer and server platform labels.',
     lead: 'The official Steam listing labels HLL: Vietnam as Cross-Platform Multiplayer. The official crossplay announcement says servers are tagged cross-platform, PC-only or console-only, and server owners can control which platforms are allowed. This does not verify cross-progression, shared purchases or every party-invite path.',
@@ -764,7 +865,7 @@ export const wikiEntries: readonly WikiEntry[] = [
         label: 'Official Steam store listing',
         href: official.steam,
         type: 'official',
-        note: 'Checked 2026-08-29 for the Cross-Platform Multiplayer label.',
+        note: 'Checked 2026-08-30 for the Cross-Platform Multiplayer label.',
       },
       {
         label: 'Official crossplay announcement',
@@ -790,6 +891,7 @@ export const wikiEntries: readonly WikiEntry[] = [
     categorySlug: 'access',
     title: 'Official PC Requirements',
     pageType: 'access',
+    tags: ['platforms', 'technical'],
     summary:
       'The minimum and recommended PC specifications published on the official HLL: Vietnam requirements page.',
     lead: 'The official requirements page lists Windows 11 64-bit, DirectX 12, broadband internet and 52 GB of storage for both tiers. Minimum hardware is an i5-6600 or Ryzen 3 1300X with 12 GB RAM and a GTX 960 4 GB or R9 380 4 GB; recommended is an i5-8400 or Ryzen 5 2600X with 16 GB RAM and a GTX 1060 6 GB or RX 590 8 GB.',
@@ -828,7 +930,7 @@ export const wikiEntries: readonly WikiEntry[] = [
       {
         heading: 'Recheck before buying or upgrading',
         paragraphs: [
-          'Hardware requirements can change with optimization patches and storefront updates. Check the official requirements page again before making a purchase or hardware decision; this record was collected on 29 August 2026.',
+          'Hardware requirements can change with optimization patches and storefront updates. Check the official requirements page again before making a purchase or hardware decision; this record was collected on 30 August 2026.',
         ],
       },
     ],
@@ -851,9 +953,10 @@ export const wikiEntries: readonly WikiEntry[] = [
     categorySlug: 'updates',
     title: 'Patch 1.3 Notes',
     pageType: 'update',
+    tags: ['updates', 'systems'],
     summary:
       'The 28 August 2026 Patch 1.3 highlights: tunnel changes, tank-driver handling and over 100 fixes across the six launch maps.',
-    lead: 'Patch 1.3 is the current official update checked on 29 August 2026. Safe highlights include the NVA tunnel cooldown change from five to ten minutes, the hot-tunnel travel restriction, tank drivers changing gears without throttle, and more than 100 fixes across the six launch maps.',
+    lead: 'Patch 1.3 is the current official update rechecked on 30 August 2026. Safe highlights include the NVA tunnel cooldown change from five to ten minutes, the hot-tunnel travel restriction, tank drivers changing gears without throttle, and more than 100 fixes across the six launch maps.',
     metaTitle: 'Patch 1.3 Notes — Hell Let Loose: Vietnam',
     metaDescription:
       'Official Patch 1.3 highlights for HLL: Vietnam: NVA tunnel cooldown, tank-driver gear changes and over 100 launch-map fixes.',
@@ -900,7 +1003,7 @@ export const wikiEntries: readonly WikiEntry[] = [
         label: 'Official Patch 1.3 article',
         href: official.patch13,
         type: 'official',
-        note: 'Live 28 August 2026; checked 29 August 2026.',
+        note: 'Live 28 August 2026; checked 30 August 2026.',
       },
       {
         label: 'Official Steam news feed',
@@ -916,6 +1019,7 @@ export const wikiEntries: readonly WikiEntry[] = [
     categorySlug: 'updates',
     title: 'Patch 1.2 Notes',
     pageType: 'update',
+    tags: ['updates', 'systems'],
     summary:
       'The official 21 August 2026 patch record: 500+ fixes and improvements across stability, maps, audio, UI, vehicles and gameplay.',
     lead: 'Patch 1.2 went live on 21 August 2026 and the official notes describe more than 500 fixes and improvements. The update covered stability, maps, audio, UI, vehicles, gameplay and keybinds, including a fix for an NVA tunnel server crash.',
@@ -965,7 +1069,7 @@ export const wikiEntries: readonly WikiEntry[] = [
         label: 'Official Patch 1.2 article',
         href: official.patch12,
         type: 'official',
-        note: 'Live 21 August 2026; checked 29 August 2026.',
+        note: 'Live 21 August 2026; checked 30 August 2026.',
       },
     ],
     relatedSlugs: ['patch-1-3', 'tunnels-helicopters', 'release-and-platforms'],
@@ -975,6 +1079,7 @@ export const wikiEntries: readonly WikiEntry[] = [
     categorySlug: 'updates',
     title: '2026 Roadmap: Planned Content',
     pageType: 'update',
+    tags: ['updates', 'maps', 'weapons'],
     summary:
       'A clearly labelled record of the official 2026 roadmap, kept separate from current launch features.',
     lead: 'The official 2026 roadmap is a plan, not a promise that the content is live. It lists a September Update 1.5 with the M14, SKS, a licensed Bell UH-1 Iroquois “Huey” and radio music; Update 2.0 is planned to add Khe Sanh, more weapons, US & Allies Force, the Stoner 63 and special forces themes.',
@@ -1038,12 +1143,32 @@ export const wikiEntries: readonly WikiEntry[] = [
   },
 ] as const;
 
+export const wikiEntries: readonly WikiEntry[] = [
+  ...coreWikiEntries,
+  ...expansionEntries,
+];
+
+const homepageVerifiedPriority = new Map([
+  ['patch-1-3', 0],
+  ['release-and-platforms', 1],
+  ['pc-requirements', 2],
+  ['crossplay-and-platforms', 3],
+  ['beginner-guide', 4],
+  ['game-overview', 5],
+  ['launch-maps', 6],
+  ['game-modes', 7],
+]);
+
 export function findWikiCategory(slug: string) {
   return wikiCategories.find((category) => category.slug === slug);
 }
 
 export function findWikiEntry(slug: string) {
   return wikiEntries.find((entry) => entry.slug === slug);
+}
+
+export function findWikiEntryByPath(path: string) {
+  return wikiEntries.find((entry) => getWikiEntryHref(entry) === path);
 }
 
 export function getWikiCategoryHref(category: WikiCategory) {
@@ -1060,4 +1185,62 @@ export function getCategoryEntries(categorySlug: string) {
   return category.entrySlugs
     .map((slug) => findWikiEntry(slug))
     .filter((entry): entry is WikiEntry => Boolean(entry));
+}
+
+export type WikiSearchFilters = {
+  query?: string;
+  topic?: TopicTag | '';
+  pageType?: WikiEntry['pageType'] | '';
+};
+
+function entrySearchText(entry: WikiEntry) {
+  const category = findWikiCategory(entry.categorySlug);
+  return [
+    entry.title,
+    entry.summary,
+    entry.lead,
+    entry.slug,
+    entry.keywords.join(' '),
+    entry.tags.join(' '),
+    category?.title ?? '',
+    category?.description ?? '',
+  ]
+    .join(' ')
+    .toLocaleLowerCase();
+}
+
+export function searchWikiEntries({
+  query = '',
+  topic = '',
+  pageType = '',
+}: WikiSearchFilters = {}) {
+  const tokens = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+
+  return wikiEntries.filter((entry) => {
+    if (topic && !entry.tags.includes(topic)) return false;
+    if (pageType && entry.pageType !== pageType) return false;
+    if (tokens.length === 0) return true;
+    const text = entrySearchText(entry);
+    return tokens.every((token) => text.includes(token));
+  });
+}
+
+export function getLatestEntries(limit = 4) {
+  return wikiEntries
+    .filter(
+      (entry) =>
+        entry.evidenceState === 'verified' ||
+        entry.evidenceState === 'single-official-source'
+    )
+    .slice()
+    .sort((a, b) => {
+      const dateOrder = b.updated.localeCompare(a.updated);
+      if (dateOrder !== 0) return dateOrder;
+
+      return (
+        (homepageVerifiedPriority.get(a.slug) ?? Number.MAX_SAFE_INTEGER) -
+        (homepageVerifiedPriority.get(b.slug) ?? Number.MAX_SAFE_INTEGER)
+      );
+    })
+    .slice(0, limit);
 }

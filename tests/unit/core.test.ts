@@ -4,15 +4,16 @@ import { websiteConfig } from '@/config/website';
 import {
   findWikiCategory,
   findWikiEntry,
+  getLatestEntries,
   getWikiEntryHref,
   wikiEntries,
 } from '@/content/site';
 import { homeHead, siteOrigin, wikiHead } from '@/lib/seo';
 import { cn } from '@/lib/utils';
 
-describe('HLL Vietnam field manual contracts', () => {
+describe('Hell Let Loose Vietnam Wiki contracts', () => {
   it('keeps the researched site in a template-safe pre-launch state', () => {
-    expect(websiteConfig.name).toBe('HLL Vietnam Field Manual');
+    expect(websiteConfig.name).toBe('Hell Let Loose Vietnam Wiki');
     expect(websiteConfig.repository).toBe(
       'https://github.com/cnzhihao/hell-let-loose-vietnam'
     );
@@ -29,6 +30,15 @@ describe('HLL Vietnam field manual contracts', () => {
     const guide = findWikiEntry('beginner-guide');
     if (!guide) throw new Error('beginner guide fixture is missing');
     expect(getWikiEntryHref(guide)).toBe('/guides/beginner');
+  });
+
+  it('prioritizes current and high-intent entries when checked dates tie', () => {
+    expect(getLatestEntries(4).map((entry) => entry.slug)).toEqual([
+      'patch-1-3',
+      'release-and-platforms',
+      'pc-requirements',
+      'crossplay-and-platforms',
+    ]);
   });
 
   it('builds local and configured absolute metadata safely', () => {
@@ -58,7 +68,7 @@ describe('HLL Vietnam field manual contracts', () => {
     expect(styles).toContain(
       `--background: ${websiteConfig.colors.background};`
     );
-    expect(styles).toContain(`--yellow: ${websiteConfig.colors.theme};`);
+    expect(styles).toContain(`--orange: ${websiteConfig.colors.theme};`);
   });
 
   it('joins optional class names without false values', () => {

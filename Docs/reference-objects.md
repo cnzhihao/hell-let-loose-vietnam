@@ -1,6 +1,6 @@
 # Reference objects
 
-> Research record for HLL Vietnam Field Manual. Accessed 2026-08-29 (Asia/Shanghai). These are structure references only; no competitor text, visual identity, code, images or outbound links are copied into the site.
+> Research record for Hell Let Loose Vietnam Wiki. Accessed 2026-08-29 (Asia/Shanghai). These are structure references only; no competitor text, visual identity, code, images or outbound links are copied into the site.
 
 ## Official HLL: Vietnam game page
 
@@ -10,6 +10,12 @@
 - Pattern adopted: homepage gives the player a concise answer, then routes to Wiki categories and the official sources panel. Feature claims are stored in `src/content/site.ts` with evidence state and collection date.
 - Intentionally different: the site does not repeat marketing copy as a full landing page. It turns individual search intents into short, source-visible entries and labels unresolved claims.
 - Boundary: official facts may be cited through direct links; official logos, screenshots and video frames are not copied into this repository.
+
+## Visual direction checked against the official page
+
+- Checked 2026-08-29: the official product page leans on a near-black field, olive green, rust orange, sand gold, condensed display type, full-width visual bands and clear routes into the product ecosystem.
+- Pattern adopted: the home hero uses the same broad visual grammar — dark command-center canvas, condensed uppercase headings, source-status panel and high-contrast rust CTA — while the Wiki remains a research tool rather than a marketing clone.
+- Intentionally different: no proprietary font files, official logo, screenshot, video frame or copied page markup is used. The hero map is an original inline SVG contour/grid treatment created for this repository, and the type falls back to local system fonts.
 
 ## Official launch and mode articles
 

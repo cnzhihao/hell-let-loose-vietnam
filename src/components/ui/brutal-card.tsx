@@ -5,13 +5,5 @@ export function BrutalCard({
   className,
   ...props
 }: ComponentPropsWithoutRef<'div'>) {
-  return (
-    <div
-      className={cn(
-        'rounded-[14px] border-2 border-ink p-6 shadow-brutal',
-        className
-      )}
-      {...props}
-    />
-  );
+  return <div className={cn('border border-ink p-6', className)} {...props} />;
 }

@@ -1,7 +1,165 @@
 {
   "version": 1,
-  "project": "HLL Vietnam Field Manual",
+  "project": "Hell Let Loose Vietnam Wiki",
   "updated": "2026-08-29",
-  "policy": "No game screenshots, video frames or third-party assets are included. Register every future asset with a traceable source and permission boundary before publishing.",
-  "assets": []
+  "policy": "Only selected official HLL: Vietnam battlefield media is included. Every image has a traceable source, visual role, checked date and clear boundary; no competitor assets, raw videos, signed URLs or raw audio are included.",
+  "assets": [
+    {
+      "file": "assets/hllv-wiki-logo.png",
+      "type": "generated-logo",
+      "source": "OpenAI GPT Image 2; official HLL wordmark used only as a visual reference",
+      "source_url": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "Header and footer brand lockup",
+      "created": "2026-08-29",
+      "boundary": "Original HLLV WIKI fan-wiki mark; not the official logo or official artwork"
+    },
+    {
+      "file": "assets/hllv-wiki-favicon.png",
+      "type": "generated-logo-mark",
+      "source": "OpenAI GPT Image 2; redesigned from the HLLV WIKI visual language with the official HLL Vietnam page used only as a visual reference",
+      "source_url": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "Browser favicon and app mark",
+      "created": "2026-08-29",
+      "boundary": "Original H/W helmet badge with a simplified central W; not the official logo or official artwork"
+    },
+    {
+      "file": "assets/hllv-wiki-icon-192.png",
+      "type": "generated-logo-mark",
+      "source": "Derived from the GPT Image 2 generated HLLV WIKI favicon",
+      "source_url": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "Apple Touch Icon and PWA any-purpose icon",
+      "created": "2026-08-29",
+      "boundary": "Resized project derivative of the original fan-wiki mark"
+    },
+    {
+      "file": "assets/hllv-wiki-icon-512.png",
+      "type": "generated-logo-mark",
+      "source": "Derived from the GPT Image 2 generated HLLV WIKI favicon",
+      "source_url": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "PWA any-purpose icon",
+      "created": "2026-08-29",
+      "boundary": "Resized project derivative of the original fan-wiki mark"
+    },
+    {
+      "file": "assets/hllv-wiki-icon-maskable-512.png",
+      "type": "generated-logo-mark",
+      "source": "Derived from the GPT Image 2 generated HLLV WIKI favicon",
+      "source_url": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "PWA maskable icon",
+      "created": "2026-08-29",
+      "boundary": "Resized project derivative; transparent safe-zone mark, not official artwork"
+    },
+    {
+      "file": "assets/hllv-official-armour-helicopter.webp",
+      "type": "official-battlefield-media",
+      "dimensions": "1600x900",
+      "source": "Official HLL: Vietnam game page CDN media",
+      "source_url": "https://team17-hll-stage2.sfo3.cdn.digitaloceanspaces.com/2ea88e9db3af815c9b39869fb75ee20e.webp",
+      "source_page": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "Vehicles page and homepage Field evidence",
+      "credit": "Team17 / Offworld Industries",
+      "created": "2026-08-29",
+      "build": "Official launch media; build not stated",
+      "evidence_role": "official-demonstration",
+      "boundary": "Visual context for armour and helicopter units; does not prove a route, control or balance rule"
+    },
+    {
+      "file": "assets/hllv-official-armour-push.webp",
+      "type": "official-battlefield-media",
+      "dimensions": "1600x900",
+      "source": "Official HLL: Vietnam game page CDN media",
+      "source_url": "https://team17-hll-stage2.sfo3.cdn.digitaloceanspaces.com/60236fd426579ddb402cee265c07e87e.webp",
+      "source_page": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "Vehicles page visual evidence",
+      "credit": "Team17 / Offworld Industries",
+      "created": "2026-08-29",
+      "build": "Official launch media; build not stated",
+      "evidence_role": "official-demonstration",
+      "boundary": "Visual context for a first-person push beside armour; not a tactical recommendation"
+    },
+    {
+      "file": "assets/hllv-official-bridge-gameplay.webp",
+      "type": "official-battlefield-media",
+      "dimensions": "1600x900",
+      "source": "Official HLL: Vietnam game page CDN media",
+      "source_url": "https://team17-hll-stage2.sfo3.cdn.digitaloceanspaces.com/16f8ef9d62c73964f2eefb45de79c678.webp",
+      "source_page": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "Homepage Field evidence and map-context visual",
+      "credit": "Team17 / Offworld Industries",
+      "created": "2026-08-29",
+      "build": "Official launch media; build not stated",
+      "evidence_role": "official-demonstration",
+      "boundary": "Visual bridge and water terrain context; not identified as a specific launch map"
+    },
+    {
+      "file": "assets/hllv-official-helicopter-field.webp",
+      "type": "official-battlefield-media",
+      "dimensions": "2000x1125",
+      "source": "Official HLL: Vietnam game page CDN media",
+      "source_url": "https://team17-hll-stage2.sfo3.cdn.digitaloceanspaces.com/75378e77ffeef292b7727813441c0398.webp",
+      "source_page": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "Helicopter Controls page and homepage Field evidence",
+      "credit": "Team17 / Offworld Industries",
+      "created": "2026-08-29",
+      "build": "Official launch media; build not stated",
+      "evidence_role": "official-demonstration",
+      "boundary": "Visual helicopter field context; does not establish current controls or flight behaviour"
+    },
+    {
+      "file": "assets/hllv-official-jungle-squad.webp",
+      "type": "official-battlefield-media",
+      "dimensions": "1600x900",
+      "source": "Official HLL: Vietnam game page CDN media",
+      "source_url": "https://team17-hll-stage2.sfo3.cdn.digitaloceanspaces.com/c32217bb4ccfe1d429894653f7d18153.webp",
+      "source_page": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "Weapons page visual context",
+      "credit": "Team17 / Offworld Industries",
+      "created": "2026-08-29",
+      "build": "Official launch media; build not stated",
+      "evidence_role": "official-demonstration",
+      "boundary": "Visual jungle and squad context; does not prove concealment or role performance"
+    },
+    {
+      "file": "assets/hllv-official-lz-approach.webp",
+      "type": "official-battlefield-media",
+      "dimensions": "1600x900",
+      "source": "Official HLL: Vietnam game page CDN media",
+      "source_url": "https://team17-hll-stage2.sfo3.cdn.digitaloceanspaces.com/b8057e15bd108d86c80ffb2b2955feb5.webp",
+      "source_page": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "Helicopter Controls page visual evidence",
+      "credit": "Team17 / Offworld Industries",
+      "created": "2026-08-29",
+      "build": "Official launch media; build not stated",
+      "evidence_role": "official-demonstration",
+      "boundary": "Visual landing-area context; not a fixed landing route or control demonstration"
+    },
+    {
+      "file": "assets/hllv-official-sniper-position.webp",
+      "type": "official-battlefield-media",
+      "dimensions": "1600x900",
+      "source": "Official HLL: Vietnam game page CDN media",
+      "source_url": "https://team17-hll-stage2.sfo3.cdn.digitaloceanspaces.com/ee41a44857745581219d00ada52316bd.webp",
+      "source_page": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "Weapons page visual evidence",
+      "credit": "Team17 / Offworld Industries",
+      "created": "2026-08-29",
+      "build": "Official launch media; build not stated",
+      "evidence_role": "official-demonstration",
+      "boundary": "Visual covered firing-position context; no weapon, damage or class claim is inferred"
+    },
+    {
+      "file": "assets/hllv-official-squad-movement.webp",
+      "type": "official-battlefield-media",
+      "dimensions": "1600x900",
+      "source": "Official HLL: Vietnam game page CDN media",
+      "source_url": "https://team17-hll-stage2.sfo3.cdn.digitaloceanspaces.com/a17936c50b5ae0c651a5229a9811560d.webp",
+      "source_page": "https://www.hellletloose.com/game/hll-vietnam",
+      "purpose": "Beginner Guide, Join a Squad page and homepage Field evidence",
+      "credit": "Team17 / Offworld Industries",
+      "created": "2026-08-29",
+      "build": "Official launch media; build not stated",
+      "evidence_role": "official-demonstration",
+      "boundary": "Visual squad-movement context; does not prove an optimal route or universal teamplay rule"
+    }
+  ]
 }

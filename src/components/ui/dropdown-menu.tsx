@@ -42,7 +42,7 @@ export function DropdownMenuContent({
       >
         <BaseMenu.Popup
           className={cn(
-            'min-w-44 origin-[var(--transform-origin)] rounded-[10px] border-2 border-ink bg-surface p-1.5 text-foreground shadow-brutal outline-none transition-[transform,opacity] duration-150 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0',
+            'min-w-44 origin-[var(--transform-origin)] border border-ink bg-surface p-1.5 text-foreground outline-none transition-[transform,opacity] duration-150 data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0',
             className
           )}
           {...props}
@@ -53,7 +53,7 @@ export function DropdownMenuContent({
 }
 
 const menuItemClassName =
-  'flex min-h-10 cursor-pointer select-none items-center gap-2 rounded-lg px-3 py-2 text-sm font-bold outline-none data-[highlighted]:bg-yellow data-[highlighted]:text-ink data-disabled:pointer-events-none data-disabled:opacity-55';
+  'flex min-h-10 cursor-pointer select-none items-center gap-2 px-3 py-2 text-sm font-bold outline-none data-[highlighted]:bg-yellow data-[highlighted]:text-ink data-disabled:pointer-events-none data-disabled:opacity-55';
 
 export function DropdownMenuLinkItem({
   className,

@@ -2,7 +2,7 @@ import { createIsomorphicFn } from '@tanstack/react-start';
 import { getRequestUrl } from '@tanstack/react-start/server';
 import { gameConfig } from '@/config/game';
 import { websiteConfig } from '@/config/website';
-import { findWikiEntry, getWikiEntryHref } from '@/content/site';
+import { findWikiEntry, getWikiEntryHref, wikiEntries } from '@/content/site';
 import type { WikiCategory, WikiEntry } from '@/content/types';
 import { type AppLocale, localeMeta, message } from '@/lib/locale';
 
@@ -258,6 +258,20 @@ export function guidesHead(requestOrigin?: string) {
           { name: 'Home', pathname: '/' },
           { name: 'Guides', pathname },
         ])
+      )[0],
+      jsonLdScript(
+        collectionJsonLd({
+          pathname,
+          headline: title,
+          description,
+          items: wikiEntries
+            .filter((entry) => entry.pageType === 'guide')
+            .map((entry) => ({
+              name: entry.title,
+              pathname: getWikiEntryHref(entry),
+            })),
+          requestOrigin,
+        })
       )[0],
     ],
   };

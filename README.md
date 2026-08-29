@@ -1,8 +1,8 @@
-# HLL Vietnam Field Manual
+# Hell Let Loose Vietnam Wiki
 
-这是一个面向 **Hell Let Loose: Vietnam** 的玩家优先 Wiki / 游戏资讯站。应用代码基于 [mkfast-lite](https://github.com/MkFastHQ/mkfast-lite)，工作流由仓库内的项目级 Skills 管理，事实页面均保留官方来源和核验日期。
+这是一个面向 **Hell Let Loose: Vietnam** 的玩家优先 Wiki / 游戏资讯站，站名采用 Google Trends 验证过的主搜索词 **Hell Let Loose Vietnam**，并以 Wiki 作为内容类型说明。应用代码基于 [mkfast-lite](https://github.com/MkFastHQ/mkfast-lite)，工作流由仓库内的项目级 Skills 管理，事实页面均保留官方来源和核验日期。
 
-当前仓库是本地研究预览：内容已完成第一轮官方资料核验，但还没有生产域名和部署授权，因此仍保持 `isTemplate: true`、`noindex`、robots 禁止抓取和空 sitemap。
+当前仓库仍是模板安全的研究预览：内容已完成第一轮官方资料核验，并已部署一个 Cloudflare Workers 预览地址，但还没有生产域名和正式开放索引授权，因此继续保持 `isTemplate: true`、`noindex`、robots 禁止抓取和空 sitemap。
 
 ## 直接开始
 
@@ -17,23 +17,27 @@ pnpm dev
 
 ## 当前内容范围
 
-第一轮页面已经覆盖：
+当前本地升级版覆盖 27 条内容记录，并按玩家任务和 Wiki 主题组织：
 
 - `/wiki/basics/game-overview`：游戏规模、阵营、地图、角色和平台总览；
 - `/guides/beginner`：Getting Started、首场比赛、沟通和指挥角色边界；
 - `/wiki/battlefield/launch-maps`、`/wiki/battlefield/game-modes`：六张首发地图和四种官方 launch mode；
-- `/wiki/roles/roles-and-units`、`/wiki/systems/*`：角色族、隧道、直升机、巡逻艇、移动与团队配合；
-- `/wiki/access/*`：发行平台、crossplay 和 PC 配置要求；
+- `/wiki/battlefield/<map>`：Thanh Hóa Bridge、Huế Outskirts、Vạn Tường、Quảng Ngãi、Đắk Tô Airfield、Cam Ranh Port 六个地图记录；
+- `/wiki/roles/roles-and-units`、`/wiki/roles/weapons`、`/wiki/roles/vehicles`：角色族、武器与载具边界；
+- `/guides/join-a-squad`、`/guides/voice-chat`、`/guides/helicopter-controls`、`/guides/best-settings`、`/guides/crashing-fixes`：按动作组织的任务型 Guide；
+- `/wiki/systems/*`：隧道、直升机、巡逻艇、语音、移动与团队配合；
+- `/wiki/access/*`：发行平台、crossplay、PC 配置、购买、设置和崩溃排查；
 - `/wiki/updates/*`：Patch 1.2、Patch 1.3 和带 planned 标记的 2026 路线图。
 
-未写入完整角色名单、逐地图战术、价格、玩家数、评价快照、跨进度和通用按键表，因为当前资料或版本边界不足。
+地图单页目前只确认官方 launch roster，不把地图名称推导成路线、据点、掩体或职业建议；完整角色/武器/载具名册、价格、玩家数、评价快照、跨进度和通用按键表仍保持 Pending 边界。
+首页新增 `Start with the question`、`Latest verified` 和 `Field evidence` 区块；图片只采用官方公开战场媒体，并显示来源、归属和 visual evidence boundary。
 
 ## 上站前必须完成
 
 1. 在 `src/config/website.ts` 写入真实 HTTPS 生产域名；
 2. 复核所有动态事实和页面素材授权；
 3. 按 `AGENTS.md` 重新执行研究、页面和 SEO readiness 流程；
-4. 明确授权后再将 `isTemplate` 改为 `false`、部署并提交索引。
+4. 正式上线前明确授权，再将 `isTemplate` 改为 `false`、配置生产域名并单独处理索引提交。
 
 不要只替换游戏名就上线。每个可索引页面都要对应明确搜索意图、真实用户问题和可靠来源。
 
@@ -69,7 +73,9 @@ pnpm build           # 生产构建和 TypeScript
 pnpm e2e             # Playwright 桌面端与移动端
 pnpm locale:compile  # 修改 project.inlang/messages 后重新生成
 pnpm cf-typegen      # 修改 Cloudflare bindings 后重新生成
-pnpm content:check   # 检查分类、slug、路径、关联页和 indexable 来源
+pnpm content:check   # 检查分类、slug、路径、标签、素材和 indexable 来源
+pnpm research:check  # 检查关键词、brief、矩阵和内容记录是否一一对应
+pnpm theme:check     # 检查运行时颜色是否来自主题 token
 ```
 
 `src/routeTree.gen.ts`、`src/locale/paraglide/` 和 `worker-configuration.d.ts` 是生成文件：改动路由、翻译或 Cloudflare 配置后使用命令重新生成，不手工编辑。

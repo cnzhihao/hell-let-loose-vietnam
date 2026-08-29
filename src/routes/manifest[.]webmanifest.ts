@@ -8,7 +8,7 @@ export const Route = createFileRoute('/manifest.webmanifest')({
         const manifest = {
           id: websiteConfig.manifest.id,
           name: websiteConfig.name,
-          short_name: websiteConfig.name,
+          short_name: websiteConfig.shortName,
           description: websiteConfig.description,
           lang: 'en',
           start_url: websiteConfig.manifest.startUrl,
@@ -18,19 +18,19 @@ export const Route = createFileRoute('/manifest.webmanifest')({
           theme_color: websiteConfig.colors.theme,
           icons: [
             {
-              src: '/icons/icon-192.png',
+              src: '/assets/hllv-wiki-icon-192.png',
               sizes: '192x192',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/icons/icon-512.png',
+              src: '/assets/hllv-wiki-icon-512.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'any',
             },
             {
-              src: '/icons/icon-maskable-512.png',
+              src: '/assets/hllv-wiki-icon-maskable-512.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'maskable',

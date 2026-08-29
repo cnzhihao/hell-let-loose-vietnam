@@ -16,6 +16,7 @@ import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as WikiRouteImport } from './routes/wiki'
 import { Route as GuidesIndexRouteImport } from './routes/guides/index'
+import { Route as GuidesSlugRouteImport } from './routes/guides/$slug'
 import { Route as GuidesBeginnerRouteImport } from './routes/guides/beginner'
 import { Route as GuidesMapRouteImport } from './routes/guides/map'
 import { Route as WikiIndexRouteImport } from './routes/wiki/index'
@@ -58,6 +59,11 @@ const GuidesIndexRoute = GuidesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => GuidesRoute,
 } as any)
+const GuidesSlugRoute = GuidesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => GuidesRoute,
+} as any)
 const GuidesBeginnerRoute = GuidesBeginnerRouteImport.update({
   id: '/beginner',
   path: '/beginner',
@@ -96,6 +102,7 @@ export interface FileRoutesByFullPath {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wiki': typeof WikiRouteWithChildren
+  '/guides/$slug': typeof GuidesSlugRoute
   '/guides/beginner': typeof GuidesBeginnerRoute
   '/guides/map': typeof GuidesMapRoute
   '/wiki/$category': typeof WikiCategoryRouteWithChildren
@@ -109,6 +116,7 @@ export interface FileRoutesByTo {
   '/manifest.webmanifest': typeof ManifestDotwebmanifestRoute
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/guides/$slug': typeof GuidesSlugRoute
   '/guides/beginner': typeof GuidesBeginnerRoute
   '/guides/map': typeof GuidesMapRoute
   '/guides': typeof GuidesIndexRoute
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/robots.txt': typeof RobotsDottxtRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/wiki': typeof WikiRouteWithChildren
+  '/guides/$slug': typeof GuidesSlugRoute
   '/guides/beginner': typeof GuidesBeginnerRoute
   '/guides/map': typeof GuidesMapRoute
   '/wiki/$category': typeof WikiCategoryRouteWithChildren
@@ -141,6 +150,7 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/wiki'
+    | '/guides/$slug'
     | '/guides/beginner'
     | '/guides/map'
     | '/wiki/$category'
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/manifest.webmanifest'
     | '/robots.txt'
     | '/sitemap.xml'
+    | '/guides/$slug'
     | '/guides/beginner'
     | '/guides/map'
     | '/guides'
@@ -168,6 +179,7 @@ export interface FileRouteTypes {
     | '/robots.txt'
     | '/sitemap.xml'
     | '/wiki'
+    | '/guides/$slug'
     | '/guides/beginner'
     | '/guides/map'
     | '/wiki/$category'
@@ -237,6 +249,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesIndexRouteImport
       parentRoute: typeof GuidesRoute
     }
+    '/guides/$slug': {
+      id: '/guides/$slug'
+      path: '/$slug'
+      fullPath: '/guides/$slug'
+      preLoaderRoute: typeof GuidesSlugRouteImport
+      parentRoute: typeof GuidesRoute
+    }
     '/guides/beginner': {
       id: '/guides/beginner'
       path: '/beginner'
@@ -283,12 +302,14 @@ declare module '@tanstack/react-router' {
 }
 
 interface GuidesRouteChildren {
+  GuidesSlugRoute: typeof GuidesSlugRoute
   GuidesBeginnerRoute: typeof GuidesBeginnerRoute
   GuidesMapRoute: typeof GuidesMapRoute
   GuidesIndexRoute: typeof GuidesIndexRoute
 }
 
 const GuidesRouteChildren: GuidesRouteChildren = {
+  GuidesSlugRoute: GuidesSlugRoute,
   GuidesBeginnerRoute: GuidesBeginnerRoute,
   GuidesMapRoute: GuidesMapRoute,
   GuidesIndexRoute: GuidesIndexRoute,

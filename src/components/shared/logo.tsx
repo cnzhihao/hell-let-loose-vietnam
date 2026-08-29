@@ -5,18 +5,15 @@ export function Logo({ className }: { className?: string }) {
     <span
       aria-hidden="true"
       className={cn(
-        'inline-flex size-11 shrink-0 items-center justify-center rounded-lg border-2 border-ink bg-orange text-ink shadow-brutal-xs',
+        'field-logo-shell inline-flex shrink-0 items-center px-2 py-1',
         className
       )}
     >
-      <svg
-        aria-hidden="true"
-        className="size-6"
-        viewBox="0 0 24 24"
-        fill="none"
-      >
-        <path d="M14.5 2.5 6.5 13h5l-2 8.5 8-11h-5l2-8Z" fill="currentColor" />
-      </svg>
+      <img
+        alt=""
+        className="field-logo h-8 w-auto max-w-[10rem] object-contain object-left"
+        src="/assets/hllv-wiki-logo.png"
+      />
     </span>
   );
 }

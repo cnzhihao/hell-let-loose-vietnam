@@ -2,9 +2,14 @@ export const gameConfig = {
   name: 'Hell Let Loose: Vietnam',
   shortName: 'HLL: Vietnam',
   description:
-    'A source-backed, player-first field manual for Hell Let Loose: Vietnam, covering launch systems, modes, platforms and version-sensitive updates.',
-  status: 'Live — facts checked 2026-08-29',
+    'A source-backed, player-first Wiki for Hell Let Loose: Vietnam, covering launch systems, modes, platforms and version-sensitive updates.',
+  status: 'Live — facts checked 2026-08-30',
   defaultLocale: 'en' as const,
+  heroStats: [
+    { value: '50v50', label: 'battle scale' },
+    { value: '06', label: 'launch maps' },
+    { value: '19*', label: 'roles reported' },
+  ] as const,
   officialLinks: [
     {
       label: 'Official game page',

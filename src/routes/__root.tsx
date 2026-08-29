@@ -23,9 +23,9 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
-      { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+      { rel: 'icon', href: '/assets/hllv-wiki-favicon.png', type: 'image/png' },
       { rel: 'manifest', href: '/manifest.webmanifest' },
-      { rel: 'apple-touch-icon', href: '/icons/icon-192.png' },
+      { rel: 'apple-touch-icon', href: '/assets/hllv-wiki-icon-192.png' },
     ],
   }),
   shellComponent: RootDocument,
@@ -44,7 +44,7 @@ function RootLayout() {
     <div className="isolate min-h-screen">
       <a
         href="#main-content"
-        className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-lg border-2 border-ink bg-yellow px-4 py-2 font-black text-ink shadow-brutal focus:translate-y-0"
+        className="fixed left-4 top-4 z-[100] -translate-y-24 border border-yellow bg-green px-4 py-2 font-black text-paper focus:translate-y-0"
       >
         {message('skip_to_content', locale)}
       </a>
@@ -70,7 +70,7 @@ function NotFound() {
         id="main-content"
         className="mx-auto flex min-h-[68vh] max-w-3xl flex-col items-start justify-center px-6 py-20"
       >
-        <span className="rounded-full border-2 border-ink bg-orange px-4 py-1 font-black text-ink">
+        <span className="field-label border border-orange bg-orange px-4 py-2 text-paper">
           404
         </span>
         <h1 className="mt-6 text-5xl font-black tracking-[-0.03em]">
@@ -80,7 +80,7 @@ function NotFound() {
           {message('not_found_description', locale)}
         </p>
         <a
-          className="mt-8 rounded-lg border-2 border-ink bg-yellow px-5 py-3 font-black text-ink shadow-brutal"
+          className="mt-8 border border-ink bg-orange px-5 py-3 font-black text-paper no-underline hover:bg-orange-strong"
           href="/wiki"
         >
           {message('not_found_action', locale)}

@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { websiteConfig } from '@/config/website';
 import { getWikiEntryHref, wikiCategories, wikiEntries } from '@/content/site';
 
@@ -40,6 +42,61 @@ for (const entry of wikiEntries) {
     errors.push(`duplicate entry path: ${path}`);
   }
   entryPaths.add(path);
+
+  if (entry.tags.length === 0) {
+    errors.push(`entry has no topic tags: ${entry.slug}`);
+  }
+  if (new Set(entry.tags).size !== entry.tags.length) {
+    errors.push(`entry has duplicate topic tags: ${entry.slug}`);
+  }
+
+  const visuals = [
+    ...entry.sections.flatMap((section) => section.visuals ?? []),
+    ...(entry.steps ?? []).flatMap((step) =>
+      step.visual ? [step.visual] : []
+    ),
+  ];
+  for (const visual of visuals) {
+    if (visual.src.startsWith('/')) {
+      const assetPath = resolve('public', visual.src.slice(1));
+      if (!existsSync(assetPath)) {
+        errors.push(
+          `${entry.slug} references missing visual asset: ${visual.src}`
+        );
+      }
+    } else {
+      try {
+        const url = new URL(visual.src);
+        if (!['http:', 'https:'].includes(url.protocol)) {
+          errors.push(
+            `${entry.slug} has a non-web visual source: ${visual.src}`
+          );
+        }
+      } catch {
+        errors.push(
+          `${entry.slug} has an invalid visual source: ${visual.src}`
+        );
+      }
+    }
+    try {
+      const sourceUrl = new URL(visual.sourceHref);
+      if (!['http:', 'https:'].includes(sourceUrl.protocol)) {
+        errors.push(`${entry.slug} has a non-web visual attribution URL`);
+      }
+    } catch {
+      errors.push(`${entry.slug} has an invalid visual attribution URL`);
+    }
+    for (const annotation of visual.annotations ?? []) {
+      if (
+        annotation.x < 0 ||
+        annotation.x > 100 ||
+        annotation.y < 0 ||
+        annotation.y > 100
+      ) {
+        errors.push(`${entry.slug} has an out-of-bounds visual annotation`);
+      }
+    }
+  }
 
   for (const relatedSlug of entry.relatedSlugs) {
     if (
