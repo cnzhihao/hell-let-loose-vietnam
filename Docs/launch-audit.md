@@ -281,3 +281,11 @@ Keep the verified Cloudflare Route and template-safe noindex/robots/sitemap beha
 ### Remaining evidence boundary
 
 The role-count discrepancy (official landing page 19 versus current Steam About roster 17), complete official weapon/loadout matrix, universal map route/tactical evidence and exact current-client control tables remain documented as evidence work. They do not block submitting the currently selected 17 source-backed URLs, but the 10 bounded pages must stay out of the sitemap until independently verified.
+
+## 2026-08-30 GSC and Bing ownership/submission
+
+- Google Search Console ownership for `https://hellletloosevietnamguide.site/` was verified successfully with the Cloudflare domain-name-provider flow. Cloudflare authorized the one-time addition of the TXT record `google-site-verification=syuNDsdFjpNhpj7Rr9io5No6uqrBV9-rLHnptXvVmtw`; the record must remain in DNS to retain verification.
+- Google Search Console accepted `/sitemap.xml` for submission. The immediate Sitemaps view showed `Couldn't fetch` / `0` discovered pages while processing; an independent public check at `https://hellletloosevietnamguide.site/sitemap.xml` returned HTTP 200 with `application/xml` and the expected 26 production URLs. This is recorded as submitted but pending Google’s next read, not as successfully crawled yet.
+- Bing Webmaster Tools imported exactly one site from the verified GSC account: `https://hellletloosevietnamguide.site/`. Its Sitemaps view contains `https://hellletloosevietnamguide.site/sitemap.xml` with `Imported · Processing`, `Sitemaps with errors: 0` and `Sitemaps with warnings: 0` at submission time; discovered URLs had not populated yet.
+- No URL Inspection indexing requests were made. No robots, sitemap, canonical, `isTemplate` or content changes were made during this external submission pass. The site remains in the already-approved production-ready mode; indexing submission does not imply that Google or Bing has indexed the pages or that traffic exists.
+- Next verification: recheck the Google Sitemaps status and Bing discovered-URL count after processing time. If Google continues to report a fetch error despite the public 200 response, inspect the detailed sitemap error and only then decide whether a resubmission or technical change is warranted.
