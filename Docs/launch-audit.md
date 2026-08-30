@@ -238,8 +238,45 @@ Keep the verified Cloudflare Route and template-safe noindex/robots/sitemap beha
 - Metadata and structure: category, Wiki and Guides directory heads now include self canonical, 70–160 character descriptions, OG image metadata and Twitter card metadata. All audited sitemap pages have one H1; the previous Guides H1-to-H3 jump is resolved.
 - Image stability: visual and logo `<img>` elements now carry intrinsic width and height attributes. Visual dimensions match the registered public assets; no new YouTube binary asset was added because the current content did not require additional visual evidence.
 - Local verification completed after the changes: `pnpm locale:compile`, `jq empty Docs/keywords.json public/assets/asset-manifest.json`, `pnpm content:check`, `pnpm check`, `pnpm build`, `pnpm e2e` (25 passed, 1 skipped), `git diff --check`, plus a 26-route rendered word-count and head-contract crawl. The build retains only the existing large-bundle advisory.
-- The browser SEO tool’s initial 26-page audit identified the content-depth, image-dimension, directory social-meta and heading issues that this pass addresses. A post-change resubmission to that credit-consuming external tool remains pending action-time confirmation; its final score has not been claimed here.
-- Template/launch safety is unchanged: the current production-origin settings remain unchanged, the ready sitemap contract is unchanged, and no GSC/Bing submission or index request was performed. These changes are currently local and uncommitted, so the public domain must not be considered synchronized until a separately authorized push and deployment.
+- The browser SEO tool’s initial 26-page audit identified the content-depth, image-dimension, directory social-meta and heading issues that this pass addresses. The public post-change resubmission is recorded below; no score is inferred from the local crawl alone.
+- The production runtime for commit `f13e431` was deployed as Worker version `b928e7c9-0843-47e8-84b4-b64a1def1312` before the external resubmission. The public domain was then compared with the local render across all 26 URLs and found identical for visible main content, title, description, canonical and robots.
+
+## 2026-08-30 Public on-page SEO resubmission
+
+- The user explicitly authorized pushing and deploying before submitting the audit. All 26 submissions below used `https://hellletloosevietnamguide.site`, never the local development server.
+- Result: 26/26 completed; average score `92.12`; range `89–99`; 25 pages received `A · 优秀` and one page received `B · 良好`. The tool reported public word counts from `1,323` to `1,846`; every page met the requested 1,200-word minimum. Meta, links, images/media, social/structured-data and technical/crawl sections were full score on every page.
+
+| Public route | Score | Grade | Tool words |
+|---|---:|---|---:|
+| `/` | 93 | A | 1,846 |
+| `/guides` | 94 | A | 1,428 |
+| `/wiki` | 99 | A | 1,715 |
+| `/wiki/basics` | 93 | A | 1,323 |
+| `/wiki/battlefield` | 93 | A | 1,537 |
+| `/wiki/roles` | 92 | A | 1,393 |
+| `/wiki/systems` | 94 | A | 1,413 |
+| `/wiki/access` | 94 | A | 1,396 |
+| `/wiki/updates` | 93 | A | 1,347 |
+| `/wiki/basics/game-overview` | 92 | A | 1,515 |
+| `/guides/beginner` | 91 | A | 1,675 |
+| `/wiki/battlefield/launch-maps` | 92 | A | 1,521 |
+| `/wiki/battlefield/game-modes` | 91 | A | 1,549 |
+| `/wiki/systems/tunnels-helicopters` | 90 | A | 1,440 |
+| `/wiki/systems/movement-and-teamplay` | 89 | B | 1,409 |
+| `/wiki/access/release-and-platforms` | 91 | A | 1,394 |
+| `/wiki/access/crossplay-and-platforms` | 91 | A | 1,432 |
+| `/wiki/access/pc-requirements` | 92 | A | 1,424 |
+| `/wiki/updates/patch-1-3` | 92 | A | 1,355 |
+| `/wiki/updates/patch-1-2` | 92 | A | 1,402 |
+| `/wiki/updates/roadmap-2026` | 90 | A | 1,416 |
+| `/guides/join-a-squad` | 92 | A | 1,568 |
+| `/guides/voice-chat` | 92 | A | 1,426 |
+| `/guides/best-settings` | 91 | A | 1,408 |
+| `/guides/crashing-fixes` | 91 | A | 1,469 |
+| `/wiki/access/editions-and-buying` | 91 | A | 1,379 |
+
+- Remaining findings: the tool flags a generic “landing page handoff” on 24 Wiki/editorial pages because it treats useful internal links as jump-only entries and does not recognize an editorial answer as a product interaction. No artificial calculator, form or other fake interaction was added. It also gives phrase-level warnings for exact keyword presence in descriptions/H2s and a partial title/H1 match on `movement-and-teamplay`; these are natural-language scoring notes, not crawl or indexation failures. The page is intentionally not keyword-stuffed, and the page-specific answer, source boundary and related action remain the priority.
+- Public recheck also passed the 26-route head contract, 26 sitemap URLs, production robots policy, legacy 301, unknown-route 404, manifest, public/local visible-content comparison and public Playwright E2E. No GSC/Bing verification, sitemap submission or index request was performed.
 
 ### Remaining evidence boundary
 
