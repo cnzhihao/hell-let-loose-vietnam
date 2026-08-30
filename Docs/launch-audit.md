@@ -206,3 +206,15 @@ Keep the verified Cloudflare Route and template-safe noindex/robots/sitemap beha
 - Evidence-page rendering: roles (2 tables), weapons (3 tables), helicopter controls (2 tables) and all six map pages (2 tables each) rendered the new cross-check material. The 320px Playwright check found document width equal to viewport width and one H1 on every updated route; no horizontal overflow was detected.
 - Full local commands passed after the evidence update: `pnpm locale:compile`, `jq empty Docs/keywords.json public/assets/asset-manifest.json`, `pnpm content:check`, `pnpm research:check`, `pnpm theme:check`, `pnpm check`, `pnpm build`, `pnpm e2e` (25 passed, 1 skipped) and `git diff --check`.
 - Decision: keep template mode. `websiteConfig.url` remains `null`, `websiteConfig.isTemplate` remains `true`, all entries remain `indexable: false`, robots remains blocked and sitemap remains empty. Local changes are not yet committed, pushed, deployed or synchronized to the public domain.
+
+## 2026-08-30 Authorized push and deployment after evidence expansion
+
+- The evidence-expansion implementation and synchronized research documents were committed as `02ebcb4` (`Complete current-build evidence expansion`) and pushed successfully to `origin/main`.
+- `pnpm run deploy` passed against the existing Worker `hll-vietnam-field-manual`; the deployed Worker version is `d48f502d-2198-4b00-9a26-ccc169180f98`.
+- The Worker remains attached to `hellletloosevietnamguide.site/*`; the public preview URL remains `https://hll-vietnam-field-manual.zhcnzhihao.workers.dev`.
+- Public post-deployment checks passed: `/` and `/wiki/roles/vehicles` returned 200, `/guides/map` returned 301 to `/wiki/battlefield/launch-maps`, the unknown Wiki route returned 404, `/assets/hllv-wiki-favicon.png` returned 200 `image/png`, and `/manifest.webmanifest` returned 200 `application/manifest+json`.
+- Public route/head audit passed for all 36 declared HTML routes: each returned one H1, a non-empty title and description, a self canonical, matching `og:url`, English language and `noindex, nofollow`.
+- Public template endpoints remain closed: `/robots.txt` is exactly `User-agent: *` plus `Disallow: /`, and `/sitemap.xml` contains zero `<loc>` entries.
+- Public-domain Playwright E2E passed with 25 tests passed and 1 mobile-only test skipped. The local pre-push E2E also passed with the same result. The existing large-bundle advisory is the only build warning.
+- Template safety was not relaxed: `websiteConfig.url` remains `null`, `websiteConfig.isTemplate` remains `true`, every entry remains `indexable: false`, and no GSC/Bing/GA setup, index request or sitemap submission was performed.
+- The follow-up audit-record commit changes documentation only; it does not alter the deployed runtime bundle. The site runtime corresponds to commit `02ebcb4`.
