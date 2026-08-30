@@ -16,6 +16,7 @@ import type {
   WikiCategory,
   WikiEntry,
   WikiStep,
+  WikiTable,
   WikiVisual,
 } from '@/content/types';
 import { fieldEvidenceVisuals } from '@/content/visuals';
@@ -150,6 +151,34 @@ function WikiStepList({ steps }: { steps: readonly WikiStep[] }) {
         ))}
       </ol>
     </section>
+  );
+}
+
+function WikiTableView({ table }: { table: WikiTable }) {
+  return (
+    <div className="field-table-wrap">
+      <table className="field-table">
+        {table.caption && <caption>{table.caption}</caption>}
+        <thead>
+          <tr>
+            {table.headers.map((header) => (
+              <th key={header} scope="col">
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {table.rows.map((row) => (
+            <tr key={row.join('|')}>
+              {row.map((cell) => (
+                <td key={`${cell}-${row.join('|')}`}>{cell}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
@@ -885,6 +914,16 @@ export function WikiEntryPage({
                         <li key={bullet}>{bullet}</li>
                       ))}
                     </ul>
+                  )}
+                  {section.tables && section.tables.length > 0 && (
+                    <div className="mt-6 grid gap-4">
+                      {section.tables.map((table) => (
+                        <WikiTableView
+                          key={table.caption ?? table.headers.join('|')}
+                          table={table}
+                        />
+                      ))}
+                    </div>
                   )}
                   {section.visuals && section.visuals.length > 0 && (
                     <div className="mt-6 grid gap-5 md:grid-cols-2">

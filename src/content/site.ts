@@ -1,6 +1,6 @@
 import { gameConfig } from '@/config/game';
 import { expansionEntries } from './entries/expansion';
-import type { TopicTag, WikiCategory, WikiEntry } from './types';
+import type { TopicTag, WikiCategory, WikiEntry, WikiTable } from './types';
 import { officialVisuals } from './visuals';
 
 const checked = '2026-08-30';
@@ -131,6 +131,91 @@ export const homepageQuickAnswers = [
     label: 'Latest patch',
   },
 ] as const;
+
+const currentRoleLoadoutTable: WikiTable = {
+  caption:
+    '17 named roles cross-checked against 25 community-documented loadouts · snapshot 24623236 / current game 24741237',
+  headers: [
+    'Official role',
+    'Unit',
+    'Loadouts recorded',
+    'Named loadout profiles',
+  ],
+  rows: [
+    [
+      'Commander (database: Army Commander)',
+      'Command',
+      '2',
+      'NVA Standard Issue; US Standard Issue',
+    ],
+    [
+      'Squad Leader',
+      'Infantry',
+      '0',
+      'No complete loadout record in the snapshot',
+    ],
+    [
+      'Rifleman',
+      'Infantry',
+      '4',
+      'NVA Bayonet; NVA Standard Issue; US Bayonet; US Standard Issue',
+    ],
+    [
+      'Grenadier',
+      'Infantry',
+      '0',
+      'No complete loadout record in the snapshot',
+    ],
+    [
+      'Engineer',
+      'Infantry',
+      '3',
+      'NVA Combat Engineer; NVA Engineer; US Standard Issue',
+    ],
+    [
+      'Medic',
+      'Infantry',
+      '3',
+      'NVA K50M; NVA Standard Issue; US Standard Issue',
+    ],
+    [
+      'Specialist',
+      'Infantry',
+      '0',
+      'No complete loadout record in the snapshot',
+    ],
+    [
+      'Machine Gunner',
+      'Infantry',
+      '3',
+      'NVA Anti-Air; NVA Standard Issue; US Standard Issue',
+    ],
+    ['Spotter', 'Recon', '2', 'NVA Standard Issue; US Standard Issue'],
+    ['Sniper', 'Recon', '2', 'NVA Standard Issue; US Standard Issue'],
+    ['Tank Commander', 'Armour', '2', 'NVA Standard Issue; US Standard Issue'],
+    ['Crewman', 'Armour', '2', 'NVA Standard Issue; US Standard Issue'],
+    [
+      'Logistics Officer',
+      'Helicopter (US only)',
+      '0',
+      'No complete loadout record in the snapshot',
+    ],
+    [
+      'Pilot',
+      'Helicopter (US only)',
+      '0',
+      'No complete loadout record in the snapshot',
+    ],
+    [
+      'Observer',
+      'Mortar Squad',
+      '0',
+      'No complete loadout record in the snapshot',
+    ],
+    ['Support', 'Mortar Squad', '1', 'NVA Mortar Support'],
+    ['Gunner', 'Mortar Squad', '1', 'NVA Mortar Gunner'],
+  ],
+};
 
 const coreWikiEntries: readonly WikiEntry[] = [
   {
@@ -351,7 +436,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       {
         heading: '4. Choose a specialist role later',
         paragraphs: [
-          'After one or two matches, compare the role families on the Wiki. The official game page reports 19 specialised roles while Steam’s current About section reports 17; the full roster and role-by-role responsibilities need a reconciliation pass before this site turns them into a detailed class guide.',
+          'After one or two matches, compare the 17 named roles in the current Steam About section. The official game page separately reports 19 specialised roles without naming the extra two; use the named roster for navigation, then use the live role screen for availability, loadout and progression.',
         ],
       },
       {
@@ -612,17 +697,17 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'roles-and-units',
     categorySlug: 'roles',
-    title: 'Roles and Units',
+    title: 'Roles & Units: Current 17-Role Roster',
     pageType: 'entry',
     tags: ['roles', 'beginner', 'gameplay'],
     summary:
-      'What the official game page confirms about the role count and unit families, without inventing a full roster.',
-    lead: 'The official game page reports 19 specialised roles and names infantry, recon, armour, mortar and helicopter units. The current Steam About section reports 17, and neither source exposes a complete role-by-role roster, so this page deliberately stops at the source-qualified structure.',
-    metaTitle: 'Roles and Units — Hell Let Loose: Vietnam Wiki',
+      'The current Steam About section names 17 roles across six units, cross-checked against 25 community-documented loadout profiles; the official landing page separately advertises 19.',
+    lead: 'The current Steam About section provides a named 17-role roster across Command, Infantry, Recon, Armour, Helicopter and Mortar Squad. A current-build community database cross-check records 25 named loadout profiles, while the official game landing page separately says 19 specialised roles without naming the additional two. This page publishes both boundaries without inventing a reconciliation.',
+    metaTitle: 'Roles & Units: 17-Role Roster — Hell Let Loose: Vietnam Wiki',
     metaDescription:
-      'The official role count and unit families in Hell Let Loose: Vietnam, with a clear boundary around the not-yet-verified full roster.',
+      'The current named 17-role roster for Hell Let Loose: Vietnam, grouped by unit, with the official 19-versus-17 count discrepancy kept explicit.',
     status: gameConfig.status,
-    evidenceState: 'single-official-source',
+    evidenceState: 'community-lead',
     updated: checked,
     keywords: [
       'hell let loose vietnam roles',
@@ -634,24 +719,28 @@ const coreWikiEntries: readonly WikiEntry[] = [
     facts: [
       {
         label: 'Specialised roles',
-        value: '19 on official game page; 17 in Steam About section',
+        value: '17 named in the current Steam About section',
       },
       {
-        label: 'Named unit families',
-        value: 'Infantry, recon, armour, mortar and helicopter',
+        label: 'Named units',
+        value: 'Command, Infantry, Recon, Armour, Helicopter, Mortar Squad',
       },
       {
-        label: 'Full roster',
-        value: 'Pending a separate source-backed roster pass',
+        label: 'Official landing-page count',
+        value: '19 specialised roles; two additional names are not published',
+      },
+      {
+        label: 'Loadout cross-check',
+        value: '25 named profiles across the 17-role current-build snapshot',
       },
     ],
     steps: [
       {
         title: 'Choose a battlefield job',
         action:
-          'Start with the task you can explain to the squad—ground movement, reconnaissance, armour, mortar support or helicopter work—rather than chasing a role number.',
+          'Start with the unit group that matches the task you can explain to the squad: command, infantry, recon, armour, helicopter or mortar support.',
         successSignal:
-          'You can state what your chosen unit family contributes.',
+          'You can identify the unit group and the named role you want to try.',
       },
       {
         title: 'Complete the relevant tutorial',
@@ -661,42 +750,81 @@ const coreWikiEntries: readonly WikiEntry[] = [
           'The current game allows the role and you understand its basic responsibility.',
       },
       {
-        title: 'Confirm the live role screen',
+        title: 'Confirm the current role screen',
         action:
-          'Use the current Barracks or deployment UI to verify the role name, faction, loadout and progression state for this build.',
+          'Use the current Barracks or deployment UI to verify the role name, faction, loadout and progression state for this build; this table is a name index, not a loadout promise.',
         successSignal:
-          'Your role note reflects the current UI rather than a community roster copied from another version.',
+          'Your selected role matches the current UI and the table is not being used to infer availability or equipment.',
+      },
+      {
+        title: 'Record the role context',
+        action:
+          'When testing a role, record faction, mode, platform and build beside the observation so later patches do not silently rewrite the roster context.',
+        successSignal:
+          'A player observation can be checked against the same role and build.',
       },
       {
         title: 'Keep the count discrepancy visible',
         action:
-          'If you publish or share a roster note, record whether it came from the official game page or Steam About section until those counts are reconciled.',
+          'If you share this roster, say that the 17 names come from the current Steam About section while the official landing page still advertises 19 without naming two more roles.',
         successSignal:
-          'Readers can tell a verified source fact from a pending roster detail.',
+          'Readers can distinguish the named roster from the unresolved headline count.',
       },
     ],
     sections: [
       {
-        heading: 'Confirmed structure',
+        heading: 'Current named roster',
         paragraphs: [
-          'The official page frames roles as part of a larger combined-arms structure. It names five unit families and reports 19 specialised roles, while Steam’s current About section reports 17. That discrepancy is enough reason to orient a new player without publishing every role name or responsibility as settled fact.',
+          'The following 17 names are transcribed from the current Steam About section and grouped exactly by its six unit headings. The list identifies roles; it does not by itself establish faction availability, unlock level, loadout or tactical responsibility.',
         ],
-        bullets: [
-          'Infantry and recon cover ground-oriented team functions.',
-          'Armour, mortar and helicopter units add vehicle and fire-support layers.',
-          'The game page also points to dedicated role showcases, but a showcase is not treated as a complete roster table here.',
+        tables: [
+          {
+            caption: '17 names in the current Steam About section',
+            headers: ['Unit', 'Count', 'Named roles'],
+            rows: [
+              ['Command', '1', 'Commander'],
+              [
+                'Infantry',
+                '7',
+                'Squad Leader · Rifleman · Grenadier · Engineer · Medic · Specialist · Machine Gunner',
+              ],
+              ['Recon', '2', 'Spotter · Sniper'],
+              ['Armour', '2', 'Tank Commander · Crewman'],
+              ['Helicopter (US only)', '2', 'Logistics Officer · Pilot'],
+              ['Mortar Squad', '3', 'Observer · Support · Gunner'],
+            ],
+          },
         ],
       },
       {
-        heading: 'How to use this page',
+        heading: 'Current-build loadout cross-check',
         paragraphs: [
-          'Start with a role that lets you stay with your squad and learn the active objective. Once the full roster is verified, this page can branch into role-specific guides with a clear start state, success signal and troubleshooting section.',
+          'The table below cross-checks the 17 official role names against the public Hell Let Loose Vietnam Database snapshot. It records 25 named loadout profiles in total. A zero means that the database does not expose a complete loadout record for that role in this snapshot; it does not mean the role is unavailable or has no equipment in the live client.',
+          'The database labels the official Commander role as Army Commander and expands the Mortar Squad roles as Mortar Observer, Mortar Support and Mortar Gunner. Those labels are mapped here for navigation only. Verify the current faction, loadout and progression screen in-game before treating any equipment as universal.',
+        ],
+        tables: [currentRoleLoadoutTable],
+      },
+      {
+        heading: 'How to use the roster',
+        paragraphs: [
+          'Start with a non-command role that lets you stay with your squad and learn the active objective. Use the current role screen for availability and equipment, then record what the role actually exposed in your platform and build. The names above are a reliable navigation index, not a substitute for the in-game tutorial or loadout screen.',
+        ],
+        bullets: [
+          'Leave Commander and Squad Leader until the required tutorials are complete.',
+          'Use the unit heading to find a role family before comparing player advice.',
+          'Record a role observation with faction, mode, platform and build.',
+        ],
+      },
+      {
+        heading: '19 versus 17: unresolved official count',
+        paragraphs: [
+          'The official game landing page currently advertises 19 specialised roles, while the current Steam About section names 17. The official page does not publish the two additional names. This page therefore treats the 17 named roles as complete for the source it quotes, but leaves the cross-source count reconciliation open.',
         ],
       },
       {
         heading: 'Evidence boundary',
         paragraphs: [
-          'Do not turn community class lists, old Hell Let Loose guides or video titles into current HLL: Vietnam role facts without checking the official build and date. The count is verified; the complete list remains pending.',
+          'Role names and unit grouping are source-backed. The loadout table is a community-extracted current-build reference, not an official role matrix: its snapshot is version-bound, incomplete for six roles and uses database labels that do not always match the Steam headings. Per-role responsibilities, faction restrictions beyond the Steam heading, unlock paths and progression values still require a current client.',
         ],
       },
     ],
@@ -708,10 +836,34 @@ const coreWikiEntries: readonly WikiEntry[] = [
         note: sourceNotes.checked,
       },
       {
+        label: 'Official Steam store listing',
+        href: official.steam,
+        type: 'official',
+        note: 'Current About section checked 2026-08-30; names 17 roles across six unit headings. It does not reconcile the official landing page headline of 19.',
+      },
+      {
         label: 'Official developer Q&A #2',
         href: official.qna2,
         type: 'official',
-        note: 'Used only for the broader asymmetry and combined-arms context; it does not supply a complete roster.',
+        note: 'Used only for broader asymmetry and combined-arms context; it is not used to invent additional role names.',
+      },
+      {
+        label: 'Hell Let Loose Vietnam Database — roles',
+        href: 'https://hellletloosevietnamdb.com/database/roles',
+        type: 'reference',
+        note: 'Community-extracted current-build role index checked 2026-08-30; use as a cross-check, not official roster proof.',
+      },
+      {
+        label: 'Hell Let Loose Vietnam Database — loadouts',
+        href: 'https://hellletloosevietnamdb.com/database/loadouts',
+        type: 'reference',
+        note: '25 named loadout profiles in a public snapshot checked 2026-08-30; missing records remain blank and official/in-client verification takes precedence.',
+      },
+      {
+        label: 'Hell Let Loose Vietnam Database — data versions',
+        href: 'https://hellletloosevietnamdb.com/database/versions',
+        type: 'reference',
+        note: 'Lists current game Build 24741237 and gameplay snapshot Build 24623236; checked 2026-08-30.',
       },
     ],
     relatedSlugs: [
@@ -909,7 +1061,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       {
         heading: 'Control-key boundary',
         paragraphs: [
-          'This page intentionally does not publish a universal keybind table. Controls can vary by platform and build; confirm them in the current in-game settings before turning a tip into an exact instruction.',
+          'The Helicopter Controls guide now records one timestamped PC pilot profile from a current release-adjacent community video. It is useful as a starting point for that creator’s layout, not a universal default. Infantry, console and later-build controls still need confirmation in the current in-game settings before becoming exact instructions.',
         ],
       },
     ],
@@ -927,7 +1079,12 @@ const coreWikiEntries: readonly WikiEntry[] = [
         note: 'Checked 2026-08-30 for launch tips and teamplay framing.',
       },
     ],
-    relatedSlugs: ['beginner-guide', 'tunnels-helicopters', 'game-modes'],
+    relatedSlugs: [
+      'beginner-guide',
+      'tunnels-helicopters',
+      'helicopter-controls',
+      'game-modes',
+    ],
   },
   {
     slug: 'release-and-platforms',

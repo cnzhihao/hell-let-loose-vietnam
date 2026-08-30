@@ -59,10 +59,17 @@ export type WikiStep = {
   visual?: WikiVisual;
 };
 
+export type WikiTable = {
+  caption?: string;
+  headers: readonly string[];
+  rows: readonly (readonly string[])[];
+};
+
 export type WikiSection = {
   heading: string;
   paragraphs: readonly string[];
   bullets?: readonly string[];
+  tables?: readonly WikiTable[];
   visuals?: readonly WikiVisual[];
 };
 

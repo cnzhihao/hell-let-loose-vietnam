@@ -1,4 +1,4 @@
-import type { WikiEntry } from '../types';
+import type { WikiEntry, WikiSource, WikiTable } from '../types';
 import { officialVisuals } from '../visuals';
 
 const checked = '2026-08-30';
@@ -10,6 +10,7 @@ const official = {
   crossplay: 'https://www.hellletloose.com/blog/beta-testing-and-crossplay',
   pcRequirements: 'https://www.hellletloose.com/pc-requirements',
   patch13: 'https://www.hellletloose.com/blog/hllv-patch-1-3',
+  roadmap: 'https://www.hellletloose.com/blog/hllv-2026-roadmap',
   news: 'https://steamcommunity.com/app/3079210/allnews/',
   qna2: 'https://www.hellletloose.com/blog/dev-qna-2',
   steam: 'https://store.steampowered.com/app/3079210/Hell_Let_Loose_Vietnam/',
@@ -279,18 +280,446 @@ const mapEntries = [
   },
 ] as const;
 
+type MapFieldEvidence = {
+  heading: string;
+  paragraphs: readonly string[];
+  bullets: readonly string[];
+  source: WikiSource;
+};
+
+const mapFieldEvidence: Record<string, MapFieldEvidence> = {
+  'thanh-hoa-bridge': {
+    heading: 'Reviewer field observation (not a fixed route)',
+    paragraphs: [
+      'A GamesRadar reviewer’s first match on Thanh Hóa Bridge describes the bridge as the central focal point. The same account says NVA jungle trails and tunnels support pushes from different sides, while US approaches benefit from cover toward the bridge and can use air support if NVA hold high ground.',
+      'This is one reviewer’s match observation, not a guaranteed sector order, strongpoint rotation or “best route”. Confirm the current mode and objective on the tactical map before applying it.',
+    ],
+    bullets: [
+      'Bridge: exposed focal crossing and an obvious place to ask where the objective is pulling the squad.',
+      'NVA example: side approaches through jungle trails and tunnel-supported movement.',
+      'US example: cover toward the bridge and possible air support when the opposing side holds high ground.',
+      'Boundary: review context only; no fixed sector, strongpoint or universal route is claimed.',
+    ],
+    source: {
+      label: 'GamesRadar+ Thanh Hóa Bridge field feature',
+      href: 'https://www.gamesradar.com/games/fps/if-you-like-battlefield-at-its-most-chaotic-i-promise-youll-love-digging-tunnels-and-flying-choppers-in-hell-let-loose-vietnam/',
+      type: 'reference',
+      note: 'Pre-release GamesRadar match observation checked 2026-08-30; it is not current official sector data or a fixed route guide.',
+    },
+  },
+  'hue-outskirts': {
+    heading: 'Community match example (not a best route)',
+    paragraphs: [
+      'In a public release-day Huế Outskirts video, IronHeart Gaming’s transcript shows a player moving through a bridge and boat sequence, calling a dock near the factory, and capturing then losing an “Industrial” objective.',
+      'Use it as route vocabulary only: bridge → PBR/boat → factory-side dock → Industrial was one match’s sequence. The mode, objective state, spawn state and exact build are not established as universal.',
+    ],
+    bullets: [
+      '02:18 — bridge/boat movement is discussed.',
+      '03:04 — a boat drops supplies.',
+      '04:04 — the player calls the dock near the factory as a side approach.',
+      '04:57–05:11 — “Industrial” is captured and then lost.',
+      'Boundary: player example only; it does not define a fixed strongpoint order or best route.',
+    ],
+    source: {
+      label: 'IronHeart Gaming — Huế Outskirts gameplay',
+      href: 'https://www.youtube.com/watch?v=GDExGBEwy0w&t=138s',
+      type: 'community',
+      note: 'Published 2026-08-13; transcript checked 2026-08-30; exact build not stated; player example only.',
+    },
+  },
+};
+
+type MapObjective = readonly [label: string, grid: string];
+
+type CurrentMapObjectiveData = {
+  conquest: readonly MapObjective[];
+  domination: readonly MapObjective[];
+};
+
+const mapDatabaseSource: WikiSource = {
+  label: 'Hell Let Loose Vietnam Database — interactive map index',
+  href: 'https://hellletloosevietnamdb.com/database/world/map',
+  type: 'reference',
+  note: 'Community-extracted map data checked 2026-08-30; objective labels and grid references are a current-build lookup, not official sector data or a fixed route.',
+};
+
+const mapDatabaseVersionSource: WikiSource = {
+  label: 'Hell Let Loose Vietnam Database — data versions',
+  href: 'https://hellletloosevietnamdb.com/database/versions',
+  type: 'reference',
+  note: 'The public data page lists current game Build 24741237 and gameplay snapshot Build 24623236; its own caveat says official updates and in-game verification take precedence.',
+};
+
+const currentMapObjectiveData: Record<string, CurrentMapObjectiveData> = {
+  'cam-ranh-port': {
+    conquest: [
+      ['DRY CREEK BED', 'H6'],
+      ['BASE HEADQUARTERS', 'F6'],
+      ['DELONG PIERS', 'E7'],
+      ['CHECKPOINT', 'C6'],
+      ['CANTONMENT OUTSKIRTS', 'F4'],
+    ],
+    domination: [
+      ['POL STORAGE', 'B3'],
+      ['ROADSIDE CAMP', 'D4'],
+      ['CANTONMENT OUTSKIRTS', 'E4'],
+      ['DESERT/JUNGLE CROSSING', 'H3'],
+      ['JUNGLE HILL', 'I3'],
+      ['SIGNAL SITE', 'B5'],
+      ['CHECKPOINT', 'D6'],
+      ['BASE CAMP', 'E6'],
+      ['DRY CREEK BED', 'H6'],
+      ['MAINTENANCE MARKET', 'I5'],
+      ['POL JETTY', 'B7'],
+      ['AMMO PIER', 'D7'],
+      ['DELONG PIERS', 'E7'],
+      ['STORAGE YARD', 'G7'],
+      ['COMMUNICATIONS CENTRE', 'I7'],
+    ],
+  },
+  'dak-to-airfield': {
+    conquest: [
+      ['MED EVAC STATION', 'C5'],
+      ['SPECIAL FORCES CAMP', 'F6'],
+      ['AMMO DUMP', 'H5'],
+      ['PATROL BOAT DOCKS', 'F7'],
+      ['SHOOTING RANGE', 'F3'],
+    ],
+    domination: [
+      ['ROUTE TO ARVN BASE', 'B4'],
+      ['AIRBORNE CAMP', 'C3'],
+      ['FORTIFIED BRIDGE', 'B7'],
+      ['DESERTED FARMLAND', 'D7'],
+      ['PATROL BOAT DOCKS', 'F7'],
+      ['RIVER LOOKOUT', 'H7'],
+      ['NVA BOAT LANDING', 'I7'],
+      ['SHOOTING RANGE', 'E3'],
+      ['C130 WRECKAGE', 'H4'],
+      ['TERMINAL', 'I4'],
+      ['US RADIO RELAY', 'B5'],
+      ['MED EVAC STATION', 'C5'],
+      ['SPECIAL FORCES CAMP', 'F5'],
+      ['AMMO DUMP', 'H5'],
+      ['ABANDONED DWELLING', 'I5'],
+    ],
+  },
+  'hue-outskirts': {
+    conquest: [
+      ['FACTORY CHECKPOINT', 'F4'],
+      ['INDUSTRIAL ZONE', 'F5'],
+      ['ARMOURED CHECKPOINT', 'E7'],
+      ['US OVERLOOK', 'D6'],
+      ['HILLTOP PASS', 'H5'],
+    ],
+    domination: [
+      ['MARKET TOWN', 'C2'],
+      ['RIVERSIDE PLANTATION', 'F2'],
+      ['ARMOURED CHECKPOINT', 'F7'],
+      ['US CHECKPOINT', 'H8'],
+      ['SOUTHERN HAMLET', 'D9'],
+      ['RANSACKED FARM', 'E9'],
+      ['US TOB', 'H9'],
+      ['HIDDEN ENCAMPMENT', 'H2'],
+      ['LOST CONVOY', 'C4'],
+      ['FACTORY CHECKPOINT', 'F4'],
+      ['SOUTHERN CLIMB', 'H4'],
+      ['US OVERLOOK', 'C6'],
+      ['INDUSTRIAL ZONE', 'F5'],
+      ['HILLTOP PASS', 'H5'],
+      ['MOUNTAIN BASE CAMP', 'D7'],
+    ],
+  },
+  'quang-ngai': {
+    conquest: [
+      ['LIMESTONE CAVE', 'F3'],
+      ['FISHING VILLAGE', 'C6'],
+      ['JUNGLE FARMSTEAD', 'H6'],
+      ['FLOODED VILLAGE', 'F6'],
+      ['SCISSOR CROSSING', 'E8'],
+    ],
+    domination: [
+      ['LZ OAK', 'B4'],
+      ['JUNGLE HILLSIDE', 'D4'],
+      ['LIMESTONE CAVE', 'F3'],
+      ['HIDDEN NVA CAMP', 'G4'],
+      ['NVA SUPPLY CACHE', 'I3'],
+      ['US RECON CAMP', 'B6'],
+      ['FISHING VILLAGE', 'C6'],
+      ['FLOODED VILLAGE', 'F6'],
+      ['JUNGLE FARMSTEAD', 'H5'],
+      ['EASTERN BANK', 'I6'],
+      ['RIVERSIDE FARM', 'B8'],
+      ['JUNGLE CROSSROADS', 'D7'],
+      ['SCISSOR CROSSING', 'F8'],
+      ['ABANDONED HAMLET', 'G8'],
+      ['TWIN ISLANDS', 'I8'],
+    ],
+  },
+  'thanh-hoa-bridge': {
+    conquest: [
+      ['TRAINYARD', 'H6'],
+      ['FORTIFIED TRAIN STATION', 'C6'],
+      ['Unresolved objective · 8278E47A', 'F4'],
+      ['DRAGONS JAW', 'E6'],
+      ['NVA RIVER CHECKPOINT', 'F7'],
+    ],
+    domination: [
+      ['BOATYARD', 'D2'],
+      ['RAILWAY CHECKPOINT', 'F2'],
+      ['NVA RIVER CHECKPOINT', 'F7'],
+      ['Unresolved objective · THA_L_1965_CP_Sector11', 'G7'],
+      ['US ENCAMPMENT', 'C9'],
+      ['US PBR CAMP', 'E9'],
+      ['Unresolved objective · THA_L_1965_CP_Sector14', 'H9'],
+      ['Unresolved objective · THA_L_1965_CP_Sector2', 'H2'],
+      ['Unresolved objective · THA_L_1965_CP_Sector3', 'D4'],
+      ['Unresolved objective · THA_L_1965_CP_Sector4', 'F4'],
+      ['Unresolved objective · THA_L_1965_CP_Sector5', 'H3'],
+      ['FORTIFIED TRAIN STATION', 'D5'],
+      ['DRAGONS JAW', 'E6'],
+      ['TRAINYARD', 'H5'],
+      ['RAILWAY VILLAGE', 'D8'],
+    ],
+  },
+  'van-tuong': {
+    conquest: [
+      ['JUNGLE OUTPOST', 'F4'],
+      ['LAGOON OVERLOOK', 'C6'],
+      ['NVA RELAY STATION', 'G6'],
+      ['RIVERSIDE VILLAGE', 'E7'],
+      ['Unresolved objective · C09803AE', 'F6'],
+    ],
+    domination: [
+      ['Unresolved objective · VAN_L_1965_CP_Sector0', 'B3'],
+      ['RIVER CHECKPOINT', 'C3'],
+      ['Unresolved objective · VAN_L_1965_CP_Sector10', 'B7'],
+      ['JUNGLE CLEARING CAMP', 'C7'],
+      ['RIVERSIDE VILLAGE', 'E7'],
+      ['Unresolved objective · VAN_L_1965_CP_Sector13', 'G7'],
+      ["RIVER'S END", 'I8'],
+      ['JUNGLE OUTPOST', 'F4'],
+      ['Unresolved objective · VAN_L_1965_CP_Sector3', 'H3'],
+      ['PHASE LINE APPLE', 'I3'],
+      ['LZ BLUE PERIMETER', 'B5'],
+      ['LAGOON OVERLOOK', 'C6'],
+      ['Unresolved objective · VAN_L_1965_CP_Sector7', 'E6'],
+      ['NVA RELAY STATION', 'G6'],
+      ['Unresolved objective · VAN_L_1965_CP_Sector9', 'I6'],
+    ],
+  },
+};
+
+const currentWeaponCrossCheckTable: WikiTable = {
+  caption:
+    '20 weapon-like records in the public snapshot · 18 named display labels + 2 unresolved records',
+  headers: [
+    'Snapshot record',
+    'Classification shown',
+    'Loadout references',
+    'Boundary',
+  ],
+  rows: [
+    [
+      'M16A1',
+      'Primary · rifle',
+      '6',
+      'Named record; verify role and faction in-client',
+    ],
+    [
+      'M16A1 Bayonet',
+      'Primary · rifle',
+      '1',
+      'Named record; verify variant availability in-client',
+    ],
+    [
+      'M16A1-M203',
+      'Primary · rifle / grenade launcher',
+      '1',
+      'Named record; verify role and ammunition in-client',
+    ],
+    [
+      'M1911A1',
+      'Secondary · pistol',
+      '7',
+      'Named record; Patch 1.3 also names it',
+    ],
+    [
+      'M3 Knife',
+      'Melee',
+      '12',
+      'Named record; sidearm/equipment context varies',
+    ],
+    [
+      'M40',
+      'Primary · sniper rifle',
+      '1',
+      'Named record; verify role and faction in-client',
+    ],
+    [
+      'M60',
+      'Primary · machine gun',
+      '1',
+      'Named record; verify role and faction in-client',
+    ],
+    [
+      'M79',
+      'Secondary · grenade launcher',
+      '1',
+      'Named record; Patch 1.3 also names it',
+    ],
+    [
+      'Model 77E',
+      'Primary · shotgun',
+      '1',
+      'Named record; verify role and faction in-client',
+    ],
+    [
+      'Knife',
+      'Melee',
+      '18',
+      'Named record; faction-specific label context varies',
+    ],
+    [
+      'IZH 58',
+      'Primary · shotgun',
+      '1',
+      'Named record; verify role and faction in-client',
+    ],
+    [
+      'K50M',
+      'Primary · submachine gun',
+      '4',
+      'Named record; verify role and faction in-client',
+    ],
+    [
+      'K50M Drum',
+      'Primary · submachine gun',
+      '1',
+      'Named record; verify variant availability in-client',
+    ],
+    [
+      'RPD',
+      'Primary · machine gun',
+      '1',
+      'Named record; verify role and faction in-client',
+    ],
+    [
+      'Type 53 N4 Rifle Launcher',
+      'Primary · rifle / grenade launcher',
+      '1',
+      'Named record; verify role and ammunition in-client',
+    ],
+    [
+      'Type 53 PU',
+      'Primary · sniper rifle',
+      '1',
+      'Named record; verify role and faction in-client',
+    ],
+    [
+      'Type 54',
+      'Secondary · pistol',
+      '6',
+      'Named record; verify role and faction in-client',
+    ],
+    [
+      'Type 56 Bayonet',
+      'Primary · rifle',
+      '1',
+      'Named record; verify variant availability in-client',
+    ],
+    [
+      'arsenal-nva-type56-ak',
+      'No display label',
+      '1',
+      'Unresolved record ID; no weapon name invented',
+    ],
+    [
+      'arsenal-nva-type53-mosin',
+      'No display label',
+      '1',
+      'Unresolved record ID; no weapon name invented',
+    ],
+  ],
+};
+
+const helicopterBindingCrossCheckTable: WikiTable = {
+  caption:
+    'Two published PC catalogues compared with one creator profile · not a universal default chart',
+  headers: [
+    'Action',
+    'Cross-published PC catalogue',
+    'KAISER profile',
+    'Decision rule',
+  ],
+  rows: [
+    [
+      'Pitch forward / backward',
+      'W / S',
+      'Mouse',
+      'Sources conflict; read the current Controls screen',
+    ],
+    [
+      'Roll left / right',
+      'A / D',
+      'Mouse',
+      'Sources conflict; test direction in Practice Range',
+    ],
+    [
+      'Yaw left / right',
+      'Left / right mouse button',
+      'A / D described as left/right aircraft input; axis is ambiguous',
+      'Do not infer the axis from the label alone',
+    ],
+    [
+      'Collective increase / reduce',
+      'Space / Left Ctrl',
+      'W / S',
+      'Sources conflict; test altitude input before takeoff',
+    ],
+    [
+      'Auto-level',
+      'Left Shift',
+      'Space',
+      'Sources conflict; use the displayed binding',
+    ],
+    [
+      'Helicopter supply drop',
+      'E',
+      'E',
+      'The only converging binding; verify seat and role context',
+    ],
+    [
+      'Control helicopter with mouse',
+      'Settings workflow recommends checking this toggle',
+      'On at about 02:05',
+      'Visible creator setting; not a universal default',
+    ],
+    [
+      'Recon flare (co-pilot)',
+      'Not recorded',
+      'Space',
+      'Role-gated player example; current UI wins',
+    ],
+  ],
+};
+
 function makeMapEntry(map: (typeof mapEntries)[number]): WikiEntry {
+  const fieldEvidence = mapFieldEvidence[map.slug];
+  const currentData = currentMapObjectiveData[map.slug];
+
   return {
     slug: map.slug,
     categorySlug: 'battlefield',
     title: map.title,
     pageType: 'entry',
-    summary: `Official profile: ${map.terrain}. Use the terrain cue to ask a better first-match question without treating it as a fixed winning route.`,
-    lead: `The official Launch Maps brief places ${map.title} in ${map.history} and describes ${map.terrain}. In a live match, use those visible cues to frame your first squad call; sector order, strongpoints and optimal routes still depend on mode, build and the current objective.`,
+    summary: `Official profile plus a current-build community objective index: ${map.terrain}. Use the labels as a live-map lookup, not as a fixed winning route.`,
+    lead: `The official Launch Maps brief places ${map.title} in ${map.history} and describes ${map.terrain}. A current-build community extraction adds five Conquest strongpoints and fifteen Domination control-point labels with derived grid references. Use them to locate the active objective; capture order, vehicle lanes and optimal routes still depend on mode, build and the live match.`,
     metaTitle: `${map.title} — Hell Let Loose: Vietnam Map Wiki`,
     metaDescription: `${map.title} map guide for Hell Let Loose: Vietnam: official terrain profile, first-match cues and current limits around sector tactics.`,
-    status: 'Official terrain profile; sector and route tactics pending',
-    evidenceState: 'single-official-source',
+    status: fieldEvidence
+      ? 'Objective index + field observation; route tactics remain contextual'
+      : 'Current objective index; route tactics remain contextual',
+    evidenceState: 'community-lead',
     updated: checked,
     keywords: map.keywords,
     tags: ['maps', 'gameplay'],
@@ -301,6 +730,14 @@ function makeMapEntry(map: (typeof mapEntries)[number]): WikiEntry {
       {
         label: 'First-match cue',
         value: map.matchCue,
+      },
+      {
+        label: 'Current objective index',
+        value: '5 Conquest strongpoints + 15 Domination control points',
+      },
+      {
+        label: 'Data boundary',
+        value: 'Community snapshot; grid references need live-map confirmation',
       },
     ],
     steps: [
@@ -320,7 +757,7 @@ function makeMapEntry(map: (typeof mapEntries)[number]): WikiEntry {
       {
         title: 'Turn the cue into a squad call',
         action:
-          'Ask how the current objective changes the approach: crossing, close terrain, open ground, a defended base or a water route. Follow the live squad call over a generic map rule.',
+          'Match the active objective to the current-build index below, then ask how the mode changes the approach: crossing, close terrain, open ground, a defended base or a water route. Follow the live squad call over a generic map rule.',
         successSignal:
           'The squad has a shared next move and knows what terrain to watch.',
         failureCheck:
@@ -356,18 +793,55 @@ function makeMapEntry(map: (typeof mapEntries)[number]): WikiEntry {
       {
         heading: 'Use the profile in a live match',
         paragraphs: [
-          'The value of this page is orientation: identify the terrain problem, check the current mode and objective, then ask the squad for a concrete next move. That keeps the official profile useful without pretending that a historical description reveals every sector or spawn route.',
+          'The value of this page is orientation: identify the terrain problem, check the current mode and objective, then ask the squad for a concrete next move. The objective index below helps you recognize names and grid areas, but it does not reveal every spawn route or determine a winning sequence.',
         ],
         bullets: [
           'Confirm the mode and active objective on the current tactical map.',
           'Name the terrain change your squad is about to cross or enter.',
+          'Use the grid as a lookup only; verify the label and location in the live client.',
           'Record any route or sightline with build, mode and timestamp before calling it a player example.',
         ],
       },
       {
-        heading: 'What is still pending',
+        heading: 'Current-build objective index (community extraction)',
         paragraphs: [
-          'No fixed sector order, best class, vehicle lane, cover pattern or capture route is published here without a direct current-build source. The official profile describes environments, while community footage can only illustrate one player’s match and cannot by itself prove a universal mechanic.',
+          'The public Hell Let Loose Vietnam Database map data records five Conquest objectives and fifteen Domination points for each launch map. Its public version page lists current game Build 24741237 while the gameplay records use a Build 24623236 snapshot; it says official updates and in-game verification take precedence.',
+          'The grid references below are derived from the dataset’s native 10×10 A1–J10 map grid. They are a lookup aid, not a capture order, route recommendation or proof that every label is a strongpoint in every mode. “Unresolved objective” means the public data record has no display label; the identifier is preserved rather than guessed.',
+        ],
+        tables: [
+          {
+            caption: 'Conquest strongpoints · 5 current snapshot labels',
+            headers: ['Objective label', 'Derived grid', 'Use in match'],
+            rows: currentData.conquest.map(([label, grid]) => [
+              label,
+              grid,
+              'Verify name and position in the live tactical map',
+            ]),
+          },
+          {
+            caption: 'Domination control points · 15 current snapshot labels',
+            headers: ['Control-point label', 'Derived grid', 'Use in match'],
+            rows: currentData.domination.map(([label, grid]) => [
+              label,
+              grid,
+              'Verify name and position in the live tactical map',
+            ]),
+          },
+        ],
+      },
+      ...(fieldEvidence
+        ? [
+            {
+              heading: fieldEvidence.heading,
+              paragraphs: fieldEvidence.paragraphs,
+              bullets: fieldEvidence.bullets,
+            },
+          ]
+        : []),
+      {
+        heading: 'What is still not established',
+        paragraphs: [
+          'The current snapshot records objective labels and map-grid lookup points, but it does not establish a fixed sector order, best class, vehicle lane, cover pattern or capture route. Conquest and Domination use different objective structures, and a public label is not proof of a universal tactical instruction. The field note above is useful because it records concrete vocabulary and context, not because it proves a winning tactic.',
         ],
       },
       {
@@ -384,6 +858,9 @@ function makeMapEntry(map: (typeof mapEntries)[number]): WikiEntry {
         type: 'official',
         note: `${launchNote} The dedicated map announcement supports the historical setting and terrain profile; current sectors and routes remain build- and mode-sensitive.`,
       },
+      mapDatabaseSource,
+      mapDatabaseVersionSource,
+      ...(fieldEvidence ? [fieldEvidence.source] : []),
     ],
     relatedSlugs: ['launch-maps', 'game-modes', 'beginner-guide'],
   };
@@ -568,13 +1045,14 @@ export const expansionEntries: readonly WikiEntry[] = [
     title: 'Helicopter Controls: Safe First Flight',
     pageType: 'guide',
     summary:
-      'A safe first-flight checklist that keeps exact helicopter keybinds inside the current in-game settings and tutorial.',
-    lead: 'Helicopters are part of the official Vietnam battlefield toolkit, but a dependable control guide must match the current platform and build. Use this page to prepare, test one short transport route and keep any exact bindings tied to the current UI.',
+      'A safe first-flight checklist plus a timestamped PC profile and a cross-published catalogue comparison; treat every binding as a build-sensitive starting point, not a universal default.',
+    lead: 'Helicopters are part of the official Vietnam battlefield toolkit. Two recent third-party control guides publish one PC catalogue, while KAISER Mtbb’s public video records a different creator profile and visibly shows mouse helicopter control enabled at about 02:05. Because the sources conflict, the current in-game Controls screen is the only safe authority for exact bindings.',
     metaTitle: 'Helicopter Controls — Hell Let Loose: Vietnam Wiki',
     metaDescription:
-      'A build-safe helicopter controls checklist for Hell Let Loose: Vietnam, with current UI verification and first-flight failure checks.',
-    status: 'Controls guide; exact bindings pending current-build capture',
-    evidenceState: 'single-official-source',
+      'A build-safe HLL: Vietnam helicopter guide with an observed PC pilot keybind profile, Patch 1.3 checks and first-flight failure handling.',
+    status:
+      'PC binding sources cross-checked; current client remains authoritative',
+    evidenceState: 'community-lead',
     updated: checked,
     keywords: [
       'hll vietnam helicopter controls',
@@ -589,12 +1067,20 @@ export const expansionEntries: readonly WikiEntry[] = [
         value: 'Helicopter units are named on the official game page',
       },
       {
-        label: 'Exact keybinds',
-        value: 'Confirm in the current platform settings',
+        label: 'Observed PC profile',
+        value: 'W/S · A/D · mouse · E · Space',
       },
       {
-        label: 'First-flight goal',
-        value: 'Deliver one squad safely and return with a clear next task',
+        label: 'Published catalogue',
+        value: 'W/S · A/D · mouse buttons · Space/Ctrl · Shift · E',
+      },
+      {
+        label: 'Visible settings check',
+        value: 'Control helicopter with mouse: On at about 02:05',
+      },
+      {
+        label: 'Binding boundary',
+        value: 'Creator profile only; verify current platform and build',
       },
       {
         label: 'Patch 1.3 control note',
@@ -607,13 +1093,86 @@ export const expansionEntries: readonly WikiEntry[] = [
       {
         heading: 'Do not freeze an old keybind chart',
         paragraphs: [
-          'A control label copied from a beta video, another platform or an older patch is a lead, not a current rule. Read the in-game binding screen first and record the build if you publish an exact control later.',
+          'The profile below comes from KAISER Mtbb’s public video published on 2026-08-22. The captions locate the binding discussion and the player view was checked at about 02:05, where “Control helicopter with mouse” is visibly enabled. The video does not state an exact build, and the creator says they changed defaults, so reproduce it only after opening the current binding screen.',
         ],
+      },
+      {
+        heading: 'Recorded PC pilot profile (community example)',
+        paragraphs: [
+          'This is the exact set of inputs described in the video, not an official cross-platform keybind chart. “Not recorded” is intentional: the source does not establish every aircraft action, free-look key or default value.',
+        ],
+        tables: [
+          {
+            caption:
+              'KAISER Mtbb profile · published 2026-08-22 · checked 2026-08-30',
+            headers: ['Action', 'Observed binding', 'Evidence boundary'],
+            rows: [
+              [
+                'Control helicopter with mouse',
+                'On',
+                'Visible in the player settings screen at about 02:05; creator setting, not a default claim',
+              ],
+              [
+                'Collective increase',
+                'W',
+                'Creator’s PC profile; verify in the current UI',
+              ],
+              [
+                'Collective reduce',
+                'S',
+                'Creator’s PC profile; verify in the current UI',
+              ],
+              [
+                'Left / right aircraft input',
+                'A / D',
+                'Transcript describes A/D as standard left/right; exact axis wording is ambiguous',
+              ],
+              [
+                'Pitch forward / backward',
+                'Mouse',
+                'Creator’s profile; mouse direction must be tested locally',
+              ],
+              [
+                'Roll left / right',
+                'Mouse',
+                'Creator’s profile; mouse direction must be tested locally',
+              ],
+              [
+                'Helicopter supply drop',
+                'E',
+                'Creator’s profile; seat and role context still matter',
+              ],
+              [
+                'Auto-level',
+                'Space',
+                'Creator’s profile; not a universal default claim',
+              ],
+              [
+                'Recon flare (co-pilot)',
+                'Space',
+                'Role-gated example in the video; not a universal default claim',
+              ],
+              [
+                'Free look',
+                'Not recorded',
+                'The source does not establish a key; do not infer one',
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'Cross-published PC catalogue (not a default)',
+        paragraphs: [
+          'Two independent third-party guides publish the same launch-era PC catalogue: W/S for pitch, A/D for roll, left/right mouse button for yaw, Space/Left Ctrl for collective, Left Shift for auto-level and E for supply drop. This agreement makes the rows useful as a search and testing checklist, but neither page is an official control manual and neither replaces the current client.',
+          'The comparison below keeps the disagreement with the KAISER profile visible. It is more useful than choosing one chart by popularity: test each conflicting action in Practice Range, then record platform, build and the exact displayed label.',
+        ],
+        tables: [helicopterBindingCrossCheckTable],
       },
       {
         heading: 'Transport before spectacle',
         paragraphs: [
-          'For a first live flight, success means the squad reaches the requested area and the aircraft remains useful. Avoid turning one community gameplay clip into a recommendation for aggressive flying or a fixed route.',
+          'For a first live flight, success means the squad reaches the requested area and the aircraft remains useful. Test the observed profile in a tutorial or practice context, then avoid turning one community gameplay clip into a recommendation for aggressive flying or a fixed route.',
         ],
         visuals: [officialVisuals.lzApproach, officialVisuals.helicopterField],
       },
@@ -626,6 +1185,12 @@ export const expansionEntries: readonly WikiEntry[] = [
           'Open the current controller layout and confirm the displayed button assignments before takeoff.',
           'Test the direction of pitch in a safe tutorial or practice context before a live transport run.',
           'If the behavior differs, record platform, layout, inversion setting and build; do not copy a keyboard chart from another version.',
+        ],
+      },
+      {
+        heading: 'What remains platform-sensitive',
+        paragraphs: [
+          'The official Patch 1.3 notes confirm fixes for helicopter inversion and Controller Layout B, but they do not publish a universal keyboard table. The current client must win over the conflicting PC sources above. Infantry controls, console controls, free look and any changed defaults remain current-client verification work.',
         ],
       },
     ],
@@ -647,6 +1212,36 @@ export const expansionEntries: readonly WikiEntry[] = [
         href: official.patch13,
         type: 'official',
         note: 'Checked 2026-08-30 for helicopter inversion, Layout B and co-pilot control fixes.',
+      },
+      {
+        label: 'KAISER Mtbb — How to be a Pilot',
+        href: 'https://www.youtube.com/watch?v=Q5TLVet5lgg&t=123s',
+        type: 'community',
+        note: 'Published 2026-08-22; transcript and visible settings frame checked 2026-08-30. The exact build is not stated and the creator describes a changed PC profile; use as a player example only.',
+      },
+      {
+        label: 'Hell Let Loose Vietnam — Helicopter Controls',
+        href: 'https://hellletloosevietnam.org/guides/helicopter-controls/',
+        type: 'reference',
+        note: 'Third-party launch-era PC catalogue checked 2026-08-30; useful for cross-checking names, not an official default or current-client proof.',
+      },
+      {
+        label: 'All Things How — HLL Vietnam keybinds',
+        href: 'https://allthings.how/hell-let-loose-vietnam-keybinds-and-best-keyboard-and-mouse-settings/',
+        type: 'reference',
+        note: 'Third-party PC controls catalogue checked 2026-08-30; it agrees with the rows above but remains a reference, not an official control manual.',
+      },
+      {
+        label: 'Hell Let Loose Vietnam — Helicopter Controls',
+        href: 'https://hellletloosevietnam.org/guides/helicopter-controls/',
+        type: 'reference',
+        note: 'Third-party launch-era PC catalogue checked 2026-08-30; useful for cross-checking names, not an official default or current-client proof.',
+      },
+      {
+        label: 'All Things How — HLL Vietnam keybinds',
+        href: 'https://allthings.how/hell-let-loose-vietnam-keybinds-and-best-keyboard-and-mouse-settings/',
+        type: 'reference',
+        note: 'Third-party PC controls catalogue checked 2026-08-30; it agrees with the rows above but remains a reference, not an official control manual.',
       },
     ],
     relatedSlugs: ['tunnels-helicopters', 'best-settings', 'beginner-guide'],
@@ -811,16 +1406,17 @@ export const expansionEntries: readonly WikiEntry[] = [
   {
     slug: 'weapons',
     categorySlug: 'roles',
-    title: 'Weapons: Confirmed Scope and Pending Roster',
+    title: 'Weapons: Current Reference Catalogue',
     pageType: 'entry',
     summary:
-      'A source-bounded weapons hub: official material confirms historically accurate weapons and planned additions, while a complete launch roster remains pending.',
-    lead: 'The official game page describes historically accurate weapons, and the official roadmap names planned M14, SKS and Stoner 63 additions. The sources used here do not provide a complete current weapon-by-weapon roster, so this page separates confirmed themes from pending detail.',
+      'A 22-name reference union cross-checked against a current-build snapshot with 18 named weapon-like records and two unresolved record IDs.',
+    lead: 'The official game page confirms historically accurate weapons, and current official patch notes name several weapons and equipment items. A public current-build database adds a useful weapon-like record cross-check, but its own data boundary is not an official role/loadout matrix; verify availability, faction, ammunition and progression in the current client.',
     metaTitle: 'Weapons — Hell Let Loose: Vietnam Wiki',
     metaDescription:
-      'A source-bounded HLL: Vietnam weapons hub covering official weapon themes, planned additions and the boundary around an unverified full roster.',
-    status: 'Roster hub; complete list pending direct verification',
-    evidenceState: 'single-official-source',
+      'HLL: Vietnam weapon reference catalogue with 22 named entries, official Patch 1.3 names, current examples and clear loadout-verification boundaries.',
+    status:
+      '22-name reference union + current snapshot cross-check; official matrix pending',
+    evidenceState: 'community-lead',
     updated: checked,
     keywords: [
       'hll vietnam weapons',
@@ -832,54 +1428,201 @@ export const expansionEntries: readonly WikiEntry[] = [
     facts: [
       { label: 'Official theme', value: 'Historically accurate weapons' },
       {
-        label: 'Planned examples',
-        value: 'M14, SKS and Stoner 63 on the roadmap',
+        label: 'Reference catalogue',
+        value: '22 named weapons and variants; reference union only',
       },
       {
-        label: 'Current full roster',
-        value: 'Not established by the sources used here',
+        label: 'Current snapshot cross-check',
+        value:
+          '66 weapons/equipment records; 18 named weapon-like labels + 2 unresolved IDs',
+      },
+      {
+        label: 'Official Patch 1.3 names',
+        value:
+          'M79, M1911A1, M183 Demolition Charge, M21 AT Mine, N4 Rifle Grenades',
+      },
+      {
+        label: 'Planned, not current',
+        value: 'M14, Type 56 SKS and Stoner 63 on the roadmap',
       },
     ],
     steps: [
       {
         title: 'Separate current from planned',
         action:
-          'Check the latest official patch or release note before treating a roadmap weapon as available in the current build.',
+          'Check the latest official patch or release note before treating a roadmap weapon—such as M14, Type 56 SKS or Stoner 63—as available in the current build.',
         successSignal: 'Every weapon note has a current or planned label.',
+      },
+      {
+        title: 'Start with the reference names',
+        action:
+          'Use the 22-name catalogue to identify a weapon name, then confirm the faction, role, mode and build in the current client.',
+        successSignal:
+          'A weapon name is tied to a concrete loadout context instead of a search result alone.',
       },
       {
         title: 'Record the role context',
         action:
-          'When a weapon is observed in-game, record faction, role, mode and build instead of creating a universal class claim.',
+          'When a weapon is observed in-game, record faction, role, mode, platform and build instead of creating a universal class claim.',
         successSignal:
           'The observation can be tied to a concrete loadout context.',
       },
       {
-        title: 'Use player examples carefully',
-        action:
-          'A community video may illustrate one player’s weapon handling or route, but label it as a community example and do not use it alone to prove a roster fact.',
-        successSignal: 'The evidence label stays visible next to the example.',
-      },
-      {
         title: 'Recheck after updates',
         action:
-          'Update the roster only from official current-build material or a documented in-game verification pass.',
+          'Update the catalogue only from official current-build material or a documented in-game verification pass; keep third-party names labelled as leads.',
         successSignal:
           'The page’s checked date matches the latest evidence pass.',
       },
     ],
     sections: [
       {
-        heading: 'Confirmed by official material',
+        heading: 'Reference catalogue: 22 names to verify',
         paragraphs: [
-          'The official game page uses historically accurate weapons as part of the game’s Vietnam setting. The roadmap separately names weapons planned for future updates. Those are different evidence classes and remain separated here.',
+          'The two tables below reproduce a 22-name third-party reference catalogue checked against a second in-progress list on 2026-08-30. It is a vocabulary and research lead, not an official statement that every item is available to every role. One cross-check visibly omits base Type 53, so counts should not be inferred from a single third-party page.',
+        ],
+        tables: [
+          {
+            caption: 'US reference entries · 10 names',
+            headers: ['Weapon / variant', 'Faction', 'Evidence boundary'],
+            rows: [
+              [
+                'M16A1',
+                'US',
+                'Reference name; confirm role and current availability',
+              ],
+              [
+                'M16A1 With Bayonet',
+                'US',
+                'Reference name; variant/loadout needs client check',
+              ],
+              [
+                'M16A1-M203',
+                'US',
+                'Reference name; variant/loadout needs client check',
+              ],
+              ['M1911A1', 'US', 'Also named in official Patch 1.3 notes'],
+              [
+                'M2A1-7',
+                'US',
+                'Reference name; confirm role and current availability',
+              ],
+              [
+                'M40',
+                'US',
+                'Reference name; confirm role and current availability',
+              ],
+              [
+                'M60',
+                'US',
+                'Also named in current gameplay examples; confirm loadout',
+              ],
+              [
+                'M72',
+                'US',
+                'Reference name; confirm role and current availability',
+              ],
+              ['M79', 'US', 'Also named in official Patch 1.3 notes'],
+              [
+                'Model 77E',
+                'US',
+                'Reference name; confirm role and current availability',
+              ],
+            ],
+          },
+          {
+            caption: 'NVA reference entries · 12 names',
+            headers: ['Weapon / variant', 'Faction', 'Evidence boundary'],
+            rows: [
+              [
+                'IZH 58',
+                'NVA',
+                'Reference name; confirm role and current availability',
+              ],
+              [
+                'K50M',
+                'NVA',
+                'Reference name; confirm role and current availability',
+              ],
+              [
+                'K50M Drum',
+                'NVA',
+                'Reference variant; confirm current availability',
+              ],
+              [
+                'LPO-50',
+                'NVA',
+                'Reference name; confirm role and current availability',
+              ],
+              [
+                'RPD',
+                'NVA',
+                'Also named in current gameplay examples; confirm loadout',
+              ],
+              [
+                'RPG-02',
+                'NVA',
+                'Named in a current review image caption; confirm loadout',
+              ],
+              [
+                'Type 53',
+                'NVA',
+                'Reference name; one cross-check omits it, so count is flagged',
+              ],
+              [
+                'Type 53 PU',
+                'NVA',
+                'Reference variant; confirm current availability',
+              ],
+              [
+                'Type 53 W/ N4 Rifle Launcher',
+                'NVA',
+                'Reference variant; confirm current availability',
+              ],
+              [
+                'Type 53 w/Bayonet',
+                'NVA',
+                'Reference variant; confirm current availability',
+              ],
+              [
+                'Type 54',
+                'NVA',
+                'Reference name; confirm role and current availability',
+              ],
+              [
+                'Type 56 W/ Bayonet',
+                'NVA',
+                'Reference variant; confirm current availability',
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        heading: 'What is confirmed separately',
+        paragraphs: [
+          'The official game page supplies the historically accurate weapon theme. Patch 1.3 directly names the M79, M1911A1, M183 Demolition Charge, M21 AT Mine and N4 Rifle Grenades. Current review and gameplay coverage also names examples such as M16, Type 56, M60, RPD, M79 and RPG-02. These independent mentions do not replace a role-by-role loadout matrix.',
         ],
         visuals: [officialVisuals.sniperPosition],
       },
       {
-        heading: 'Roster boundary',
+        heading: 'Current-build weapon-like records',
         paragraphs: [
-          'A complete weapon list, per-role unlock path, damage table or best-in-slot ranking needs direct current-build verification. Community spreadsheets and videos can be useful leads or examples, but they cannot independently establish official mechanics.',
+          'The public database currently exposes 66 weapons/equipment records. The table below isolates the 20 weapon-like records that can be represented without guessing: 18 have a display label and two retain their unresolved record IDs because the source provides no display name. “Loadout references” is the source’s count of named loadout appearances, not a promise that the item is available to every role or faction.',
+          'This table is stronger than a search-only catalogue because it is tied to a public build snapshot, but it is still a reference cross-check. The database records current game Build 24741237 while the gameplay snapshot is Build 24623236; use the in-game loadout screen and official patch notes as the final authority.',
+        ],
+        tables: [currentWeaponCrossCheckTable],
+      },
+      {
+        heading: 'Planned and still unverified',
+        paragraphs: [
+          'The official roadmap lists M14, Type 56 SKS and Stoner 63 as planned additions; they are not treated as current launch weapons here. The current snapshot’s unresolved records are not renamed as Type 56 or Type 53 without a display label. Exact role access, unlock path, ammunition, weight, damage, recoil and best-in-slot rankings still require a current client or official matrix.',
+        ],
+      },
+      {
+        heading: 'Evidence boundary',
+        paragraphs: [
+          'Third-party catalogues, community database records and player videos can identify names and show one player’s equipment. They cannot independently prove universal role access or mechanics. Keep every future row attached to a faction, role, platform, build and source before promoting it beyond reference status; never fill an unresolved record from a similar-looking name.',
         ],
       },
     ],
@@ -891,16 +1634,58 @@ export const expansionEntries: readonly WikiEntry[] = [
         note: officialNote,
       },
       {
+        label: 'Official Patch 1.3 notes',
+        href: official.patch13,
+        type: 'official',
+        note: 'Checked 2026-08-30 for M79, M1911A1, M183 Demolition Charge, M21 AT Mine and N4 Rifle Grenades.',
+      },
+      {
         label: 'Official 2026 roadmap',
-        href: 'https://www.hellletloose.com/blog/hllv-2026-roadmap',
+        href: official.roadmap,
         type: 'official',
         note: 'Planned weapons are not current features until a release note confirms them.',
       },
       {
-        label: 'Official developer Q&A 2',
-        href: official.qna2,
+        label: 'Inside the Armoury Episode 1 — M16A1 + M203',
+        href: 'https://www.youtube.com/watch?v=9iYw00GDqXM',
         type: 'official',
-        note: 'Use as context for future weapon and role verification, not as a complete roster.',
+        note: 'Official Hell Let Loose and Royal Armouries collaboration; weapon context only, not a role/loadout matrix.',
+      },
+      {
+        label: 'Inside the Armoury Episode 2 — AK47 + Dillon AK',
+        href: 'https://www.youtube.com/watch?v=sg04IpE6Mx4',
+        type: 'official',
+        note: 'Official collaboration title checked 2026-08-30; weapon context only, not a role/loadout matrix.',
+      },
+      {
+        label: 'GamesRadar+ launch review',
+        href: 'https://www.gamesradar.com/games/fps/hell-let-loose-vietnam-review/',
+        type: 'reference',
+        note: 'Current review names M16, Type 56, M60, RPD, M79 and an RPG-02 image caption; it is supplemental reference, not official roster proof.',
+      },
+      {
+        label: 'Dexerto weapons catalogue',
+        href: 'https://www.dexerto.com/wikis/hell-let-loose-vietnam/weapons/',
+        type: 'reference',
+        note: '22-name third-party catalogue checked 2026-08-30; research lead only, not official mechanism proof.',
+      },
+      {
+        label: 'GameWatcher in-progress weapons list',
+        href: 'https://www.gamewatcher.com/hell-let-loose-vietnam/weapons',
+        type: 'reference',
+        note: 'Cross-check checked 2026-08-30; visible list omits base Type 53, so its count is not treated as authoritative.',
+      },
+      {
+        label: 'Hell Let Loose Vietnam Database — arsenal',
+        href: 'https://hellletloosevietnamdb.com/database/arsenal',
+        type: 'reference',
+        note: 'Public current-build snapshot checked 2026-08-30; 66 weapons/equipment records, with display labels and unresolved records preserved as published.',
+      },
+      {
+        label: 'Hell Let Loose Vietnam Database — data versions',
+        href: 'https://hellletloosevietnamdb.com/database/versions',
+        type: 'reference',
+        note: 'Lists current game Build 24741237 and gameplay snapshot Build 24623236; official updates and in-game verification take precedence.',
       },
     ],
     relatedSlugs: ['roles-and-units', 'vehicles', 'roadmap-2026'],

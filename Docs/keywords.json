@@ -2,7 +2,7 @@
   "project": "Hell Let Loose Vietnam Wiki",
   "game": "Hell Let Loose: Vietnam",
   "collectedAt": "2026-08-30",
-  "notes": "The primary site name follows the strongest Google Trends root query. Wiki is a site-type descriptor, not a separately proven high-volume query. Keep indexable false until the pre-launch gate is cleared. The official game page reports 19 specialised roles while the current Steam About section reports 17; keep that source discrepancy visible and do not publish a complete roster until reconciled.",
+  "notes": "The primary site name follows the strongest Google Trends root query. Wiki is a site-type descriptor, not a separately proven high-volume query. Keep indexable false until the pre-launch gate is cleared. The official game page reports 19 specialised roles while the current Steam About section names 17; publish the 17 named roles with the discrepancy visible. Current-build HLLVDB tables add bounded role/loadout, weapon-like record and map-objective cross-checks; the helicopter page compares conflicting community PC catalogues. None of these community/reference sources replaces official or current-client verification.",
   "naming": {
     "primary": "Hell Let Loose Vietnam Wiki",
     "short": "HLL Vietnam Wiki",
@@ -90,11 +90,15 @@
       "categorySlug": "roles",
       "path": "/wiki/roles/roles-and-units",
       "priority": "P1",
-      "evidenceState": "single-official-source",
+      "evidenceState": "community-lead",
       "indexable": false,
       "sources": [
         "https://www.hellletloose.com/game/hll-vietnam",
-        "https://www.hellletloose.com/blog/dev-qna-2"
+        "https://store.steampowered.com/app/3079210/Hell_Let_Loose_Vietnam/",
+        "https://www.hellletloose.com/blog/dev-qna-2",
+        "https://hellletloosevietnamdb.com/database/roles",
+        "https://hellletloosevietnamdb.com/database/loadouts",
+        "https://hellletloosevietnamdb.com/database/versions"
       ],
       "relatedSlugs": ["beginner-guide", "game-overview", "tunnels-helicopters"]
     },
@@ -277,11 +281,15 @@
       "categorySlug": "systems",
       "path": "/guides/helicopter-controls",
       "priority": "P1",
-      "evidenceState": "single-official-source",
+      "evidenceState": "community-lead",
       "indexable": false,
       "sources": [
         "https://www.hellletloose.com/game/hll-vietnam",
-        "https://www.hellletloose.com/blog/hllv-out-now"
+        "https://www.hellletloose.com/blog/hllv-out-now",
+        "https://www.hellletloose.com/blog/hllv-patch-1-3",
+        "https://www.youtube.com/watch?v=Q5TLVet5lgg&t=123s",
+        "https://hellletloosevietnam.org/guides/helicopter-controls/",
+        "https://allthings.how/hell-let-loose-vietnam-keybinds-and-best-keyboard-and-mouse-settings/"
       ],
       "relatedSlugs": ["tunnels-helicopters", "best-settings", "beginner-guide"]
     },
@@ -333,9 +341,14 @@
       "categorySlug": "battlefield",
       "path": "/wiki/battlefield/thanh-hoa-bridge",
       "priority": "P1",
-      "evidenceState": "single-official-source",
+      "evidenceState": "community-lead",
       "indexable": false,
-      "sources": ["https://www.hellletloose.com/blog/hllv-out-now"],
+      "sources": [
+        "https://www.hellletloose.com/blog/hllv-out-now",
+        "https://hellletloosevietnamdb.com/database/world/map",
+        "https://hellletloosevietnamdb.com/database/versions",
+        "https://www.gamesradar.com/games/fps/if-you-like-battlefield-at-its-most-chaotic-i-promise-youll-love-digging-tunnels-and-flying-choppers-in-hell-let-loose-vietnam/"
+      ],
       "relatedSlugs": ["launch-maps", "game-modes", "beginner-guide"]
     },
     {
@@ -347,9 +360,14 @@
       "categorySlug": "battlefield",
       "path": "/wiki/battlefield/hue-outskirts",
       "priority": "P1",
-      "evidenceState": "single-official-source",
+      "evidenceState": "community-lead",
       "indexable": false,
-      "sources": ["https://www.hellletloose.com/blog/hllv-out-now"],
+      "sources": [
+        "https://www.hellletloose.com/blog/hllv-out-now",
+        "https://hellletloosevietnamdb.com/database/world/map",
+        "https://hellletloosevietnamdb.com/database/versions",
+        "https://www.youtube.com/watch?v=GDExGBEwy0w&t=138s"
+      ],
       "relatedSlugs": ["launch-maps", "game-modes", "beginner-guide"]
     },
     {
@@ -361,9 +379,13 @@
       "categorySlug": "battlefield",
       "path": "/wiki/battlefield/van-tuong",
       "priority": "P1",
-      "evidenceState": "single-official-source",
+      "evidenceState": "community-lead",
       "indexable": false,
-      "sources": ["https://www.hellletloose.com/blog/hllv-out-now"],
+      "sources": [
+        "https://www.hellletloose.com/blog/hllv-out-now",
+        "https://hellletloosevietnamdb.com/database/world/map",
+        "https://hellletloosevietnamdb.com/database/versions"
+      ],
       "relatedSlugs": ["launch-maps", "game-modes", "beginner-guide"]
     },
     {
@@ -375,9 +397,13 @@
       "categorySlug": "battlefield",
       "path": "/wiki/battlefield/quang-ngai",
       "priority": "P1",
-      "evidenceState": "single-official-source",
+      "evidenceState": "community-lead",
       "indexable": false,
-      "sources": ["https://www.hellletloose.com/blog/hllv-out-now"],
+      "sources": [
+        "https://www.hellletloose.com/blog/hllv-out-now",
+        "https://hellletloosevietnamdb.com/database/world/map",
+        "https://hellletloosevietnamdb.com/database/versions"
+      ],
       "relatedSlugs": ["launch-maps", "game-modes", "beginner-guide"]
     },
     {
@@ -389,9 +415,13 @@
       "categorySlug": "battlefield",
       "path": "/wiki/battlefield/dak-to-airfield",
       "priority": "P1",
-      "evidenceState": "single-official-source",
+      "evidenceState": "community-lead",
       "indexable": false,
-      "sources": ["https://www.hellletloose.com/blog/hllv-out-now"],
+      "sources": [
+        "https://www.hellletloose.com/blog/hllv-out-now",
+        "https://hellletloosevietnamdb.com/database/world/map",
+        "https://hellletloosevietnamdb.com/database/versions"
+      ],
       "relatedSlugs": ["launch-maps", "game-modes", "beginner-guide"]
     },
     {
@@ -403,9 +433,13 @@
       "categorySlug": "battlefield",
       "path": "/wiki/battlefield/cam-ranh-port",
       "priority": "P1",
-      "evidenceState": "single-official-source",
+      "evidenceState": "community-lead",
       "indexable": false,
-      "sources": ["https://www.hellletloose.com/blog/hllv-out-now"],
+      "sources": [
+        "https://www.hellletloose.com/blog/hllv-out-now",
+        "https://hellletloosevietnamdb.com/database/world/map",
+        "https://hellletloosevietnamdb.com/database/versions"
+      ],
       "relatedSlugs": ["launch-maps", "game-modes", "beginner-guide"]
     },
     {
@@ -417,12 +451,19 @@
       "categorySlug": "roles",
       "path": "/wiki/roles/weapons",
       "priority": "P1",
-      "evidenceState": "single-official-source",
+      "evidenceState": "community-lead",
       "indexable": false,
       "sources": [
         "https://www.hellletloose.com/game/hll-vietnam",
+        "https://www.hellletloose.com/blog/hllv-patch-1-3",
         "https://www.hellletloose.com/blog/hllv-2026-roadmap",
-        "https://www.hellletloose.com/blog/dev-qna-2"
+        "https://www.youtube.com/watch?v=9iYw00GDqXM",
+        "https://www.youtube.com/watch?v=sg04IpE6Mx4",
+        "https://www.gamesradar.com/games/fps/hell-let-loose-vietnam-review/",
+        "https://www.dexerto.com/wikis/hell-let-loose-vietnam/weapons/",
+        "https://www.gamewatcher.com/hell-let-loose-vietnam/weapons",
+        "https://hellletloosevietnamdb.com/database/arsenal",
+        "https://hellletloosevietnamdb.com/database/versions"
       ],
       "relatedSlugs": ["roles-and-units", "vehicles", "roadmap-2026"]
     },

@@ -473,6 +473,65 @@
   text-underline-offset: 0.2em;
 }
 
+.field-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--field-border);
+  background: var(--field-panel);
+  box-shadow: 0.5rem 0.5rem 0 var(--field-shadow);
+}
+
+.field-table-wrap:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.field-table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  color: var(--field-foreground);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.field-table caption {
+  padding: 1rem 1rem 0.65rem;
+  color: var(--field-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.field-table th,
+.field-table td {
+  border-top: 1px solid var(--field-border);
+  padding: 0.8rem 1rem;
+  vertical-align: top;
+}
+
+.field-table thead th {
+  border-top: 0;
+  background: color-mix(in srgb, var(--field-background) 72%, var(--yellow));
+  color: var(--field-foreground);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.field-table tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--field-background) 58%, transparent);
+}
+
+.field-table tbody td:first-child {
+  color: var(--field-foreground);
+  font-weight: 800;
+}
+
 .field-band {
   border-top: 1px solid var(--field-border);
   border-bottom: 1px solid var(--field-border);
@@ -574,6 +633,7 @@
 .field-on-this-page,
 .field-visual-frame,
 .field-visual-annotation,
+.field-table-wrap,
 .field-band,
 .field-notice,
 .field-answer,
