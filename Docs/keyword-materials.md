@@ -150,7 +150,7 @@ User intent: Understand the Vietnam-specific tunnel system and the current Patch
 - Verified facts: The official game page describes NVA tunnel networks; Patch 1.3 records a five-to-ten-minute NVA tunnel-placement cooldown change and blocks travel to a hot tunnel destination.
 - Reusable page material: Explain the feature boundary beside the dated patch rule, then route players to Movement and Teamplay and Patch 1.3.
 - Status: `verified`; patch-sensitive facts were rechecked 2026-08-30 and need another check after a newer update.
-- Handoff: `slug: tunnels-helicopters`; `categorySlug: systems`; `path: /wiki/systems/tunnels-helicopters`; `pageType: entry`; `indexable: false`; `sources: official game page, official Patch 1.3`; `relatedSlugs: movement-and-teamplay, roles-and-units, patch-1-3`.
+- Handoff: `slug: tunnels-helicopters`; `categorySlug: systems`; `path: /wiki/systems/tunnels-helicopters`; `pageType: entry`; `indexable: true`; `sources: official game page, official Patch 1.3`; `relatedSlugs: movement-and-teamplay, roles-and-units, patch-1-3`.
 
 ### hell let loose vietnam movement and teamplay
 
@@ -162,7 +162,7 @@ User intent: Keep a first squad action tied to the objective instead of chasing 
 - Verified facts: Official material emphasizes communication, teamwork, objectives and enhanced movement such as swimming, climbing and fast crawling.
 - Reusable page material: Position → direction → intent calls, tactical-map checks and a return-to-objective success signal.
 - Status: `verified`; exact controls, routes and “best” tactics remain build- and situation-sensitive.
-- Handoff: `slug: movement-and-teamplay`; `categorySlug: systems`; `path: /wiki/systems/movement-and-teamplay`; `pageType: entry`; `indexable: false`; `sources: official game page, official launch article`; `relatedSlugs: beginner-guide, tunnels-helicopters, game-modes`.
+- Handoff: `slug: movement-and-teamplay`; `categorySlug: systems`; `path: /wiki/systems/movement-and-teamplay`; `pageType: entry`; `indexable: true`; `sources: official game page, official launch article`; `relatedSlugs: beginner-guide, tunnels-helicopters, game-modes`.
 
 ### hell let loose vietnam patch 1.2
 
@@ -174,7 +174,7 @@ User intent: Trace a launch-period change without confusing it with the current 
 - Verified facts: The page is the publisher’s Patch 1.2 full-changelog destination; individual notes remain version-bound and must not override later Patch 1.3 notes.
 - Reusable page material: A dated historical entry with a direct route to the latest patch and the affected system page.
 - Status: `single-official-source`; recheck if the publisher changes or republishes the article.
-- Handoff: `slug: patch-1-2`; `categorySlug: updates`; `path: /wiki/updates/patch-1-2`; `pageType: update`; `indexable: false`; `sources: official Patch 1.2`; `relatedSlugs: patch-1-3, tunnels-helicopters, release-and-platforms`.
+- Handoff: `slug: patch-1-2`; `categorySlug: updates`; `path: /wiki/updates/patch-1-2`; `pageType: update`; `indexable: true`; `sources: official Patch 1.2`; `relatedSlugs: patch-1-3, tunnels-helicopters, release-and-platforms`.
 
 ### hell let loose vietnam join a squad
 
@@ -186,7 +186,7 @@ User intent: Get into a useful first squad on a live server.
 - Verified facts: Official launch material emphasizes communication, squads and objectives; the game page describes multiple squads within 50-player teams. The official news feed is the recheck path for server-browser changes.
 - Reusable page material: Read the server platform label and current capacity/filter state, choose an open squad, make a short call and stay with the active objective.
 - Status: `verified`; exact browser wording and role availability remain current-build checks.
-- Handoff: `slug: join-a-squad`; `categorySlug: basics`; `path: /guides/join-a-squad`; `pageType: guide`; `indexable: false`; `sources: official launch article, official game page`; `relatedSlugs: beginner-guide, voice-chat, roles-and-units`.
+- Handoff: `slug: join-a-squad`; `categorySlug: basics`; `path: /guides/join-a-squad`; `pageType: guide`; `indexable: true`; `sources: official launch article, official game page`; `relatedSlugs: beginner-guide, voice-chat, roles-and-units`.
 
 ### hell let loose vietnam voice chat
 
@@ -198,7 +198,7 @@ User intent: Test a microphone and make a squad call that can be acted on.
 - Verified facts: Official launch material makes communication part of the teamplay loop; Community Update #2 states that Party Voice Chat is lobby-only and that in-match channels are Proximity, Unit and Command.
 - Reusable page material: Select the input device, distinguish lobby from in-match channels, test the intended channel, use position → direction → intent calls, then recheck after a patch or device change.
 - Status: `single-official-source`; exact channel permissions and bindings still need a current in-game capture.
-- Handoff: `slug: voice-chat`; `categorySlug: systems`; `path: /guides/voice-chat`; `pageType: guide`; `indexable: false`; `sources: official launch article, official Steam news feed`; `relatedSlugs: join-a-squad, movement-and-teamplay, crashing-fixes`.
+- Handoff: `slug: voice-chat`; `categorySlug: systems`; `path: /guides/voice-chat`; `pageType: guide`; `indexable: true`; `sources: official launch article, official Steam news feed`; `relatedSlugs: join-a-squad, movement-and-teamplay, crashing-fixes`.
 
 ### hell let loose vietnam helicopter controls
 
@@ -222,7 +222,7 @@ User intent: Establish a repeatable PC baseline for readable, stable play.
 - Verified facts: The official requirements page supplies the minimum and recommended hardware baseline; it does not establish a universal graphics preset or FPS target.
 - Reusable page material: Compare hardware, change one setting group, test in a comparable scene, prioritize visibility and stability, then recheck after updates.
 - Status: `single-official-source`; no benchmark, preset or performance guarantee is published.
-- Handoff: `slug: best-settings`; `categorySlug: access`; `path: /guides/best-settings`; `pageType: guide`; `indexable: false`; `sources: official PC requirements, official game page`; `relatedSlugs: pc-requirements, crashing-fixes, movement-and-teamplay`.
+- Handoff: `slug: best-settings`; `categorySlug: access`; `path: /guides/best-settings`; `pageType: guide`; `indexable: true`; `sources: official PC requirements, official game page`; `relatedSlugs: pc-requirements, crashing-fixes, movement-and-teamplay`.
 
 ### hell let loose vietnam crashing fixes
 
@@ -234,7 +234,7 @@ User intent: Isolate a launch, loading, server-join or in-match failure with rev
 - Verified facts: Official patch/news pages are the correct place to check whether a stability, UI, audio, map or server issue is listed, changed or fixed. Launch guidance documents temporary DX12/DX11 launch options, High graphics and an AMD overlay check; Patch 1.3 says disabling gore may reduce AMD crash frequency.
 - Reusable page material: Record failure stage and build, check official notes, apply one reversible local check—including the conditional AMD branch where relevant—and escalate with reproducible evidence.
 - Status: `single-official-source`; unlisted causes stay pending and are not assigned to one setting.
-- Handoff: `slug: crashing-fixes`; `categorySlug: access`; `path: /guides/crashing-fixes`; `pageType: guide`; `indexable: false`; `sources: official Patch 1.3, official Patch 1.2, official Steam news feed`; `relatedSlugs: best-settings, pc-requirements, patch-1-3`.
+- Handoff: `slug: crashing-fixes`; `categorySlug: access`; `path: /guides/crashing-fixes`; `pageType: guide`; `indexable: true`; `sources: official Patch 1.3, official Patch 1.2, official Steam news feed`; `relatedSlugs: best-settings, pc-requirements, patch-1-3`.
 
 ### hell let loose vietnam thanh hoa bridge
 
@@ -350,7 +350,7 @@ User intent: Verify the current purchase path without freezing a regional price 
 - Verified facts: Steam is the live PC storefront and the official launch material supplies the supported platform families; price, discount, tax, region and subscription state are dynamic.
 - Reusable page material: Route players to the live storefront, compare the listing with official launch information and avoid static price copy.
 - Status: `verified`; recheck region, tax, discount and edition at checkout.
-- Handoff: `slug: editions-and-buying`; `categorySlug: access`; `path: /wiki/access/editions-and-buying`; `pageType: access`; `indexable: false`; `sources: official Steam listing, official launch article, official game page`; `relatedSlugs: release-and-platforms, crossplay-and-platforms, pc-requirements`.
+- Handoff: `slug: editions-and-buying`; `categorySlug: access`; `path: /wiki/access/editions-and-buying`; `pageType: access`; `indexable: true`; `sources: official Steam listing, official launch article, official game page`; `relatedSlugs: release-and-platforms, crossplay-and-platforms, pc-requirements`.
 
 ## Expansion keyword handoff
 

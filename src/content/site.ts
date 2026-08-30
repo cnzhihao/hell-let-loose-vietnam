@@ -239,7 +239,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam factions',
       'hll vietnam 50v50',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       { label: 'Match scale', value: '50v50 tactical multiplayer' },
       { label: 'Factions', value: 'NVA versus US' },
@@ -359,7 +359,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam getting started tutorial',
       'hll vietnam squad leader tutorial',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       {
         label: 'Start state',
@@ -488,7 +488,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam launch maps',
       'hll vietnam map list',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       { label: 'Launch map count', value: '6' },
       { label: 'Profile source', value: 'Official Launch Maps announcement' },
@@ -597,7 +597,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam offensive mode',
       'hll vietnam conquest domination',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       { label: 'Launch modes documented', value: '4' },
       { label: 'Warfare timer', value: 'Up to 90 minutes' },
@@ -893,7 +893,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam patrol boats',
       'hll vietnam nva tunnel cooldown',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       { label: 'Tunnel cooldown after Patch 1.3', value: '10 minutes' },
       {
@@ -998,7 +998,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam communication',
       'hll vietnam garrison tunnels',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       {
         label: 'Movement features named',
@@ -1106,7 +1106,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam platforms',
       'hell let loose vietnam ps5 xbox pc',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       { label: 'Release date', value: '13 August 2026' },
       { label: 'PC', value: 'Available at launch' },
@@ -1200,7 +1200,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam pc console crossplay',
       'hll vietnam server platform',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       {
         label: 'Cross-platform label',
@@ -1318,7 +1318,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam minimum specs',
       'hll vietnam recommended specs',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       { label: 'Operating system', value: 'Windows 11 64-bit' },
       { label: 'API', value: 'DirectX 12' },
@@ -1409,7 +1409,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam update 1.3',
       'hll vietnam tunnel cooldown patch',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       { label: 'Live date', value: '28 August 2026' },
       { label: 'NVA tunnel cooldown', value: 'Doubled from 5 to 10 minutes' },
@@ -1511,7 +1511,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam update 1.2',
       'hll vietnam launch fixes',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       { label: 'Live date', value: '21 August 2026' },
       { label: 'Fix scope', value: '500+ fixes and improvements' },
@@ -1601,7 +1601,7 @@ const coreWikiEntries: readonly WikiEntry[] = [
       'hll vietnam update 2.0',
       'hll vietnam khe sanh',
     ],
-    indexable: false,
+    indexable: true,
     facts: [
       { label: 'Update 1.5', value: 'Planned for September 2026' },
       {

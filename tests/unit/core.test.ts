@@ -12,13 +12,20 @@ import { homeHead, siteOrigin, wikiHead } from '@/lib/seo';
 import { cn } from '@/lib/utils';
 
 describe('Hell Let Loose Vietnam Wiki contracts', () => {
-  it('keeps the researched site in a template-safe pre-launch state', () => {
+  it('keeps the researched site in a source-backed launch-candidate state', () => {
     expect(websiteConfig.name).toBe('Hell Let Loose Vietnam Wiki');
     expect(websiteConfig.repository).toBe(
       'https://github.com/cnzhihao/hell-let-loose-vietnam'
     );
-    expect(websiteConfig.isTemplate).toBe(true);
-    expect(wikiEntries.every((entry) => !entry.indexable)).toBe(true);
+    expect(websiteConfig.url).toBe('https://hellletloosevietnamguide.site');
+    expect(websiteConfig.isTemplate).toBe(false);
+    expect(wikiEntries.filter((entry) => entry.indexable)).toHaveLength(17);
+    expect(
+      wikiEntries
+        .filter((entry) => entry.evidenceState === 'community-lead')
+        .every((entry) => !entry.indexable)
+    ).toBe(true);
+    expect(findWikiEntry('vehicles')?.indexable).toBe(false);
     expect(
       wikiEntries.some((entry) => entry.evidenceState === 'verified')
     ).toBe(true);
@@ -42,14 +49,16 @@ describe('Hell Let Loose Vietnam Wiki contracts', () => {
   });
 
   it('builds local and configured absolute metadata safely', () => {
-    expect(siteOrigin('https://example.com/')).toBe('https://example.com');
+    expect(siteOrigin('https://example.com/')).toBe(
+      'https://hellletloosevietnamguide.site'
+    );
     expect(homeHead('en', 'https://example.com').meta).toContainEqual({
       name: 'robots',
-      content: 'noindex, nofollow',
+      content: 'index, follow',
     });
     expect(homeHead('en', 'https://example.com').links).toContainEqual({
       rel: 'canonical',
-      href: 'https://example.com/',
+      href: 'https://hellletloosevietnamguide.site/',
     });
 
     const entry = findWikiEntry('game-overview');
@@ -59,7 +68,7 @@ describe('Hell Let Loose Vietnam Wiki contracts', () => {
       wikiHead(entry, category, 'https://example.com').links
     ).toContainEqual({
       rel: 'canonical',
-      href: 'https://example.com/wiki/basics/game-overview',
+      href: 'https://hellletloosevietnamguide.site/wiki/basics/game-overview',
     });
   });
 

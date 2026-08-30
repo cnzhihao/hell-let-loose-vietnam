@@ -888,7 +888,7 @@ export const expansionEntries: readonly WikiEntry[] = [
       'hll vietnam first match squad',
     ],
     tags: ['beginner', 'gameplay', 'systems'],
-    indexable: false,
+    indexable: true,
     facts: [
       { label: 'Best first role', value: 'A non-command role you understand' },
       {
@@ -976,7 +976,7 @@ export const expansionEntries: readonly WikiEntry[] = [
       'hll vietnam push to talk',
     ],
     tags: ['gameplay', 'systems', 'beginner', 'technical'],
-    indexable: false,
+    indexable: true,
     facts: [
       {
         label: 'Recommended call format',
@@ -1267,7 +1267,7 @@ export const expansionEntries: readonly WikiEntry[] = [
       'hll vietnam fps settings',
     ],
     tags: ['technical', 'platforms', 'beginner', 'gameplay'],
-    indexable: false,
+    indexable: true,
     facts: [
       {
         label: 'Baseline',
@@ -1341,7 +1341,7 @@ export const expansionEntries: readonly WikiEntry[] = [
       'hll vietnam connection issues',
     ],
     tags: ['technical', 'platforms', 'updates', 'beginner'],
-    indexable: false,
+    indexable: true,
     facts: [
       {
         label: 'First question',
@@ -1811,7 +1811,7 @@ export const expansionEntries: readonly WikiEntry[] = [
       'hll vietnam price',
     ],
     tags: ['buying', 'platforms', 'technical'],
-    indexable: false,
+    indexable: true,
     facts: [
       { label: 'PC storefront', value: 'Official Steam listing' },
       {

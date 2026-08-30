@@ -1,13 +1,13 @@
 # Content helpfulness audit
 
-> Reviewed 2026-08-30 (Asia/Shanghai) with `wiki-page-builder`, `game-site-level4-builder`, `game-site-seo-readiness` and `youtube-keyframe-extractor`. This is a local/template-safe content audit; it does not authorize indexing or deployment.
+> Reviewed 2026-08-30 (Asia/Shanghai) with `wiki-page-builder`, `game-site-level4-builder`, `game-site-seo-readiness` and `youtube-keyframe-extractor`. The current result is a production-origin launch candidate; it does not authorize GSC/Bing verification or sitemap submission.
 
 ## Contract applied
 
 - Every content entry must answer a player question, state a short answer/lead, expose quick facts, provide 4–6 complete action steps, give a failure or evidence boundary, cite sources and link to a useful next page.
 - Official game, store, patch, roadmap and news material is used for mechanics and current product facts. Community material may only illustrate a player example and is not used to prove an official rule.
 - Version-sensitive claims are dated or explicitly marked for recheck. Missing proof remains `pending` rather than becoming a thin or speculative guide.
-- All content remains template-safe: `indexable: false`, `noindex, nofollow`, robots `Disallow: /` and an empty sitemap.
+- 17 source-backed content records are intended to be indexable in ready mode. Community-lead records and the incomplete vehicle hub remain useful for navigation but stay `noindex, follow` and out of the sitemap.
 
 ## Entry-by-entry result
 
@@ -43,7 +43,7 @@
 
 ## Directory and shell pages
 
-The home page, `/wiki`, `/guides` and the six category pages (`/wiki/basics`, `/wiki/battlefield`, `/wiki/roles`, `/wiki/systems`, `/wiki/access`, `/wiki/updates`) were checked as navigation surfaces. They expose the question-based entry points, topic filters, result counts, latest content or category cards needed to reach the 27 entries; they do not pretend to be standalone mechanic guides. Their template metadata and empty-sitemap behavior remain unchanged.
+The home page, `/wiki`, `/guides` and the six category pages (`/wiki/basics`, `/wiki/battlefield`, `/wiki/roles`, `/wiki/systems`, `/wiki/access`, `/wiki/updates`) were checked as navigation surfaces. They expose the question-based entry points, topic filters, result counts, latest content or category cards needed to reach the 27 entries; they do not pretend to be standalone mechanic guides. In ready mode, these navigation surfaces use the verified production origin and the sitemap lists only the 17 source-backed content records.
 
 ## Visual evidence decision
 
@@ -64,4 +64,4 @@ If a later clean current-build capture becomes available, the first candidates a
 - Each of the six map pages now includes five Conquest and fifteen Domination objective labels with derived A1–J10 grid references from the HLLVDB map dataset. Unresolved record IDs are preserved. The tables help a player find the active objective; they do not state a fixed route or capture order.
 - The weapons page now shows the 20 weapon-like HLLVDB snapshot records that can be represented without guessing: 18 named labels and two unresolved IDs, alongside the existing 22-name reference union. The snapshot’s 66 total weapons/equipment count is recorded as a source-specific boundary.
 - The helicopter page now compares two independently published PC catalogues with KAISER’s changed personal profile. Because the mappings conflict, the current in-game Controls screen remains the final authority. YouTube Skill was used for public-source/timestamp/frame checks; no new binary asset was retained.
-- These updates improve practical helpfulness without relaxing template safety: every route remains `indexable: false`, robots remains blocked and the sitemap remains empty.
+- These updates improve practical helpfulness without over-promoting unresolved evidence: community-lead and incomplete pages remain noindex, while only the selected 17 source-backed records enter the sitemap.

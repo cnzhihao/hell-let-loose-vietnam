@@ -2,7 +2,7 @@
   "project": "Hell Let Loose Vietnam Wiki",
   "game": "Hell Let Loose: Vietnam",
   "collectedAt": "2026-08-30",
-  "notes": "The primary site name follows the strongest Google Trends root query. Wiki is a site-type descriptor, not a separately proven high-volume query. Keep indexable false until the pre-launch gate is cleared. The official game page reports 19 specialised roles while the current Steam About section names 17; publish the 17 named roles with the discrepancy visible. Current-build HLLVDB tables add bounded role/loadout, weapon-like record and map-objective cross-checks; the helicopter page compares conflicting community PC catalogues. None of these community/reference sources replaces official or current-client verification.",
+  "notes": "The primary site name follows the strongest Google Trends root query. Wiki is a site-type descriptor, not a separately proven high-volume query. The launch candidate exposes only 17 source-backed entries to search; community-lead pages and the incomplete vehicle hub remain noindex. The official game page reports 19 specialised roles while the current Steam About section names 17; publish the 17 named roles with the discrepancy visible. Current-build HLLVDB tables add bounded role/loadout, weapon-like record and map-objective cross-checks; the helicopter page compares conflicting community PC catalogues. None of these community/reference sources replaces official or current-client verification.",
   "naming": {
     "primary": "Hell Let Loose Vietnam Wiki",
     "short": "HLL Vietnam Wiki",
@@ -19,7 +19,7 @@
       "path": "/wiki/basics/game-overview",
       "priority": "P0",
       "evidenceState": "verified",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://www.hellletloose.com/game/hll-vietnam",
         "https://www.hellletloose.com/blog/hllv-out-now",
@@ -42,7 +42,7 @@
       "path": "/guides/beginner",
       "priority": "P0",
       "evidenceState": "verified",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://www.hellletloose.com/blog/hllv-out-now",
         "https://steamcommunity.com/app/3079210/allnews/",
@@ -60,7 +60,7 @@
       "path": "/wiki/battlefield/launch-maps",
       "priority": "P0",
       "evidenceState": "single-official-source",
-      "indexable": false,
+      "indexable": true,
       "sources": ["https://www.hellletloose.com/blog/hllv-out-now"],
       "relatedSlugs": ["game-overview", "game-modes"]
     },
@@ -74,7 +74,7 @@
       "path": "/wiki/battlefield/game-modes",
       "priority": "P0",
       "evidenceState": "single-official-source",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://www.hellletloose.com/blog/hllv-game-modes",
         "https://www.hellletloose.com/blog/hllv-out-now"
@@ -112,7 +112,7 @@
       "path": "/wiki/access/crossplay-and-platforms",
       "priority": "P0",
       "evidenceState": "verified",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://store.steampowered.com/app/3079210/Hell_Let_Loose_Vietnam/",
         "https://www.hellletloose.com/blog/beta-testing-and-crossplay",
@@ -130,7 +130,7 @@
       "path": "/wiki/access/pc-requirements",
       "priority": "P0",
       "evidenceState": "single-official-source",
-      "indexable": false,
+      "indexable": true,
       "sources": ["https://www.hellletloose.com/pc-requirements"],
       "relatedSlugs": ["release-and-platforms", "crossplay-and-platforms"]
     },
@@ -144,7 +144,7 @@
       "path": "/wiki/updates/patch-1-3",
       "priority": "P0",
       "evidenceState": "single-official-source",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://www.hellletloose.com/blog/hllv-patch-1-3",
         "https://steamcommunity.com/app/3079210/allnews/"
@@ -161,7 +161,7 @@
       "path": "/wiki/updates/roadmap-2026",
       "priority": "P1",
       "evidenceState": "single-official-source",
-      "indexable": false,
+      "indexable": true,
       "sources": ["https://www.hellletloose.com/blog/hllv-2026-roadmap"],
       "relatedSlugs": ["patch-1-3", "launch-maps"]
     },
@@ -175,7 +175,7 @@
       "path": "/wiki/access/release-and-platforms",
       "priority": "P0",
       "evidenceState": "verified",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://www.hellletloose.com/blog/hllv-out-now",
         "https://store.steampowered.com/app/3079210/Hell_Let_Loose_Vietnam/"
@@ -192,7 +192,7 @@
       "path": "/wiki/systems/tunnels-helicopters",
       "priority": "P1",
       "evidenceState": "verified",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://www.hellletloose.com/game/hll-vietnam",
         "https://www.hellletloose.com/blog/hllv-patch-1-3"
@@ -209,7 +209,7 @@
       "path": "/wiki/systems/movement-and-teamplay",
       "priority": "P1",
       "evidenceState": "verified",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://www.hellletloose.com/game/hll-vietnam",
         "https://www.hellletloose.com/blog/hllv-out-now"
@@ -226,7 +226,7 @@
       "path": "/wiki/updates/patch-1-2",
       "priority": "P1",
       "evidenceState": "single-official-source",
-      "indexable": false,
+      "indexable": true,
       "sources": ["https://www.hellletloose.com/blog/hllv-patch-1-2"],
       "relatedSlugs": [
         "patch-1-3",
@@ -244,7 +244,7 @@
       "path": "/guides/join-a-squad",
       "priority": "P0",
       "evidenceState": "verified",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://www.hellletloose.com/blog/hllv-out-now",
         "https://www.hellletloose.com/game/hll-vietnam"
@@ -261,7 +261,7 @@
       "path": "/guides/voice-chat",
       "priority": "P0",
       "evidenceState": "single-official-source",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://www.hellletloose.com/blog/hllv-out-now",
         "https://steamcommunity.com/app/3079210/allnews/"
@@ -303,7 +303,7 @@
       "path": "/guides/best-settings",
       "priority": "P0",
       "evidenceState": "single-official-source",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://www.hellletloose.com/pc-requirements",
         "https://www.hellletloose.com/game/hll-vietnam"
@@ -324,7 +324,7 @@
       "path": "/guides/crashing-fixes",
       "priority": "P0",
       "evidenceState": "single-official-source",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://www.hellletloose.com/blog/hllv-patch-1-3",
         "https://www.hellletloose.com/blog/hllv-patch-1-2",
@@ -495,7 +495,7 @@
       "path": "/wiki/access/editions-and-buying",
       "priority": "P1",
       "evidenceState": "verified",
-      "indexable": false,
+      "indexable": true,
       "sources": [
         "https://store.steampowered.com/app/3079210/Hell_Let_Loose_Vietnam/",
         "https://www.hellletloose.com/blog/hllv-out-now",

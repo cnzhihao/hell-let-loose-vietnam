@@ -2,7 +2,7 @@
 
 这是一个面向 **Hell Let Loose: Vietnam** 的玩家优先 Wiki / 游戏资讯站，站名采用 Google Trends 验证过的主搜索词 **Hell Let Loose Vietnam**，并以 Wiki 作为内容类型说明。应用代码基于 [mkfast-lite](https://github.com/MkFastHQ/mkfast-lite)，工作流由仓库内的项目级 Skills 管理，事实页面均保留官方来源和核验日期。
 
-当前仓库仍是模板安全的研究预览：内容已完成第一轮官方资料核验，并已部署一个 Cloudflare Workers 预览地址，但还没有生产域名和正式开放索引授权，因此继续保持 `isTemplate: true`、`noindex`、robots 禁止抓取和空 sitemap。
+当前仓库已进入生产域名的发布候选状态：17 条有可靠来源且完成玩家任务的内容记录允许进入 sitemap，社区线索页和完整证据仍不足的载具页继续 `noindex`。网站已部署到 Cloudflare，但尚未提交 Google Search Console 或 Bing Webmaster Tools；提交前仍需完成最后一次公网 SEO readiness 核验。
 
 ## 直接开始
 
@@ -32,12 +32,13 @@ pnpm dev
 地图单页目前只确认官方 launch roster，不把地图名称推导成路线、据点、掩体或职业建议；完整角色/武器/载具名册、价格、玩家数、评价快照、跨进度和通用按键表仍保持 Pending 边界。
 首页新增 `Start with the question`、`Latest verified` 和 `Field evidence` 区块；图片只采用官方公开战场媒体，并显示来源、归属和 visual evidence boundary。
 
-## 上站前必须完成
+## 提交 GSC/Bing 前必须完成
 
-1. 在 `src/config/website.ts` 写入真实 HTTPS 生产域名；
-2. 复核所有动态事实和页面素材授权；
-3. 按 `AGENTS.md` 重新执行研究、页面和 SEO readiness 流程；
-4. 正式上线前明确授权，再将 `isTemplate` 改为 `false`、配置生产域名并单独处理索引提交。
+1. 复核所有动态事实、社区证据和页面素材授权；
+2. 按 `AGENTS.md` 重新执行研究、页面和 SEO readiness 流程；
+3. 确认 `src/config/website.ts` 的生产 origin、`isTemplate: false` 与可索引页面清单；
+4. 公网验证 canonical、robots、sitemap、404、重定向和移动端；
+5. 单独授权后，才进入 GSC/Bing 做站点验证和 sitemap 提交。
 
 不要只替换游戏名就上线。每个可索引页面都要对应明确搜索意图、真实用户问题和可靠来源。
 

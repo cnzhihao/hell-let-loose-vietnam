@@ -3,11 +3,11 @@ export const websiteConfig = {
   shortName: 'HLL Vietnam Wiki',
   description:
     'The unofficial Hell Let Loose Vietnam Wiki with first-match guides, maps, roles, PC requirements, crossplay and current updates.',
-  /** Production origin is intentionally unset until the user authorizes launch setup. */
-  url: null as string | null,
+  /** Verified production origin; Search Console submission remains a separate gate. */
+  url: 'https://hellletloosevietnamguide.site' as string | null,
   repository: 'https://github.com/cnzhihao/hell-let-loose-vietnam',
-  /** Keep true until a real origin is configured and launch is explicitly authorized. */
-  isTemplate: true,
+  /** Ready mode enables source-backed canonical, robots and sitemap output. */
+  isTemplate: false,
   defaultTheme: 'dark' as const,
   themeStorageKey: 'hll-vietnam-wiki-theme',
   colors: {

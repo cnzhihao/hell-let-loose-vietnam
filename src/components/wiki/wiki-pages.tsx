@@ -363,7 +363,8 @@ export function WikiHomePage() {
           <div className="grid items-end gap-14 lg:grid-cols-[minmax(0,1fr)_21rem]">
             <div className="max-w-4xl">
               <span className="field-label field-hero-kicker inline-flex px-3 py-2">
-                HELL LET LOOSE VIETNAM / RESEARCH PREVIEW
+                HELL LET LOOSE VIETNAM /{' '}
+                {websiteConfig.isTemplate ? 'RESEARCH PREVIEW' : 'FIELD MANUAL'}
               </span>
               <h1 className="mt-7 max-w-4xl text-balance text-[clamp(3.7rem,8vw,7.5rem)] font-black uppercase leading-[0.88] tracking-[-0.03em]">
                 Hell Let Loose{' '}
@@ -653,9 +654,7 @@ export function WikiHomePage() {
 
 export function WikiIndexPage() {
   const { clear, filters, ready, update } = useWikiDirectoryFilters();
-  const entries = searchWikiEntries(filters).filter(
-    (entry) => entry.indexable || websiteConfig.isTemplate
-  );
+  const entries = searchWikiEntries(filters);
 
   return (
     <main className="py-16 sm:py-24" id="main-content">

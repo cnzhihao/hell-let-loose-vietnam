@@ -47,7 +47,9 @@ async function selectTheme(page: Page, theme: 'dark' | 'light') {
 }
 
 test.describe('Hell Let Loose Vietnam Wiki', () => {
-  test('renders the player-first home in template mode', async ({ page }) => {
+  test('renders the player-first home in launch-candidate mode', async ({
+    page,
+  }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
@@ -58,6 +60,9 @@ test.describe('Hell Let Loose Vietnam Wiki', () => {
     await expect(page.locator('main h1')).toHaveText(
       'Hell Let Loose Vietnam Guide'
     );
+    await expect(
+      page.getByText('HELL LET LOOSE VIETNAM / FIELD MANUAL')
+    ).toBeVisible();
     await expect(page).toHaveTitle(
       'Hell Let Loose Vietnam Guide | Beginner Guides, Maps & Updates'
     );
@@ -74,11 +79,11 @@ test.describe('Hell Let Loose Vietnam Wiki', () => {
     await expect(page.locator('a[href="/wiki"]')).toHaveCount(2);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
       'content',
-      'noindex, nofollow'
+      'index, follow'
     );
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       'href',
-      new URL('/', page.url()).toString()
+      'https://hellletloosevietnamguide.site/'
     );
     await expect(page.locator('link[hreflang="zh-CN"]')).toHaveCount(0);
     await expect(page.locator('footer')).toBeVisible();
@@ -125,7 +130,7 @@ test.describe('Hell Let Loose Vietnam Wiki', () => {
     await expect(page.getByRole('heading', { name: 'Sources' })).toBeVisible();
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
       'content',
-      'noindex, nofollow'
+      'index, follow'
     );
   });
 
@@ -148,30 +153,30 @@ test.describe('Hell Let Loose Vietnam Wiki', () => {
     page,
   }) => {
     const paths = [
-      '/guides/join-a-squad',
-      '/guides/voice-chat',
-      '/guides/helicopter-controls',
-      '/guides/best-settings',
-      '/guides/crashing-fixes',
-      '/wiki/battlefield/thanh-hoa-bridge',
-      '/wiki/battlefield/hue-outskirts',
-      '/wiki/battlefield/van-tuong',
-      '/wiki/battlefield/quang-ngai',
-      '/wiki/battlefield/dak-to-airfield',
-      '/wiki/battlefield/cam-ranh-port',
-      '/wiki/roles/weapons',
-      '/wiki/roles/vehicles',
-      '/wiki/access/editions-and-buying',
+      { path: '/guides/join-a-squad', robots: 'index, follow' },
+      { path: '/guides/voice-chat', robots: 'index, follow' },
+      { path: '/guides/helicopter-controls', robots: 'noindex, follow' },
+      { path: '/guides/best-settings', robots: 'index, follow' },
+      { path: '/guides/crashing-fixes', robots: 'index, follow' },
+      { path: '/wiki/battlefield/thanh-hoa-bridge', robots: 'noindex, follow' },
+      { path: '/wiki/battlefield/hue-outskirts', robots: 'noindex, follow' },
+      { path: '/wiki/battlefield/van-tuong', robots: 'noindex, follow' },
+      { path: '/wiki/battlefield/quang-ngai', robots: 'noindex, follow' },
+      { path: '/wiki/battlefield/dak-to-airfield', robots: 'noindex, follow' },
+      { path: '/wiki/battlefield/cam-ranh-port', robots: 'noindex, follow' },
+      { path: '/wiki/roles/weapons', robots: 'noindex, follow' },
+      { path: '/wiki/roles/vehicles', robots: 'noindex, follow' },
+      { path: '/wiki/access/editions-and-buying', robots: 'index, follow' },
     ];
 
-    for (const path of paths) {
+    for (const { path, robots } of paths) {
       const response = await page.goto(path);
       expect(response?.status(), path).toBe(200);
       await expect(page.locator('main h1'), path).toBeVisible();
       await expect(page.locator('main h1'), path).toHaveCount(1);
       await expect(page.locator('meta[name="robots"]'), path).toHaveAttribute(
         'content',
-        'noindex, nofollow'
+        robots
       );
     }
   });
@@ -243,16 +248,28 @@ test.describe('Hell Let Loose Vietnam Wiki', () => {
     );
   });
 
-  test('keeps template machine endpoints closed', async ({ request }) => {
+  test('serves launch-candidate machine endpoints', async ({ request }) => {
     const robots = await request.get('/robots.txt');
     expect(robots.ok()).toBe(true);
-    expect(await robots.text()).toContain('Disallow: /');
+    const robotsText = await robots.text();
+    expect(robotsText).toContain('Allow: /');
+    expect(robotsText).toContain(
+      'Sitemap: https://hellletloosevietnamguide.site/sitemap.xml'
+    );
 
     const sitemap = await request.get('/sitemap.xml');
     expect(sitemap.ok()).toBe(true);
     const sitemapXml = await sitemap.text();
     expect(sitemapXml).toContain('<urlset');
-    expect(sitemapXml).not.toContain('<loc>');
+    expect((sitemapXml.match(/<loc>/g) ?? []).length).toBe(26);
+    expect(sitemapXml).toContain(
+      '<loc>https://hellletloosevietnamguide.site/</loc>'
+    );
+    expect(sitemapXml).toContain(
+      '<loc>https://hellletloosevietnamguide.site/guides/beginner</loc>'
+    );
+    expect(sitemapXml).not.toContain('/wiki/roles/roles-and-units');
+    expect(sitemapXml).not.toContain('/wiki/roles/vehicles');
 
     const manifest = await request.get('/manifest.webmanifest');
     expect(manifest.ok()).toBe(true);
