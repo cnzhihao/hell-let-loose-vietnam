@@ -16,7 +16,7 @@
 - Indexing mode: pre-launch/template-safe (`websiteConfig.isTemplate: true`)
 - Authorized preview deployment: `https://hll-vietnam-field-manual.zhcnzhihao.workers.dev`
 - Authorized public domain route: `https://hellletloosevietnamguide.site`
-- Deployed Worker version: `aa357cbe-02c3-4077-a7de-b53f5a87a496`
+- Deployed Worker version: `f83960fa-5922-46ec-85ea-eb275c6f12bf`
 
 ## Route inventory
 
@@ -156,3 +156,14 @@ Keep the verified Cloudflare Route and template-safe noindex/robots/sitemap beha
 - A fresh local runtime crawl checked 36 home, directory and content routes. All returned 200 with one H1, title, description, self canonical and `noindex, nofollow`; the unknown Wiki path returned 404 and `/guides/map` returned 301 to `/wiki/battlefield/launch-maps`.
 - The earlier blocker wording that called map pages “roster records” is superseded by this section: the pages now contain source-backed terrain profiles, while map tactics remain pending. The full role/weapon roster and any exact current-build control tables remain open evidence work.
 - Template safety was not relaxed: `websiteConfig.url` is still `null`, `websiteConfig.isTemplate` is still `true`, every entry remains `indexable: false`, robots remains disallowed, and the sitemap remains empty.
+
+## 2026-08-30 Content sync deployment and public recheck
+
+- The all-page helpfulness and evidence-boundary updates were committed as `95c865e` (`Complete content helpfulness audit and evidence updates`) and pushed to `origin/main`.
+- `pnpm run deploy` completed successfully against the existing Worker `hll-vietnam-field-manual`; the current deployed version is `f83960fa-5922-46ec-85ea-eb275c6f12bf`.
+- Before this deployment, 25 of the 36 declared routes had visible-content differences between local and the public domain. After deployment, a fresh comparison of all 36 routes found 36/36 exact visible-content, title, H1 and description matches between `http://127.0.0.1:3000` and `https://hellletloosevietnamguide.site`.
+- Public-domain E2E passed: 25 tests passed and 1 mobile-only test was skipped across Chromium and Pixel 7 projects (26 test cases total).
+- Public route/head verification passed for all 36 declared HTML routes: HTTP 200, one H1, title, description, self canonical and `noindex, nofollow`. The two legacy routes were also checked: `/guides/map` returns 301 to `/wiki/battlefield/launch-maps`, and `/wiki/basics/beginner-guide` returns 301 to `/guides/beginner`.
+- Public negative and machine endpoint checks passed: `/wiki/missing/no-such-page` returns 404; `/robots.txt` returns the project `User-agent: *` and `Disallow: /` policy; `/sitemap.xml` contains no `<loc>` entries; and `/manifest.webmanifest` returns valid JSON with `application/manifest+json`.
+- Template safety is unchanged: `websiteConfig.url` remains `null`, `websiteConfig.isTemplate` remains `true`, every entry remains `indexable: false`, and no GSC/Bing/GA, index request or sitemap submission was performed.
+- The separate upstream Skill PR remains open and was not merged: [game-site-agents-template PR #2](https://github.com/cnzhihao/game-site-agents-template/pull/2).
