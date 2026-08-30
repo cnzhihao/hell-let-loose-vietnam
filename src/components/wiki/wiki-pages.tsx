@@ -3,7 +3,15 @@ import { ButtonLink } from '@/components/ui/button-link';
 import { gameConfig } from '@/config/game';
 import { websiteConfig } from '@/config/website';
 import {
+  guidesIndexDepthSections,
+  guidesIndexEditorialSections,
+  guidesIndexLastSections,
+  homepageEditorialSections,
+  wikiIndexEditorialSections,
+} from '@/content/editorial';
+import {
   findWikiEntry,
+  getCategoryEditorialSections,
   getCategoryEntries,
   getLatestEntries,
   getWikiCategoryHref,
@@ -15,6 +23,7 @@ import {
 import type {
   WikiCategory,
   WikiEntry,
+  WikiSection,
   WikiStep,
   WikiTable,
   WikiVisual,
@@ -70,7 +79,13 @@ function WikiVisualFigure({ visual }: { visual: WikiVisual }) {
   return (
     <figure className="field-visual">
       <div className="field-visual-frame">
-        <img alt={visual.alt} loading="lazy" src={visual.src} />
+        <img
+          alt={visual.alt}
+          height={visual.height}
+          loading="lazy"
+          src={visual.src}
+          width={visual.width}
+        />
         {visual.annotations?.map((annotation) => (
           <span
             className="field-visual-annotation"
@@ -178,6 +193,40 @@ function WikiTableView({ table }: { table: WikiTable }) {
           ))}
         </tbody>
       </table>
+    </div>
+  );
+}
+
+function EditorialSectionList({
+  idPrefix,
+  sections,
+}: {
+  idPrefix: string;
+  sections: readonly WikiSection[];
+}) {
+  if (sections.length === 0) return null;
+
+  return (
+    <div className="mt-14 grid gap-10">
+      {sections.map((section, index) => (
+        <section id={`${idPrefix}-${index + 1}`} key={section.heading}>
+          <h2 className="text-3xl font-black tracking-[-0.02em]">
+            {section.heading}
+          </h2>
+          <div className="mt-4 grid gap-4 text-lg leading-8 text-muted-foreground">
+            {section.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          {section.bullets && (
+            <ul className="mt-4 grid gap-2 pl-6 text-lg leading-8 text-muted-foreground">
+              {section.bullets.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
+          )}
+        </section>
+      ))}
     </div>
   );
 }
@@ -648,6 +697,25 @@ export function WikiHomePage() {
           </div>
         </Container>
       </section>
+
+      <section className="bg-background py-18 sm:py-24">
+        <Container>
+          <div className="max-w-3xl">
+            <span className="field-label">Field manual</span>
+            <h2 className="mt-2 text-4xl font-black tracking-[-0.03em] sm:text-5xl">
+              Turn a search question into a useful next action
+            </h2>
+            <p className="field-muted mt-5 text-lg leading-8">
+              Read the evidence boundary first, then follow the route that
+              matches your device, match or first question.
+            </p>
+          </div>
+          <EditorialSectionList
+            idPrefix="homepage-editorial"
+            sections={homepageEditorialSections}
+          />
+        </Container>
+      </section>
     </main>
   );
 }
@@ -661,10 +729,12 @@ export function WikiIndexPage() {
       <Container>
         <div className="max-w-3xl">
           <span className="field-label">Directory</span>
-          <h1 className="mt-2 text-5xl font-black tracking-[-0.04em]">Wiki</h1>
+          <h1 className="mt-2 text-5xl font-black tracking-[-0.04em]">
+            Hell Let Loose Vietnam Wiki
+          </h1>
           <p className="mt-5 text-lg leading-8 text-muted-foreground">
-            Browse by category, then open the exact page that answers the
-            player’s question.
+            Browse the Hell Let Loose Vietnam Wiki by category, then open the
+            exact page that answers the player’s question.
           </p>
           <div className="mt-8">
             <WikiSearch compact />
@@ -680,6 +750,11 @@ export function WikiIndexPage() {
             showPageType
           />
         </div>
+
+        <EditorialSectionList
+          idPrefix="wiki-editorial"
+          sections={wikiIndexEditorialSections}
+        />
 
         <section className="mt-14" aria-labelledby="categories-heading">
           <div className="flex items-end justify-between gap-4">
@@ -755,7 +830,7 @@ export function WikiCategoryPage({ category }: { category: WikiCategory }) {
         <div className="mt-8 max-w-3xl">
           <span className="field-label">Category</span>
           <h1 className="mt-2 text-5xl font-black tracking-[-0.04em]">
-            {category.title}
+            {category.pageHeading ?? category.title}
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted-foreground">
             {category.description}
@@ -764,6 +839,11 @@ export function WikiCategoryPage({ category }: { category: WikiCategory }) {
             <WikiSearch compact />
           </div>
         </div>
+
+        <EditorialSectionList
+          idPrefix={`${category.slug}-editorial`}
+          sections={getCategoryEditorialSections(category.slug)}
+        />
 
         <section className="mt-14" aria-labelledby="category-entries-heading">
           <h2 className="text-3xl font-black" id="category-entries-heading">
@@ -1013,11 +1093,11 @@ export function GuidesIndexPage() {
         <div className="max-w-3xl">
           <span className="field-label">Player help</span>
           <h1 className="mt-2 text-5xl font-black tracking-[-0.04em]">
-            Guides
+            Hell Let Loose Vietnam Guides
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted-foreground">
-            Task-first pages for players who need to complete a first-match
-            action, not only look up a term.
+            Task-first Hell Let Loose Vietnam guides for players who need to
+            complete a first-match action, not only look up a term.
           </p>
         </div>
         <div className="mt-10">
@@ -1028,6 +1108,16 @@ export function GuidesIndexPage() {
             ready={ready}
           />
         </div>
+
+        <EditorialSectionList
+          idPrefix="guides-editorial"
+          sections={[
+            ...guidesIndexEditorialSections,
+            ...guidesIndexDepthSections,
+            ...guidesIndexLastSections,
+          ]}
+        />
+
         <div className="mt-6 flex items-center justify-between gap-4">
           <span className="text-sm font-bold text-muted-foreground">
             {guides.length} matching guides

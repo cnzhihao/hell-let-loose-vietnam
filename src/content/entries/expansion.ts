@@ -871,12 +871,12 @@ export const expansionEntries: readonly WikiEntry[] = [
     slug: 'join-a-squad',
     categorySlug: 'basics',
     path: '/guides/join-a-squad',
-    title: 'How to Join a Squad',
+    title: 'Hell Let Loose Vietnam: How to Join a Squad',
     pageType: 'guide',
     summary:
       'A first-match route for finding an open squad, choosing a low-risk role and staying connected to the active objective.',
     lead: 'Joining a squad is the safest first live-server action: use the current server browser, choose an open squad, communicate your first move and stay tied to the objective. Exact menu labels and voice controls remain build-sensitive.',
-    metaTitle: 'How to Join a Squad — HLL Vietnam Wiki',
+    metaTitle: 'Hell Let Loose Vietnam Join a Squad Guide',
     metaDescription:
       'A practical, source-bounded first-match guide for joining a squad and communicating in Hell Let Loose: Vietnam.',
     status: 'First-match guide',
@@ -959,12 +959,12 @@ export const expansionEntries: readonly WikiEntry[] = [
     slug: 'voice-chat',
     categorySlug: 'systems',
     path: '/guides/voice-chat',
-    title: 'Voice Chat Setup and Calls',
+    title: 'Hell Let Loose Vietnam Voice Chat Setup',
     pageType: 'guide',
     summary:
       'A build-safe audio checklist for testing the microphone, choosing the squad channel and making short battlefield calls.',
     lead: 'Use the current audio settings to select and test your microphone, then make short calls about position, direction and intent. The guide avoids a universal push-to-talk key because bindings can differ by platform and build.',
-    metaTitle: 'Voice Chat Setup and Calls — HLL Vietnam Wiki',
+    metaTitle: 'Hell Let Loose Vietnam Voice Chat Guide',
     metaDescription:
       'Test voice chat, choose the right channel and communicate clearly in Hell Let Loose: Vietnam without relying on outdated keybind charts.',
     status: 'First-match systems guide',
@@ -1250,12 +1250,12 @@ export const expansionEntries: readonly WikiEntry[] = [
     slug: 'best-settings',
     categorySlug: 'access',
     path: '/guides/best-settings',
-    title: 'Best Settings: A Repeatable Starting Point',
+    title: 'Hell Let Loose Vietnam Best Settings',
     pageType: 'guide',
     summary:
       'A repeatable way to tune visibility and stability without presenting one player’s graphics preset as the universal best setting.',
     lead: 'There is no single best settings preset for every PC. Start with the official requirements, change one group at a time, prioritize readable silhouettes and stable frame pacing, and record the build and hardware beside any result.',
-    metaTitle: 'Best Settings — Hell Let Loose: Vietnam PC Guide',
+    metaTitle: 'Hell Let Loose Vietnam Best Settings Guide',
     metaDescription:
       'A repeatable PC settings process for HLL: Vietnam: requirements, one-change testing, visibility, stability and patch rechecks.',
     status: 'PC settings guide',
@@ -1324,12 +1324,12 @@ export const expansionEntries: readonly WikiEntry[] = [
     slug: 'crashing-fixes',
     categorySlug: 'access',
     path: '/guides/crashing-fixes',
-    title: 'Crashing and Connection Checks',
+    title: 'Hell Let Loose Vietnam Crashing Fixes',
     pageType: 'guide',
     summary:
       'A reversible troubleshooting route for launch, loading, server-join and in-match crashes, with an evidence-first escalation note.',
     lead: 'Troubleshoot a crash by identifying when it happens, checking the newest official patch notes and applying one reversible local change at a time. Keep causes marked pending when the official sources do not identify them.',
-    metaTitle: 'Crashing Fixes — Hell Let Loose: Vietnam Troubleshooting',
+    metaTitle: 'Hell Let Loose Vietnam Crashing Fixes Guide',
     metaDescription:
       'Evidence-first crash and connection checks for Hell Let Loose: Vietnam, including build capture, official patch review and reversible tests.',
     status: 'Troubleshooting guide',
@@ -1793,12 +1793,12 @@ export const expansionEntries: readonly WikiEntry[] = [
   {
     slug: 'editions-and-buying',
     categorySlug: 'access',
-    title: 'Editions and Buying',
+    title: 'Hell Let Loose Vietnam Editions & Buying',
     pageType: 'access',
     summary:
       'Where to verify the current PC listing and launch platform availability without freezing a regional price or discount snapshot.',
     lead: 'Use the official Steam listing and the publisher’s launch information to verify availability, platform and current purchase options. Prices, discounts, subscriptions and regional editions are intentionally treated as live storefront facts rather than copied into a static Wiki entry.',
-    metaTitle: 'Editions and Buying — Hell Let Loose: Vietnam Wiki',
+    metaTitle: 'Hell Let Loose Vietnam Editions & Buying',
     metaDescription:
       'Official purchase and platform verification for Hell Let Loose: Vietnam, with dynamic prices and regional storefront details left to the live store.',
     status: 'Buying guide; storefront values require live recheck',

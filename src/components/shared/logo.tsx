@@ -12,7 +12,9 @@ export function Logo({ className }: { className?: string }) {
       <img
         alt=""
         className="field-logo h-8 w-auto max-w-[10rem] object-contain object-left"
+        height={438}
         src="/assets/hllv-wiki-logo.png"
+        width={1437}
       />
     </span>
   );

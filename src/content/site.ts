@@ -1,4 +1,14 @@
 import { gameConfig } from '@/config/game';
+import {
+  categoryDepthSections,
+  categoryEditorialSections,
+  categoryFinalSections,
+  categoryLastSections,
+  entryDepthSections,
+  entryEditorialSections,
+  entryFinalSections,
+  entryLastSections,
+} from './editorial';
 import { expansionEntries } from './entries/expansion';
 import type { TopicTag, WikiCategory, WikiEntry, WikiTable } from './types';
 import { officialVisuals } from './visuals';
@@ -30,14 +40,32 @@ export const wikiCategories: readonly WikiCategory[] = [
   {
     slug: 'basics',
     title: 'Basics',
-    description: 'The game’s verified shape and the safest first-match route.',
+    pageHeading: 'Hell Let Loose Vietnam Basics & Beginner Guide',
+    description:
+      'Hell Let Loose Vietnam basics for a safe first match: game shape, tutorials, squads, objectives and source-backed next steps.',
+    metaTitle: 'Hell Let Loose Vietnam Basics | Beginner Guide',
+    metaDescription:
+      'Start Hell Let Loose Vietnam with the verified game basics, tutorial order, squad flow and first-match decisions.',
+    keywords: [
+      'hell let loose vietnam basics',
+      'hell let loose vietnam beginner guide',
+    ],
     indexable: true,
     entrySlugs: ['game-overview', 'beginner-guide', 'join-a-squad'],
   },
   {
     slug: 'battlefield',
     title: 'Battlefield',
-    description: 'Launch maps, capture rules and the four documented modes.',
+    pageHeading: 'Hell Let Loose Vietnam Maps & Game Modes',
+    description:
+      'Hell Let Loose Vietnam maps and game modes: six launch battlefields, terrain cues, capture rules and current evidence limits.',
+    metaTitle: 'Hell Let Loose Vietnam Maps | Modes & Terrain',
+    metaDescription:
+      'Browse Hell Let Loose Vietnam maps, terrain profiles and official Warfare, Offensive, Conquest and Domination rules.',
+    keywords: [
+      'hell let loose vietnam maps',
+      'hell let loose vietnam game modes',
+    ],
     indexable: true,
     entrySlugs: [
       'launch-maps',
@@ -53,16 +81,32 @@ export const wikiCategories: readonly WikiCategory[] = [
   {
     slug: 'roles',
     title: 'Roles & classes',
+    pageHeading: 'Hell Let Loose Vietnam Roles & Classes',
     description:
-      'Roles, classes, weapons and vehicles, with roster claims separated from player examples.',
+      'Hell Let Loose Vietnam roles, classes, weapons and vehicles, with named roster evidence separated from player examples.',
+    metaTitle: 'Hell Let Loose Vietnam Roles & Classes',
+    metaDescription:
+      'Understand Hell Let Loose Vietnam roles, classes, weapons and vehicles while keeping roster and loadout evidence separate.',
+    keywords: [
+      'hell let loose vietnam roles',
+      'hell let loose vietnam classes',
+    ],
     indexable: true,
     entrySlugs: ['roles-and-units', 'weapons', 'vehicles'],
   },
   {
     slug: 'systems',
     title: 'Systems & controls',
+    pageHeading: 'Hell Let Loose Vietnam Gameplay Systems',
     description:
-      'Tunnels, aircraft, voice chat, movement and teamplay systems confirmed by official material.',
+      'Hell Let Loose Vietnam gameplay systems: movement, teamplay, tunnels, aircraft, patrol boats and voice chat boundaries.',
+    metaTitle: 'Hell Let Loose Vietnam Gameplay Systems',
+    metaDescription:
+      'Learn Hell Let Loose Vietnam gameplay systems, movement, teamplay, voice chat and aircraft controls with build boundaries.',
+    keywords: [
+      'hell let loose vietnam gameplay',
+      'hell let loose vietnam controls',
+    ],
     indexable: true,
     entrySlugs: [
       'tunnels-helicopters',
@@ -74,8 +118,16 @@ export const wikiCategories: readonly WikiCategory[] = [
   {
     slug: 'access',
     title: 'Platforms, PC & fixes',
+    pageHeading: 'Hell Let Loose Vietnam Platforms & Fixes',
     description:
-      'Release platforms, crossplay, PC requirements, settings and crash checks.',
+      'Hell Let Loose Vietnam platforms, crossplay, PC requirements, settings, buying checks and crash troubleshooting.',
+    metaTitle: 'Hell Let Loose Vietnam Platforms & Fixes',
+    metaDescription:
+      'Check Hell Let Loose Vietnam release platforms, crossplay, PC requirements, settings, buying details and crash checks.',
+    keywords: [
+      'hell let loose vietnam platforms',
+      'hell let loose vietnam pc requirements',
+    ],
     indexable: true,
     entrySlugs: [
       'release-and-platforms',
@@ -89,8 +141,16 @@ export const wikiCategories: readonly WikiCategory[] = [
   {
     slug: 'updates',
     title: 'Updates & roadmap',
+    pageHeading: 'Hell Let Loose Vietnam Updates & Roadmap',
     description:
-      'Version-sensitive notes, current fixes and clearly labelled plans.',
+      'Hell Let Loose Vietnam updates, patch notes and roadmap items with current, historical and planned content kept separate.',
+    metaTitle: 'Hell Let Loose Vietnam Updates & Roadmap',
+    metaDescription:
+      'Track Hell Let Loose Vietnam patch notes and roadmap plans while separating current changes from historical and future claims.',
+    keywords: [
+      'hell let loose vietnam updates',
+      'hell let loose vietnam roadmap',
+    ],
     indexable: true,
     entrySlugs: ['patch-1-3', 'patch-1-2', 'roadmap-2026'],
   },
@@ -221,13 +281,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'game-overview',
     categorySlug: 'basics',
-    title: 'Hell Let Loose: Vietnam Overview',
+    title: 'Hell Let Loose Vietnam Overview',
     pageType: 'entry',
     tags: ['beginner', 'gameplay', 'platforms'],
     summary:
       'The official shape of HLL: Vietnam: 50v50 battles, NVA versus US, six launch maps, a role count reported differently by two official storefront/product surfaces, and three launch platform families.',
     lead: 'Hell Let Loose: Vietnam is a 50v50 tactical multiplayer game set in the Vietnam War. The official game page reports 19 specialised roles and names infantry, recon, armour, mortar and helicopter units, while the current Steam About section reports 17. Steam lists cross-platform multiplayer and a 13 August 2026 release; those dynamic facts were rechecked on 30 August 2026.',
-    metaTitle: 'Hell Let Loose: Vietnam Overview — HLL Vietnam Wiki',
+    metaTitle: 'Hell Let Loose Vietnam Overview | HLL Wiki',
     metaDescription:
       'A source-backed overview of Hell Let Loose: Vietnam: match scale, factions, launch maps, specialised roles, movement systems and platforms.',
     status: gameConfig.status,
@@ -341,13 +401,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
     slug: 'beginner-guide',
     categorySlug: 'basics',
     path: '/guides/beginner',
-    title: 'First Match Beginner Guide',
+    title: 'Hell Let Loose Vietnam Beginner Guide',
     pageType: 'guide',
     tags: ['beginner', 'gameplay', 'systems'],
     summary:
       'A low-risk first-match route: complete the official tutorial, join a squad, communicate and learn the active objective before taking command roles.',
     lead: 'Start with the official Getting Started tutorial, then join a squad and use communication to learn the active objective. The launch material says the Squad Leader and Commander tutorials are required before those roles, so leave command roles until you have completed their specific tutorials.',
-    metaTitle: 'First Match Beginner Guide — Hell Let Loose: Vietnam',
+    metaTitle: 'Hell Let Loose Vietnam Beginner Guide | HLL Wiki',
     metaDescription:
       'A source-backed first-match checklist for HLL: Vietnam: Getting Started tutorial, squad communication and role-tutorial boundaries.',
     status: gameConfig.status,
@@ -471,13 +531,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'launch-maps',
     categorySlug: 'battlefield',
-    title: 'Launch Maps',
+    title: 'Hell Let Loose Vietnam Maps',
     pageType: 'entry',
     tags: ['maps', 'gameplay'],
     summary:
       'The six official launch maps, now paired with source-backed terrain cues so you can choose the right map brief before a match.',
     lead: 'The official Launch Maps announcement lists six battlefields and describes their environments: river crossings, jungle, villages, waterways, open ground, airfields and industrial docks. Use the linked map briefs to recognize the terrain problem in front of your squad; do not read an environment summary as a fixed route or guaranteed rotation.',
-    metaTitle: 'Launch Maps — Hell Let Loose: Vietnam Wiki',
+    metaTitle: 'Hell Let Loose Vietnam Maps | Launch Map Guide',
     metaDescription:
       'All six Hell Let Loose: Vietnam launch maps with official terrain profiles, first-match cues and clear limits around unverified sector tactics.',
     status: gameConfig.status,
@@ -579,13 +639,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'game-modes',
     categorySlug: 'battlefield',
-    title: 'Game Modes Explained',
+    title: 'Hell Let Loose Vietnam Game Modes',
     pageType: 'entry',
     tags: ['gameplay', 'systems'],
     summary:
       'The four modes documented by the official launch material: Warfare, Offensive, Conquest and Domination.',
     lead: 'The official mode guide documents four launch modes. Warfare and Domination use Hard Cap and Soft Cap capture areas, Offensive limits capture contribution to the Hard Cap, and Conquest introduces a Morale resource. The current landing page’s separate six-mode marketing count is kept as a recheck note rather than treated as a launch roster.',
-    metaTitle: 'Game Modes Explained — Hell Let Loose: Vietnam Wiki',
+    metaTitle: 'Hell Let Loose Vietnam Game Modes | HLL Wiki',
     metaDescription:
       'Official rules for Warfare, Offensive, Conquest and Domination in Hell Let Loose: Vietnam, including capture areas, timers and Morale.',
     status: gameConfig.status,
@@ -875,13 +935,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'tunnels-helicopters',
     categorySlug: 'systems',
-    title: 'Tunnels, Helicopters and Patrol Boats',
+    title: 'Hell Let Loose Vietnam Tunnels, Helicopters & Patrol Boats',
     pageType: 'entry',
     tags: ['systems', 'vehicles', 'gameplay'],
     summary:
       'The battlefield systems the official page highlights, plus the current NVA tunnel rule recorded in Patch 1.3.',
     lead: 'Official material confirms tunnel networks, helicopters, air support and supply drops, and patrol boats as part of the battlefield toolkit. Patch 1.3, rechecked on 30 August 2026, doubled the NVA tunnel-placement cooldown from five to ten minutes and blocks travel to a hot tunnel destination.',
-    metaTitle: 'Tunnels, Helicopters and Patrol Boats — HLL Vietnam Wiki',
+    metaTitle: 'Hell Let Loose Vietnam Tunnels & Helicopters',
     metaDescription:
       'Source-backed HLL: Vietnam notes on tunnel networks, helicopters, patrol boats and the current Patch 1.3 NVA tunnel cooldown.',
     status: gameConfig.status,
@@ -980,13 +1040,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'movement-and-teamplay',
     categorySlug: 'systems',
-    title: 'Movement and Teamplay',
+    title: 'Hell Let Loose Vietnam Movement & Teamplay',
     pageType: 'entry',
     tags: ['gameplay', 'systems', 'beginner'],
     summary:
       'A source-backed checklist for the movement features and communication habits that shape a first match.',
     lead: 'The official game page highlights swimming, climbing, fast crawling and dragging teammates. Official launch tips put communication, backup Garrisons, defense and hunting NVA tunnels at the centre of teamplay. Use those as habits, not as a substitute for a verified control guide.',
-    metaTitle: 'Movement and Teamplay — Hell Let Loose: Vietnam Wiki',
+    metaTitle: 'Hell Let Loose Vietnam Movement & Teamplay',
     metaDescription:
       'Officially confirmed HLL: Vietnam movement features and first-match teamplay habits, with a clear control-keybind boundary.',
     status: gameConfig.status,
@@ -1089,13 +1149,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'release-and-platforms',
     categorySlug: 'access',
-    title: 'Release Date and Platforms',
+    title: 'Hell Let Loose Vietnam Release Date & Platforms',
     pageType: 'access',
     tags: ['platforms', 'buying'],
     summary:
       'The official launch date and supported launch platform families for Hell Let Loose: Vietnam.',
     lead: 'The official launch article says Hell Let Loose: Vietnam is live on PC, PlayStation 5 and Xbox Series X|S. The official Steam listing gives 13 August 2026 as the release date. Prices, subscriptions and regional availability are intentionally excluded because they change by storefront and date.',
-    metaTitle: 'Release Date and Platforms — Hell Let Loose: Vietnam',
+    metaTitle: 'Hell Let Loose Vietnam Release Date & Platforms',
     metaDescription:
       'Official HLL: Vietnam release date and launch platforms: PC, PlayStation 5 and Xbox Series X|S.',
     status: gameConfig.status,
@@ -1182,13 +1242,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'crossplay-and-platforms',
     categorySlug: 'access',
-    title: 'Crossplay and Platform Servers',
+    title: 'Hell Let Loose Vietnam Crossplay & Platforms',
     pageType: 'access',
     tags: ['platforms', 'gameplay'],
     summary:
       'What the official sources confirm about cross-platform multiplayer and server platform labels.',
     lead: 'The official Steam listing labels HLL: Vietnam as Cross-Platform Multiplayer. The official crossplay announcement says servers are tagged cross-platform, PC-only or console-only, and server owners can control which platforms are allowed. This does not verify cross-progression, shared purchases or every party-invite path.',
-    metaTitle: 'Crossplay and Platform Servers — HLL Vietnam Wiki',
+    metaTitle: 'Hell Let Loose Vietnam Crossplay Guide',
     metaDescription:
       'Officially confirmed HLL: Vietnam crossplay support, server platform labels and the boundary around unverified cross-progression claims.',
     status: gameConfig.status,
@@ -1300,13 +1360,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'pc-requirements',
     categorySlug: 'access',
-    title: 'Official PC Requirements',
+    title: 'Hell Let Loose Vietnam PC Requirements',
     pageType: 'access',
     tags: ['platforms', 'technical'],
     summary:
       'The minimum and recommended PC specifications published on the official HLL: Vietnam requirements page.',
     lead: 'The official requirements page lists Windows 11 64-bit, DirectX 12, broadband internet and 52 GB of storage for both tiers. Minimum hardware is an i5-6600 or Ryzen 3 1300X with 12 GB RAM and a GTX 960 4 GB or R9 380 4 GB; recommended is an i5-8400 or Ryzen 5 2600X with 16 GB RAM and a GTX 1060 6 GB or RX 590 8 GB.',
-    metaTitle: 'PC Requirements — Hell Let Loose: Vietnam',
+    metaTitle: 'Hell Let Loose Vietnam PC Requirements',
     metaDescription:
       'Official minimum and recommended PC requirements for Hell Let Loose: Vietnam, including Windows 11, RAM, GPU and storage.',
     status: gameConfig.status,
@@ -1392,13 +1452,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'patch-1-3',
     categorySlug: 'updates',
-    title: 'Patch 1.3 Notes',
+    title: 'Hell Let Loose Vietnam Patch 1.3 Notes',
     pageType: 'update',
     tags: ['updates', 'systems'],
     summary:
       'The 28 August 2026 Patch 1.3 highlights: tunnel changes, tank-driver handling and over 100 fixes across the six launch maps.',
     lead: 'Patch 1.3 is the current official update rechecked on 30 August 2026. Safe highlights include the NVA tunnel cooldown change from five to ten minutes, the hot-tunnel travel restriction, tank drivers changing gears without throttle, and more than 100 fixes across the six launch maps.',
-    metaTitle: 'Patch 1.3 Notes — Hell Let Loose: Vietnam',
+    metaTitle: 'Hell Let Loose Vietnam Patch 1.3 Notes',
     metaDescription:
       'Official Patch 1.3 highlights for HLL: Vietnam: NVA tunnel cooldown, tank-driver gear changes and over 100 launch-map fixes.',
     status: gameConfig.status,
@@ -1494,13 +1554,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'patch-1-2',
     categorySlug: 'updates',
-    title: 'Patch 1.2 Notes',
+    title: 'Hell Let Loose Vietnam Patch 1.2 Notes',
     pageType: 'update',
     tags: ['updates', 'systems'],
     summary:
       'The official 21 August 2026 patch record: 500+ fixes and improvements across stability, maps, audio, UI, vehicles and gameplay.',
     lead: 'Patch 1.2 went live on 21 August 2026 and the official notes describe more than 500 fixes and improvements. The update covered stability, maps, audio, UI, vehicles, gameplay and keybinds, including a fix for an NVA tunnel server crash.',
-    metaTitle: 'Patch 1.2 Notes — Hell Let Loose: Vietnam',
+    metaTitle: 'Hell Let Loose Vietnam Patch 1.2 Notes',
     metaDescription:
       'Official Patch 1.2 summary for HLL: Vietnam: 500+ fixes, stability, map, audio, UI, vehicle and gameplay improvements.',
     status: gameConfig.status,
@@ -1583,13 +1643,13 @@ const coreWikiEntries: readonly WikiEntry[] = [
   {
     slug: 'roadmap-2026',
     categorySlug: 'updates',
-    title: '2026 Roadmap: Planned Content',
+    title: 'Hell Let Loose Vietnam 2026 Roadmap',
     pageType: 'update',
     tags: ['updates', 'maps', 'weapons'],
     summary:
       'A clearly labelled record of the official 2026 roadmap, kept separate from current launch features.',
     lead: 'The official 2026 roadmap is a plan, not a promise that the content is live. It lists a September Update 1.5 with the M14, SKS, a licensed Bell UH-1 Iroquois “Huey” and radio music; Update 2.0 is planned to add Khe Sanh, more weapons, US & Allies Force, the Stoner 63 and special forces themes.',
-    metaTitle: '2026 Roadmap — Hell Let Loose: Vietnam Wiki',
+    metaTitle: 'Hell Let Loose Vietnam 2026 Roadmap',
     metaDescription:
       'Official HLL: Vietnam 2026 roadmap notes, with planned Update 1.5 and 2.0 content separated from current features.',
     status: gameConfig.status,
@@ -1677,10 +1737,23 @@ const coreWikiEntries: readonly WikiEntry[] = [
   },
 ] as const;
 
-export const wikiEntries: readonly WikiEntry[] = [
+const allWikiEntries: readonly WikiEntry[] = [
   ...coreWikiEntries,
   ...expansionEntries,
 ];
+
+export const wikiEntries: readonly WikiEntry[] = allWikiEntries.map(
+  (entry) => ({
+    ...entry,
+    sections: [
+      ...entry.sections,
+      ...(entryEditorialSections[entry.slug] ?? []),
+      ...(entryDepthSections[entry.slug] ?? []),
+      ...(entryFinalSections[entry.slug] ?? []),
+      ...(entryLastSections[entry.slug] ?? []),
+    ],
+  })
+);
 
 const homepageVerifiedPriority = new Map([
   ['patch-1-3', 0],
@@ -1695,6 +1768,15 @@ const homepageVerifiedPriority = new Map([
 
 export function findWikiCategory(slug: string) {
   return wikiCategories.find((category) => category.slug === slug);
+}
+
+export function getCategoryEditorialSections(categorySlug: string) {
+  return [
+    ...(categoryEditorialSections[categorySlug] ?? []),
+    ...(categoryDepthSections[categorySlug] ?? []),
+    ...(categoryFinalSections[categorySlug] ?? []),
+    ...(categoryLastSections[categorySlug] ?? []),
+  ];
 }
 
 export function findWikiEntry(slug: string) {

@@ -64,7 +64,7 @@ test.describe('Hell Let Loose Vietnam Wiki', () => {
       page.getByText('HELL LET LOOSE VIETNAM / FIELD MANUAL')
     ).toBeVisible();
     await expect(page).toHaveTitle(
-      'Hell Let Loose Vietnam Guide | Beginner Guides, Maps & Updates'
+      'Hell Let Loose Vietnam Guide | HLL Vietnam Wiki'
     );
     await expect(
       page.getByRole('link', { name: 'Start first match' })
@@ -110,16 +110,20 @@ test.describe('Hell Let Loose Vietnam Wiki', () => {
 
   test('browses Wiki categories and a source-aware entry', async ({ page }) => {
     await page.goto('/wiki');
-    await expect(page.locator('main h1')).toHaveText('Wiki');
+    await expect(page.locator('main h1')).toHaveText(
+      'Hell Let Loose Vietnam Wiki'
+    );
     await expect(page.locator('h2#categories-heading')).toBeVisible();
     await expect(page.locator('a[href="/wiki/basics"]')).toBeVisible();
     await page.locator('a[href="/wiki/basics"]').first().click();
     await expect(page).toHaveURL(/\/wiki\/basics$/);
-    await expect(page.locator('main h1')).toHaveText('Basics');
+    await expect(page.locator('main h1')).toHaveText(
+      'Hell Let Loose Vietnam Basics & Beginner Guide'
+    );
     await page.locator('a[href="/wiki/basics/game-overview"]').click();
     await expect(page).toHaveURL(/\/wiki\/basics\/game-overview$/);
     await expect(page.locator('main h1')).toHaveText(
-      'Hell Let Loose: Vietnam Overview'
+      'Hell Let Loose Vietnam Overview'
     );
     await expect(page.getByText('Short answer', { exact: true })).toBeVisible();
     await expect(
@@ -138,11 +142,13 @@ test.describe('Hell Let Loose Vietnam Wiki', () => {
     page,
   }) => {
     await page.goto('/guides');
-    await expect(page.locator('main h1')).toHaveText('Guides');
+    await expect(page.locator('main h1')).toHaveText(
+      'Hell Let Loose Vietnam Guides'
+    );
     await page.locator('main a[href="/guides/beginner"]').click();
     await expect(page).toHaveURL(/\/guides\/beginner$/);
     await expect(page.locator('main h1')).toHaveText(
-      'First Match Beginner Guide'
+      'Hell Let Loose Vietnam Beginner Guide'
     );
 
     const response = await page.goto('/wiki/basics/not-a-real-entry');
@@ -199,10 +205,10 @@ test.describe('Hell Let Loose Vietnam Wiki', () => {
     await page.getByLabel('Filter by topic').selectOption('technical');
     await expect(page).toHaveURL(/\/guides\?topic=technical$/);
     await expect(
-      page.getByText('Best Settings: A Repeatable Starting Point')
+      page.getByText('Hell Let Loose Vietnam Best Settings')
     ).toBeVisible();
     await expect(
-      page.getByText('Crashing and Connection Checks')
+      page.getByText('Hell Let Loose Vietnam Crashing Fixes')
     ).toBeVisible();
     await page.getByRole('button', { name: 'Clear filters' }).click();
     await expect(page).toHaveURL(/\/guides$/);

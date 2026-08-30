@@ -6,7 +6,15 @@ const officialCredit = 'Team17 / Offworld Industries';
 
 const officialSourceLabel = 'Official HLL: Vietnam game page';
 
-function officialVisual(src: string, alt: string, caption: string): WikiVisual {
+function officialVisual(
+  src: string,
+  alt: string,
+  caption: string,
+  dimensions: { width: number; height: number } = {
+    width: 1600,
+    height: 900,
+  }
+): WikiVisual {
   return {
     src,
     alt,
@@ -15,6 +23,8 @@ function officialVisual(src: string, alt: string, caption: string): WikiVisual {
     sourceHref: officialGamePage,
     sourceLabel: officialSourceLabel,
     evidenceRole: 'official-demonstration',
+    height: dimensions.height,
+    width: dimensions.width,
     build: 'Official launch media; build not stated',
   };
 }
@@ -38,7 +48,8 @@ export const officialVisuals = {
   helicopterField: officialVisual(
     '/assets/hllv-official-helicopter-field.webp',
     'Official HLL: Vietnam media showing a helicopter over a field while soldiers and armour move below.',
-    'A helicopter field scene from the official media set.'
+    'A helicopter field scene from the official media set.',
+    { width: 2000, height: 1125 }
   ),
   jungleSquad: officialVisual(
     '/assets/hllv-official-jungle-squad.webp',

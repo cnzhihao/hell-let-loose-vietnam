@@ -24,6 +24,40 @@ export function absoluteSiteUrl(path: string, requestOrigin?: string) {
   return new URL(path, `${siteOrigin(requestOrigin)}/`).toString();
 }
 
+function socialMeta({
+  description,
+  imageUrl,
+  pageUrl,
+  title,
+  type,
+}: {
+  description: string;
+  imageUrl: string;
+  pageUrl: string;
+  title: string;
+  type: 'article' | 'website';
+}) {
+  const imageAlt = 'Hell Let Loose Vietnam Wiki map and guide cover';
+
+  return [
+    { property: 'og:type', content: type },
+    { property: 'og:site_name', content: websiteConfig.name },
+    { property: 'og:title', content: title },
+    { property: 'og:description', content: description },
+    { property: 'og:url', content: pageUrl },
+    { property: 'og:image', content: imageUrl },
+    { property: 'og:image:type', content: 'image/png' },
+    { property: 'og:image:width', content: '1200' },
+    { property: 'og:image:height', content: '630' },
+    { property: 'og:image:alt', content: imageAlt },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: title },
+    { name: 'twitter:description', content: description },
+    { name: 'twitter:image', content: imageUrl },
+    { name: 'twitter:image:alt', content: imageAlt },
+  ];
+}
+
 export function homeHead(locale: AppLocale, requestOrigin?: string) {
   const path = '/';
   const title = message('site_title', locale);
@@ -127,16 +161,13 @@ export function wikiHead(
       { title },
       { name: 'description', content: description },
       { name: 'robots', content: pageRobots(entry.indexable) },
-      { property: 'og:type', content: 'article' },
-      { property: 'og:site_name', content: websiteConfig.name },
-      { property: 'og:title', content: title },
-      { property: 'og:description', content: description },
-      { property: 'og:url', content: pageUrl },
-      { property: 'og:image', content: imageUrl },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: title },
-      { name: 'twitter:description', content: description },
-      { name: 'twitter:image', content: imageUrl },
+      ...socialMeta({
+        description,
+        imageUrl,
+        pageUrl,
+        title,
+        type: 'article',
+      }),
     ],
     links: [{ rel: 'canonical', href: pageUrl }],
     scripts: [
@@ -164,19 +195,24 @@ export function wikiHead(
 
 export function categoryHead(category: WikiCategory, requestOrigin?: string) {
   const pathname = `/wiki/${category.slug}`;
-  const title = `${category.title} — ${gameConfig.name} Wiki`;
+  const title =
+    category.metaTitle ?? `${category.title} — ${gameConfig.name} Wiki`;
+  const description = category.metaDescription ?? category.description;
   const pageUrl = absoluteSiteUrl(pathname, requestOrigin);
+  const imageUrl = absoluteSiteUrl('/og.png', requestOrigin);
 
   return {
     meta: [
       { title },
-      { name: 'description', content: category.description },
+      { name: 'description', content: description },
       { name: 'robots', content: pageRobots(category.indexable) },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:site_name', content: websiteConfig.name },
-      { property: 'og:title', content: title },
-      { property: 'og:description', content: category.description },
-      { property: 'og:url', content: pageUrl },
+      ...socialMeta({
+        description,
+        imageUrl,
+        pageUrl,
+        title,
+        type: 'website',
+      }),
     ],
     links: [{ rel: 'canonical', href: pageUrl }],
     scripts: [
@@ -191,7 +227,7 @@ export function categoryHead(category: WikiCategory, requestOrigin?: string) {
         collectionJsonLd({
           pathname,
           headline: title,
-          description: category.description,
+          description,
           items: category.entrySlugs.map((slug) => {
             const entry = findWikiEntry(slug);
             return entry
@@ -207,20 +243,24 @@ export function categoryHead(category: WikiCategory, requestOrigin?: string) {
 
 export function wikiIndexHead(requestOrigin?: string) {
   const pathname = '/wiki';
-  const title = `${gameConfig.name} Wiki — Browse the Knowledge Base`;
-  const description = `Browse ${gameConfig.name} Wiki categories, verified entries, guides and platform information.`;
+  const title = 'Hell Let Loose Vietnam Wiki | Guides & Systems';
+  const description =
+    'Browse the Hell Let Loose Vietnam Wiki for beginner guides, maps, modes, roles, platforms and dated updates.';
   const pageUrl = absoluteSiteUrl(pathname, requestOrigin);
+  const imageUrl = absoluteSiteUrl('/og.png', requestOrigin);
 
   return {
     meta: [
       { title },
       { name: 'description', content: description },
       { name: 'robots', content: pageRobots(true) },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:site_name', content: websiteConfig.name },
-      { property: 'og:title', content: title },
-      { property: 'og:description', content: description },
-      { property: 'og:url', content: pageUrl },
+      ...socialMeta({
+        description,
+        imageUrl,
+        pageUrl,
+        title,
+        type: 'website',
+      }),
     ],
     links: [{ rel: 'canonical', href: pageUrl }],
     scripts: [
@@ -236,20 +276,24 @@ export function wikiIndexHead(requestOrigin?: string) {
 
 export function guidesHead(requestOrigin?: string) {
   const pathname = '/guides';
-  const title = `${gameConfig.name} Guides — Task-first help`;
-  const description = `Find task-first ${gameConfig.name} guides with clear steps, success signals and related Wiki pages.`;
+  const title = 'Hell Let Loose Vietnam Guides | First-Match Help';
+  const description =
+    'Find Hell Let Loose Vietnam guides for first matches, squads, voice chat, settings and crash troubleshooting.';
   const pageUrl = absoluteSiteUrl(pathname, requestOrigin);
+  const imageUrl = absoluteSiteUrl('/og.png', requestOrigin);
 
   return {
     meta: [
       { title },
       { name: 'description', content: description },
       { name: 'robots', content: pageRobots(true) },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:site_name', content: websiteConfig.name },
-      { property: 'og:title', content: title },
-      { property: 'og:description', content: description },
-      { property: 'og:url', content: pageUrl },
+      ...socialMeta({
+        description,
+        imageUrl,
+        pageUrl,
+        title,
+        type: 'website',
+      }),
     ],
     links: [{ rel: 'canonical', href: pageUrl }],
     scripts: [

@@ -46,6 +46,8 @@ export type WikiVisual = {
   sourceHref: string;
   sourceLabel: string;
   evidenceRole: 'official-demonstration' | 'community-example';
+  width: number;
+  height: number;
   timestamp?: string;
   build?: string;
   annotations?: readonly WikiVisualAnnotation[];
@@ -100,7 +102,11 @@ export type WikiEntry = {
 export type WikiCategory = {
   slug: string;
   title: string;
+  pageHeading?: string;
   description: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  keywords?: readonly string[];
   indexable: boolean;
   entrySlugs: readonly string[];
 };
