@@ -8,6 +8,7 @@ const checked = '2026-08-30';
 const official = {
   game: 'https://www.hellletloose.com/game/hll-vietnam',
   launch: 'https://www.hellletloose.com/blog/hllv-out-now',
+  maps: 'https://steamcommunity.com/games/3079210/announcements/detail/690891687156777529',
   modes: 'https://www.hellletloose.com/blog/hllv-game-modes',
   crossplay: 'https://www.hellletloose.com/blog/beta-testing-and-crossplay',
   pcRequirements: 'https://www.hellletloose.com/pc-requirements',
@@ -168,6 +169,36 @@ const coreWikiEntries: readonly WikiEntry[] = [
         value: 'PC, PlayStation 5 and Xbox Series X|S',
       },
       { label: 'Release checked', value: '13 August 2026' },
+    ],
+    steps: [
+      {
+        title: 'Identify your first question',
+        action:
+          'Decide whether you need a first-match route, a mode rule, a platform answer or a current update before opening a deeper page.',
+        successSignal:
+          'You can name the decision you need to make next instead of browsing an unbounded wiki.',
+      },
+      {
+        title: 'Use the official boundary',
+        action:
+          'Treat the match scale, factions, launch platforms and six-map roster as the stable orientation facts, while keeping the role-count discrepancy visible.',
+        successSignal:
+          'You know which facts are confirmed and which need a current source recheck.',
+      },
+      {
+        title: 'Open the task page',
+        action:
+          'Follow the related link that matches your need: Beginner Guide for a first match, Game Modes for win conditions, or Crossplay for server access.',
+        successSignal:
+          'The next page gives you an action or a directly relevant rule.',
+      },
+      {
+        title: 'Recheck version-sensitive details',
+        action:
+          'Before relying on a control, role roster or balance statement, check the latest official patch or news entry.',
+        successSignal:
+          'Your decision is tied to a dated source rather than an old general description.',
+      },
     ],
     sections: [
       {
@@ -359,11 +390,11 @@ const coreWikiEntries: readonly WikiEntry[] = [
     pageType: 'entry',
     tags: ['maps', 'gameplay'],
     summary:
-      'The six maps named by the official launch article, with tactical details kept out until each map has a direct source-backed page.',
-    lead: 'The official launch article lists six launch maps: Thanh Hóa Bridge, Huế Outskirts, Vạn Tường, Quảng Ngãi, Đắk Tô Airfield and Cam Ranh Port. This page confirms the roster without inventing cover, route or strongpoint advice that has not been verified map by map.',
+      'The six official launch maps, now paired with source-backed terrain cues so you can choose the right map brief before a match.',
+    lead: 'The official Launch Maps announcement lists six battlefields and describes their environments: river crossings, jungle, villages, waterways, open ground, airfields and industrial docks. Use the linked map briefs to recognize the terrain problem in front of your squad; do not read an environment summary as a fixed route or guaranteed rotation.',
     metaTitle: 'Launch Maps — Hell Let Loose: Vietnam Wiki',
     metaDescription:
-      'The official six-map launch roster for Hell Let Loose: Vietnam, plus a clear boundary around unverified map-by-map tactical claims.',
+      'All six Hell Let Loose: Vietnam launch maps with official terrain profiles, first-match cues and clear limits around unverified sector tactics.',
     status: gameConfig.status,
     evidenceState: 'single-official-source',
     updated: checked,
@@ -375,31 +406,72 @@ const coreWikiEntries: readonly WikiEntry[] = [
     indexable: false,
     facts: [
       { label: 'Launch map count', value: '6' },
-      { label: 'Roster source', value: 'Official Out Now launch article' },
+      { label: 'Profile source', value: 'Official Launch Maps announcement' },
       {
-        label: 'Map tactics',
-        value: 'Map-by-map routes and strongpoints are not yet verified here',
+        label: 'Player use',
+        value: 'Identify terrain, mode and objective before choosing a route',
+      },
+    ],
+    steps: [
+      {
+        title: 'Choose a map from the roster',
+        action:
+          'Open the map-specific brief that matches the name shown in the server or deployment screen.',
+        successSignal:
+          'You are reading the correct battlefield profile instead of guessing from a similar map name.',
+      },
+      {
+        title: 'Read the terrain cue',
+        action:
+          'Use the official environment summary to identify whether the next problem is a crossing, close terrain, open ground, an airfield or an industrial/water space.',
+        successSignal:
+          'You can ask the squad a concrete terrain question before moving.',
+      },
+      {
+        title: 'Combine terrain with the mode',
+        action:
+          'Check Game Modes and the active objective before choosing a route; the same environment can demand a different decision in Warfare, Offensive, Conquest or Domination.',
+        successSignal:
+          'Your map choice and route question match the current win condition.',
+      },
+      {
+        title: 'Record only reusable observations',
+        action:
+          'If you note a route, sightline or role example, save the build, mode, objective and timestamp before sharing it.',
+        successSignal:
+          'A later reader can distinguish a player example from an official map fact.',
       },
     ],
     sections: [
       {
-        heading: 'Confirmed launch roster',
+        heading: 'Six official map profiles',
         paragraphs: [
-          'These names are transcribed from the official launch article and kept as a directory until each map receives its own source-backed tactical brief.',
+          'Each linked page now starts with the terrain and historical context that the official Launch Maps brief supports. The cue is there to improve the first squad question, not to replace the live tactical map.',
         ],
         bullets: [
-          'Thanh Hóa Bridge',
-          'Huế Outskirts',
-          'Vạn Tường',
-          'Quảng Ngãi',
-          'Đắk Tô Airfield',
-          'Cam Ranh Port',
+          'Thanh Hóa Bridge — Nam Ma River crossings, jungle and mountain terrain, villages and trainyards.',
+          'Huế Outskirts — mountain terrain, terraced farms, dense jungle, waterways, bases and industrial areas.',
+          'Vạn Tường — small villages, dense jungle, river network and bankside foliage.',
+          'Quảng Ngãi — flooding, cliffs and caves, bamboo forests, open lowlands and cross-river spaces.',
+          'Đắk Tô Airfield — a long airstrip, open surroundings, craters and nearby hilltop fortifications.',
+          'Cam Ranh Port — military compounds, industrial docks, dunes, creek beds and a southern waterway.',
         ],
       },
       {
-        heading: 'What this page does not claim',
+        heading: 'Choose the right map question',
         paragraphs: [
-          'The name of a map is not evidence for its best route, cover pattern, capture order, vehicle lane or role recommendation. Those details need direct inspection of official tactical materials or a clearly dated in-game verification pass.',
+          'Start with the environment the official brief names, then combine it with the current mode and objective. Ask whether the next problem is a crossing, close terrain, open ground, a defended base or a dock/water route. This is more useful than choosing a class or route from the map name alone.',
+        ],
+        bullets: [
+          'Open the map-specific page before the match if you need the historical and terrain context.',
+          'Use the in-game tactical map and squad call to decide the actual route.',
+          'Record build, mode and objective before treating a route or strongpoint observation as reusable.',
+        ],
+      },
+      {
+        heading: 'What remains unverified',
+        paragraphs: [
+          'The official map brief does not establish a universal sector order, best class, vehicle lane, cover pattern or capture route. Those claims need direct current-build evidence and must remain separate from the terrain profile.',
         ],
       },
       {
@@ -411,10 +483,10 @@ const coreWikiEntries: readonly WikiEntry[] = [
     ],
     sources: [
       {
-        label: 'Official HLL: Vietnam launch article',
-        href: official.launch,
+        label: 'Official Launch Maps announcement',
+        href: official.maps,
         type: 'official',
-        note: sourceNotes.launch,
+        note: 'Checked 2026-08-30 for the six-map roster and the official terrain descriptions.',
       },
     ],
     relatedSlugs: ['game-modes', 'game-overview', 'beginner-guide'],
@@ -450,6 +522,35 @@ const coreWikiEntries: readonly WikiEntry[] = [
         value: 'Control 2 of 3 central points to unlock the enemy HQ',
       },
       { label: 'Conquest resource', value: 'Morale' },
+    ],
+    steps: [
+      {
+        title: 'Read the mode before moving',
+        action:
+          'Confirm Warfare, Offensive, Conquest or Domination from the current server or loading context before applying a mode rule.',
+        successSignal: 'You know which win condition is active.',
+      },
+      {
+        title: 'Name the immediate win condition',
+        action:
+          'Translate the rule into one squad question: which sector, central point, enemy HQ or Morale decision matters right now?',
+        successSignal:
+          'Your squad can explain what must be captured or protected next.',
+      },
+      {
+        title: 'Use the correct capture rule',
+        action:
+          'Remember that Warfare and Domination use their documented cap structures, Offensive focuses contribution inside the Hard Cap, and Conquest adds Morale to the capture decision.',
+        successSignal:
+          'You are not carrying a Warfare capture assumption into another mode.',
+      },
+      {
+        title: 'Check the version boundary',
+        action:
+          'Recheck the official mode guide if the UI or mode list changes; the landing page and launch article currently expose a count discrepancy.',
+        successSignal:
+          'Your mode note has a dated source and does not guess the missing labels.',
+      },
     ],
     sections: [
       {
@@ -544,6 +645,36 @@ const coreWikiEntries: readonly WikiEntry[] = [
         value: 'Pending a separate source-backed roster pass',
       },
     ],
+    steps: [
+      {
+        title: 'Choose a battlefield job',
+        action:
+          'Start with the task you can explain to the squad—ground movement, reconnaissance, armour, mortar support or helicopter work—rather than chasing a role number.',
+        successSignal:
+          'You can state what your chosen unit family contributes.',
+      },
+      {
+        title: 'Complete the relevant tutorial',
+        action:
+          'Finish Getting Started first, then complete the specific Squad Leader or Commander tutorial before selecting either command role.',
+        successSignal:
+          'The current game allows the role and you understand its basic responsibility.',
+      },
+      {
+        title: 'Confirm the live role screen',
+        action:
+          'Use the current Barracks or deployment UI to verify the role name, faction, loadout and progression state for this build.',
+        successSignal:
+          'Your role note reflects the current UI rather than a community roster copied from another version.',
+      },
+      {
+        title: 'Keep the count discrepancy visible',
+        action:
+          'If you publish or share a roster note, record whether it came from the official game page or Steam About section until those counts are reconciled.',
+        successSignal:
+          'Readers can tell a verified source fact from a pending roster detail.',
+      },
+    ],
     sections: [
       {
         heading: 'Confirmed structure',
@@ -622,6 +753,38 @@ const coreWikiEntries: readonly WikiEntry[] = [
         value: 'Helicopters, air support, supply drops and patrol boats',
       },
     ],
+    steps: [
+      {
+        title: 'Identify the system in play',
+        action:
+          'Decide whether your immediate problem is a tunnel, helicopter, supply drop, air support or patrol boat before choosing a response.',
+        successSignal:
+          'The squad call names one system and one battlefield purpose.',
+      },
+      {
+        title: 'Check tunnel heat',
+        action:
+          'After Patch 1.3, remember that NVA tunnel placement cooldown is ten minutes and travel to a hot destination is blocked.',
+        successSignal:
+          'You do not mistake a hot tunnel for a broken spawn or keep retrying the same blocked destination.',
+        failureCheck:
+          'If the behavior differs, record the patch and platform before assuming the rule changed again.',
+      },
+      {
+        title: 'Coordinate the route',
+        action:
+          'For a helicopter, boat or supply move, agree on destination, objective and communication channel before leaving the current position.',
+        successSignal:
+          'The crew and squad share one destination and next action.',
+      },
+      {
+        title: 'Recheck the latest patch',
+        action:
+          'Review current official notes before relying on a tunnel, vehicle or movement behavior as a stable rule.',
+        successSignal:
+          'Your system note has a visible date and build boundary.',
+      },
+    ],
     sections: [
       {
         heading: 'Systems confirmed by official material',
@@ -695,6 +858,36 @@ const coreWikiEntries: readonly WikiEntry[] = [
         value: 'Communication, defense, backup Garrisons and hunting tunnels',
       },
     ],
+    steps: [
+      {
+        title: 'Call before leaving the squad',
+        action:
+          'State your position, direction and intent before moving away from the group or objective.',
+        successSignal:
+          'A squad member can act on your call without asking for the whole situation again.',
+      },
+      {
+        title: 'Use the terrain feature deliberately',
+        action:
+          'When the route requires swimming, climbing, fast crawling or dragging a teammate, confirm the current control prompt and the destination first.',
+        successSignal:
+          'The movement action solves a route or rescue problem instead of becoming a detour.',
+      },
+      {
+        title: 'Protect the objective and spawns',
+        action:
+          'Keep the active objective, defense and the team’s Garrison network in view before chasing a distant fight.',
+        successSignal:
+          'Your movement supports the squad’s current win condition.',
+      },
+      {
+        title: 'Verify controls in the current build',
+        action:
+          'Open the in-game settings when an exact keybind matters; do not turn a community control chart into a universal rule.',
+        successSignal:
+          'The action works on your platform and build, or the mismatch is recorded for troubleshooting.',
+      },
+    ],
     sections: [
       {
         heading: 'Movement features',
@@ -764,6 +957,35 @@ const coreWikiEntries: readonly WikiEntry[] = [
       {
         label: 'Price',
         value: 'Not recorded here; check the current official storefront',
+      },
+    ],
+    steps: [
+      {
+        title: 'Start with the device',
+        action:
+          'Choose PC, PlayStation 5 or Xbox Series X|S before opening a storefront or comparing a friend’s setup.',
+        successSignal:
+          'The purchase question is tied to the device you will actually use.',
+      },
+      {
+        title: 'Verify the live listing',
+        action:
+          'Use the official store or launch information to confirm the release and platform entry instead of relying on a third-party date.',
+        successSignal:
+          'The listing and launch platform agree on the current official pages.',
+      },
+      {
+        title: 'Keep price questions live',
+        action:
+          'Check regional price, discount, subscription access and edition contents at the storefront because this page does not freeze dynamic values.',
+        successSignal: 'The purchase decision uses a current regional value.',
+      },
+      {
+        title: 'Move to the right follow-up',
+        action:
+          'Open Crossplay for server access, PC Requirements for hardware or Editions and Buying for the checkout checklist.',
+        successSignal:
+          'The next page answers the remaining purchase or access question.',
       },
     ],
     sections: [
@@ -840,6 +1062,38 @@ const coreWikiEntries: readonly WikiEntry[] = [
         value: 'Not verified in the sources used here',
       },
     ],
+    steps: [
+      {
+        title: 'Confirm both platforms',
+        action:
+          'Write down the platform you use and the platform your friend uses before checking server access.',
+        successSignal:
+          'You know whether the pair needs cross-platform or same-platform access.',
+      },
+      {
+        title: 'Read the server label',
+        action:
+          'Use the current Server Browser label to distinguish cross-platform, PC-only and console-only servers.',
+        successSignal:
+          'You can explain a failed join as a platform filter or another issue.',
+        failureCheck:
+          'If the label or filter is missing, record the platform and build before assuming crossplay is unavailable.',
+      },
+      {
+        title: 'Try the least ambiguous server',
+        action:
+          'When testing a friend connection, start with a server whose platform access is visible and whose available space is clear.',
+        successSignal:
+          'The test isolates platform access from capacity or invite problems.',
+      },
+      {
+        title: 'Do not infer account sharing',
+        action:
+          'Treat cross-progression, cross-save and shared purchases as separate questions until an official source confirms them.',
+        successSignal:
+          'The answer covers crossplay only and does not promise unverified entitlements.',
+      },
+    ],
     sections: [
       {
         heading: 'What is confirmed',
@@ -914,6 +1168,36 @@ const coreWikiEntries: readonly WikiEntry[] = [
       { label: 'Storage', value: '52 GB available space' },
       { label: 'Internet', value: 'Broadband internet connection' },
     ],
+    steps: [
+      {
+        title: 'Compare the minimum tier',
+        action:
+          'Check Windows 11 64-bit, DirectX 12, broadband internet, 52 GB storage, CPU, RAM and GPU against the official minimum list.',
+        successSignal:
+          'You know whether the machine meets the published minimum tier.',
+      },
+      {
+        title: 'Compare the recommended tier',
+        action:
+          'Use the recommended CPU, 16 GB RAM and GPU tier when deciding whether the machine has more headroom for a stable starting point.',
+        successSignal:
+          'You have a minimum-versus-recommended comparison, not a vague “can it run” guess.',
+      },
+      {
+        title: 'Test the actual scene',
+        action:
+          'After installation, use the Best Settings process to test a repeatable scene and record frame pacing, visibility and build.',
+        successSignal:
+          'The published requirement is supplemented by an observed result on your hardware.',
+      },
+      {
+        title: 'Recheck before upgrading',
+        action:
+          'Read the current official requirements page again before buying hardware because requirements and optimization can change.',
+        successSignal:
+          'The purchase decision uses the latest available specification.',
+      },
+    ],
     sections: [
       {
         heading: 'Minimum',
@@ -977,6 +1261,42 @@ const coreWikiEntries: readonly WikiEntry[] = [
         value: 'Cannot travel to its destination while hot',
       },
       { label: 'Map fixes', value: 'Over 100 fixes across six launch maps' },
+    ],
+    steps: [
+      {
+        title: 'Confirm the patch boundary',
+        action:
+          'Check that your installed build is on or after 28 August 2026 before comparing the tunnel, tank or map behavior below.',
+        successSignal:
+          'The current build matches the patch note you are using.',
+      },
+      {
+        title: 'Apply the tunnel change',
+        action:
+          'For NVA tunnels, expect a ten-minute placement cooldown and no travel to a destination while the tunnel is hot.',
+        successSignal:
+          'A blocked hot destination or slower replacement is understood as the documented patch behavior.',
+      },
+      {
+        title: 'Recheck vehicle and control inputs',
+        action:
+          'Tank drivers can change gears without throttle; controller users should recheck helicopter inversion, Layout B and the current displayed assignments.',
+        successSignal:
+          'The vehicle input matches the current settings and patch behavior on your platform.',
+      },
+      {
+        title: 'Use the patch as a troubleshooting index',
+        action:
+          'If a problem concerns tunnels, audio, VOIP, tutorials, UI, servers or map placement, scan the official changelog before changing local settings.',
+        successSignal:
+          'You can tell whether the issue is listed, fixed or still outside the official changelog.',
+      },
+      {
+        title: 'Recheck after the next update',
+        action:
+          'Move current mechanics into the newest patch entry when a later patch changes them; do not keep using a historical note as a universal rule.',
+        successSignal: 'Your troubleshooting note has a current checked date.',
+      },
     ],
     sections: [
       {
@@ -1044,6 +1364,35 @@ const coreWikiEntries: readonly WikiEntry[] = [
         value: 'Stability, maps, audio, UI, vehicles, gameplay and keybinds',
       },
     ],
+    steps: [
+      {
+        title: 'Treat Patch 1.2 as history',
+        action:
+          'Use the 21 August 2026 date to explain an older report, not to decide whether a current bug is fixed.',
+        successSignal: 'The report is tied to the correct maintenance window.',
+      },
+      {
+        title: 'Check Patch 1.3 next',
+        action:
+          'For a live tunnel, map, audio, control or stability issue, open the newer Patch 1.3 entry and the official news feed first.',
+        successSignal:
+          'You are consulting the newest available official correction.',
+      },
+      {
+        title: 'Separate fixed from reported',
+        action:
+          'Read whether the official note says a problem was fixed, improved or merely under investigation before telling another player it is resolved.',
+        successSignal:
+          'Your advice uses the same status language as the source.',
+      },
+      {
+        title: 'Keep the dated note',
+        action:
+          'Record the build and date whenever you compare a community observation with this historical patch record.',
+        successSignal:
+          'The old report cannot be mistaken for a current universal rule.',
+      },
+    ],
     sections: [
       {
         heading: 'What Patch 1.2 covered',
@@ -1109,6 +1458,34 @@ const coreWikiEntries: readonly WikiEntry[] = [
       {
         label: 'Status',
         value: 'Planned; recheck against official release notes',
+      },
+    ],
+    steps: [
+      {
+        title: 'Separate planned from live',
+        action:
+          'Treat every item on this page as planned until an official patch or release announcement confirms that it is playable.',
+        successSignal: 'A roadmap item is not presented as a current feature.',
+      },
+      {
+        title: 'Match the item to the update',
+        action:
+          'Use Update 1.5 for the M14, SKS, licensed Huey and radio plans; use Update 2.0 for Khe Sanh and the listed US & Allies additions.',
+        successSignal: 'You know which roadmap window a question belongs to.',
+      },
+      {
+        title: 'Check the newest release note',
+        action:
+          'Before writing a loadout, vehicle or map guide around a roadmap item, confirm whether the official live notes changed its status or scope.',
+        successSignal:
+          'Your guide does not build current advice on an unreleased item.',
+      },
+      {
+        title: 'Keep future content visibly dated',
+        action:
+          'Retain the announcement date and the planned label until the publisher confirms a live build.',
+        successSignal:
+          'Readers can distinguish a promise, a target and a released feature.',
       },
     ],
     sections: [

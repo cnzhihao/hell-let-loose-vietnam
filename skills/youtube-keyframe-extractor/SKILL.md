@@ -37,6 +37,12 @@ If the task only needs an article, use `wiki-page-builder`. If it needs both vid
 - New frames require inventory and manifest records with source, timestamp and credit; in this starter use `Docs/素材清单.md` and `public/assets/asset-manifest.json`;
 - Preserve user changes, use `apply_patch` for edits and do not publish externally unless authorized.
 
+## Human verification handoff
+
+If source access reaches a login screen, CAPTCHA, bot check, Cloudflare challenge, age gate, cookie/consent prompt or any other step that requires the user's browser interaction, stop the extraction workflow immediately. Use the available in-app browser-control capability to bring the relevant page or tab to the foreground, tell the user exactly what needs to be completed, and wait for the user to confirm before continuing.
+
+Do not bypass, automate or repeatedly retry the challenge. Do not read, request, copy or store passwords, one-time codes, cookies, session tokens or other credentials. A blocked or partially verified page is not evidence; after the user finishes, re-open or refresh the source and re-check the public URL, video identity, timestamp and visible frame. If the user cannot complete the verification, mark the source as blocked/pending and continue without using its media.
+
 ## Main workflow
 
 1. **Define the visual task.** Read `references/source-access-and-evidence.md` and specify page, section, player action, expected visual, success signal and evidence role.

@@ -182,9 +182,9 @@ User intent: Get into a useful first squad on a live server.
 
 - Google: https://www.google.com/search?q=hell+let+loose+vietnam+join+a+squad
 - YouTube: Not used for menu labels or universal keybinds.
-- Official sources: https://www.hellletloose.com/blog/hllv-out-now ; https://www.hellletloose.com/game/hll-vietnam
-- Verified facts: Official launch material emphasizes communication, squads and objectives; the game page describes multiple squads within 50-player teams.
-- Reusable page material: Read the server platform label, choose an open squad, make a short call and stay with the active objective.
+- Official sources: https://www.hellletloose.com/blog/hllv-out-now ; https://www.hellletloose.com/game/hll-vietnam ; https://steamcommunity.com/app/3079210/announcements/detail/690891687156777529
+- Verified facts: Official launch material emphasizes communication, squads and objectives; the game page describes multiple squads within 50-player teams. The official news feed is the recheck path for server-browser changes.
+- Reusable page material: Read the server platform label and current capacity/filter state, choose an open squad, make a short call and stay with the active objective.
 - Status: `verified`; exact browser wording and role availability remain current-build checks.
 - Handoff: `slug: join-a-squad`; `categorySlug: basics`; `path: /guides/join-a-squad`; `pageType: guide`; `indexable: false`; `sources: official launch article, official game page`; `relatedSlugs: beginner-guide, voice-chat, roles-and-units`.
 
@@ -195,9 +195,9 @@ User intent: Test a microphone and make a squad call that can be acted on.
 - Google: https://www.google.com/search?q=hell+let+loose+vietnam+voice+chat
 - YouTube: Not used for push-to-talk keys; no universal binding is published here.
 - Official sources: https://www.hellletloose.com/blog/hllv-out-now ; https://steamcommunity.com/app/3079210/allnews/
-- Verified facts: Official launch material makes communication part of the teamplay loop; the official news feed is the recheck destination for launch-period issues and updates.
-- Reusable page material: Select the input device, test the channel, use position → direction → intent calls, then recheck after a patch or device change.
-- Status: `single-official-source`; exact channel names, permissions and bindings need a current in-game capture.
+- Verified facts: Official launch material makes communication part of the teamplay loop; Community Update #2 states that Party Voice Chat is lobby-only and that in-match channels are Proximity, Unit and Command.
+- Reusable page material: Select the input device, distinguish lobby from in-match channels, test the intended channel, use position → direction → intent calls, then recheck after a patch or device change.
+- Status: `single-official-source`; exact channel permissions and bindings still need a current in-game capture.
 - Handoff: `slug: voice-chat`; `categorySlug: systems`; `path: /guides/voice-chat`; `pageType: guide`; `indexable: false`; `sources: official launch article, official Steam news feed`; `relatedSlugs: join-a-squad, movement-and-teamplay, crashing-fixes`.
 
 ### hell let loose vietnam helicopter controls
@@ -206,8 +206,8 @@ User intent: Prepare for one safe transport flight without copying an unverified
 
 - Google: https://www.google.com/search?q=hell+let+loose+vietnam+helicopter+controls
 - YouTube: Not used for controls; a player video would illustrate one platform/build only.
-- Official sources: https://www.hellletloose.com/game/hll-vietnam ; https://www.hellletloose.com/blog/hllv-out-now
-- Verified facts: Official material confirms operational helicopters, fire support and supply-drop context; it does not provide a stable cross-platform control table in the materials used here.
+- Official sources: https://www.hellletloose.com/game/hll-vietnam ; https://www.hellletloose.com/blog/hllv-out-now ; https://www.hellletloose.com/blog/hllv-patch-1-3
+- Verified facts: Official material confirms operational helicopters, fire support and supply-drop context. Patch 1.3 documents an inversion default, Layout B and co-pilot control fixes; it still does not provide a stable cross-platform control table.
 - Reusable page material: Check current bindings, agree on a destination, read the landing area, fly one short route and recheck the latest patch.
 - Status: `single-official-source`; exact controls and aircraft handling remain pending a current-build capture.
 - Handoff: `slug: helicopter-controls`; `categorySlug: systems`; `path: /guides/helicopter-controls`; `pageType: guide`; `indexable: false`; `sources: official game page, official launch article`; `relatedSlugs: tunnels-helicopters, best-settings, beginner-guide`.
@@ -231,80 +231,80 @@ User intent: Isolate a launch, loading, server-join or in-match failure with rev
 - Google: https://www.google.com/search?q=hell+let+loose+vietnam+crashing+fixes
 - YouTube: Not used for causes or universal fixes; community workarounds require separate confirmation.
 - Official sources: https://www.hellletloose.com/blog/hllv-patch-1-3 ; https://www.hellletloose.com/blog/hllv-patch-1-2 ; https://steamcommunity.com/app/3079210/allnews/
-- Verified facts: Official patch/news pages are the correct place to check whether a stability, UI, audio, map or server issue is listed, changed or fixed.
-- Reusable page material: Record failure stage and build, check official notes, apply one reversible local check, and escalate with reproducible evidence.
+- Verified facts: Official patch/news pages are the correct place to check whether a stability, UI, audio, map or server issue is listed, changed or fixed. Launch guidance documents temporary DX12/DX11 launch options, High graphics and an AMD overlay check; Patch 1.3 says disabling gore may reduce AMD crash frequency.
+- Reusable page material: Record failure stage and build, check official notes, apply one reversible local check—including the conditional AMD branch where relevant—and escalate with reproducible evidence.
 - Status: `single-official-source`; unlisted causes stay pending and are not assigned to one setting.
 - Handoff: `slug: crashing-fixes`; `categorySlug: access`; `path: /guides/crashing-fixes`; `pageType: guide`; `indexable: false`; `sources: official Patch 1.3, official Patch 1.2, official Steam news feed`; `relatedSlugs: best-settings, pc-requirements, patch-1-3`.
 
 ### hell let loose vietnam thanh hoa bridge
 
-User intent: Confirm Thanh Hóa Bridge as a named launch map.
+User intent: Use the official Thanh Hóa Bridge environment profile to frame a first-match observation.
 
 - Google: https://www.google.com/search?q=hell+let+loose+vietnam+thanh+hoa+bridge
 - YouTube: Not used; map tactics are not inferred from titles, thumbnails or names.
-- Official source: https://www.hellletloose.com/blog/hllv-out-now
-- Verified facts: Thanh Hóa Bridge appears in the official six-map launch roster.
-- Reusable page material: A roster record with links to Launch Maps and Game Modes; do not invent sectors, routes, cover or role advice.
-- Status: `single-official-source`; map-specific tactics are pending direct current-build verification.
+- Official source: https://steamcommunity.com/app/3079210/announcements/detail/690891687156777529
+- Verified facts: The official Launch Maps announcement places Thanh Hóa Bridge in the launch roster and describes Operation Rolling Thunder, the Nam Ma River crossings, jungle/mountain terrain, villages and trainyards.
+- Reusable page material: Match the map and objective, ask whether the current fight concerns a crossing or river movement near villages/trainyards, then record the observation with mode/build context; do not invent sectors, routes, cover or role advice.
+- Status: `single-official-source`; map-specific tactical claims are pending direct current-build verification.
 - Handoff: `slug: thanh-hoa-bridge`; `categorySlug: battlefield`; `path: /wiki/battlefield/thanh-hoa-bridge`; `pageType: entry`; `indexable: false`; `sources: official launch article`; `relatedSlugs: launch-maps, game-modes, beginner-guide`.
 
 ### hell let loose vietnam hue outskirts
 
-User intent: Confirm Huế Outskirts as a named launch map.
+User intent: Use the official Huế Outskirts environment profile to frame a first-match observation.
 
 - Google: https://www.google.com/search?q=hell+let+loose+vietnam+hue+outskirts
 - YouTube: Not used; no route or strongpoint claim is derived from community footage.
-- Official source: https://www.hellletloose.com/blog/hllv-out-now
-- Verified facts: Huế Outskirts appears in the official six-map launch roster.
-- Reusable page material: A roster record with links to Launch Maps and Game Modes; map tactics remain outside the evidence boundary.
+- Official source: https://steamcommunity.com/app/3079210/announcements/detail/690891687156777529
+- Verified facts: The official Launch Maps announcement places Huế Outskirts in the launch roster and describes mountains, terraced farms, dense jungle, connected waterways, defended bases and concrete industrial areas.
+- Reusable page material: Match the map and objective, classify the current fight as vertical/close terrain or base/industrial space, then record the observation; no route or strongpoint claim is inferred.
 - Status: `single-official-source`; current map layout and tactical claims are pending.
 - Handoff: `slug: hue-outskirts`; `categorySlug: battlefield`; `path: /wiki/battlefield/hue-outskirts`; `pageType: entry`; `indexable: false`; `sources: official launch article`; `relatedSlugs: launch-maps, game-modes, beginner-guide`.
 
 ### hell let loose vietnam van tuong
 
-User intent: Confirm Vạn Tường as a named launch map.
+User intent: Use the official Vạn Tường environment profile to frame a first-match observation.
 
 - Google: https://www.google.com/search?q=hell+let+loose+vietnam+van+tuong
 - YouTube: Not used; the name alone cannot prove a route or role recommendation.
-- Official source: https://www.hellletloose.com/blog/hllv-out-now
-- Verified facts: Vạn Tường appears in the official six-map launch roster.
-- Reusable page material: A roster record with a safe observation chain and links to mode rules.
-- Status: `single-official-source`; map-specific details remain pending direct verification.
+- Official source: https://steamcommunity.com/app/3079210/announcements/detail/690891687156777529
+- Verified facts: The official Launch Maps announcement places Vạn Tường in the launch roster and describes small villages, dense jungle, a broad river network and bankside foliage.
+- Reusable page material: Match the map and objective, check whether water movement is relevant, then record the observation; boat availability and bankside tactics remain unverified.
+- Status: `single-official-source`; map-specific tactical details remain pending direct verification.
 - Handoff: `slug: van-tuong`; `categorySlug: battlefield`; `path: /wiki/battlefield/van-tuong`; `pageType: entry`; `indexable: false`; `sources: official launch article`; `relatedSlugs: launch-maps, game-modes, beginner-guide`.
 
 ### hell let loose vietnam quang ngai
 
-User intent: Confirm Quảng Ngãi as a named launch map.
+User intent: Use the official Quảng Ngãi environment profile to frame a first-match observation.
 
 - Google: https://www.google.com/search?q=hell+let+loose+vietnam+quang+ngai
 - YouTube: Not used; no fixed objective order or cover pattern is inferred.
-- Official source: https://www.hellletloose.com/blog/hllv-out-now
-- Verified facts: Quảng Ngãi appears in the official six-map launch roster.
-- Reusable page material: A roster record that routes players to Game Modes and the Beginner Guide.
+- Official source: https://steamcommunity.com/app/3079210/announcements/detail/690891687156777529
+- Verified facts: The official Launch Maps announcement places Quảng Ngãi in the launch roster and describes monsoon flooding, rocky cliffs/caves, bamboo forests, open lowlands and cross-river/vertical terrain.
+- Reusable page material: Match the map and objective, identify where the terrain changes before crossing or changing pace, then record the observation; no fixed route or role advice is published.
 - Status: `single-official-source`; current map tactics are pending.
 - Handoff: `slug: quang-ngai`; `categorySlug: battlefield`; `path: /wiki/battlefield/quang-ngai`; `pageType: entry`; `indexable: false`; `sources: official launch article`; `relatedSlugs: launch-maps, game-modes, beginner-guide`.
 
 ### hell let loose vietnam dak to airfield
 
-User intent: Confirm Đắk Tô Airfield as a named launch map.
+User intent: Use the official Đắk Tô Airfield environment profile to frame a first-match observation.
 
 - Google: https://www.google.com/search?q=hell+let+loose+vietnam+dak+to+airfield
 - YouTube: Not used; an airfield name does not prove vehicle lanes or sightlines.
-- Official source: https://www.hellletloose.com/blog/hllv-out-now
-- Verified facts: Đắk Tô Airfield appears in the official six-map launch roster.
-- Reusable page material: A roster record with a build/mode note-taking route, not a tactical guide.
+- Official source: https://steamcommunity.com/app/3079210/announcements/detail/690891687156777529
+- Verified facts: The official Launch Maps announcement places Đắk Tô Airfield in the launch roster and describes a long airstrip, open surroundings, craters, destroyed vehicles and hilltop fortifications.
+- Reusable page material: Match the map and objective, ask how much open ground separates the fight from cover or vehicle/recon information, then record the observation; no lane or sightline claim is inferred.
 - Status: `single-official-source`; airfield routes and vehicle claims remain pending.
 - Handoff: `slug: dak-to-airfield`; `categorySlug: battlefield`; `path: /wiki/battlefield/dak-to-airfield`; `pageType: entry`; `indexable: false`; `sources: official launch article`; `relatedSlugs: launch-maps, game-modes, beginner-guide`.
 
 ### hell let loose vietnam cam ranh port
 
-User intent: Confirm Cam Ranh Port as a named launch map.
+User intent: Use the official Cam Ranh Port environment profile to frame a first-match observation.
 
 - Google: https://www.google.com/search?q=hell+let+loose+vietnam+cam+ranh+port
 - YouTube: Not used; a port name does not prove water routes or strongpoints.
-- Official source: https://www.hellletloose.com/blog/hllv-out-now
-- Verified facts: Cam Ranh Port appears in the official six-map launch roster.
-- Reusable page material: A roster record with links to mode rules and the safe current-build observation chain.
+- Official source: https://steamcommunity.com/app/3079210/announcements/detail/690891687156777529
+- Verified facts: The official Launch Maps announcement places Cam Ranh Port in the launch roster and describes a militarised compound, industrial docks, DeLong Piers, dry creek beds, rolling dunes and a southern waterway.
+- Reusable page material: Match the map and objective, classify the fight as dock/compound or open dune/creek/waterway space, then record the observation; no water route or strongpoint claim is inferred.
 - Status: `single-official-source`; port routes, water tactics and vehicle claims remain pending.
 - Handoff: `slug: cam-ranh-port`; `categorySlug: battlefield`; `path: /wiki/battlefield/cam-ranh-port`; `pageType: entry`; `indexable: false`; `sources: official launch article`; `relatedSlugs: launch-maps, game-modes, beginner-guide`.
 
@@ -348,12 +348,12 @@ User intent: Verify the current purchase path without freezing a regional price 
 
 | Query family | Route group | Reusable material | Evidence state | Recheck boundary |
 |---|---|---|---|---|
-| `hell let loose vietnam join a squad` | `/guides/join-a-squad` | Server label -> open squad -> short call -> active objective | verified | Exact menu labels/keybinds remain build-sensitive |
-| `hell let loose vietnam voice chat` | `/guides/voice-chat` | Input test and position/direction/intent call format | single-official-source | Do not publish a universal push-to-talk key without current capture |
-| `hell let loose vietnam helicopter controls` | `/guides/helicopter-controls` | Tutorial/settings boundary and safe first transport flight | single-official-source | Controls and aircraft handling need current-build verification |
+| `hell let loose vietnam join a squad` | `/guides/join-a-squad` | Server platform/capacity/filter check -> open squad -> short call -> active objective | verified | Exact menu labels/keybinds remain build-sensitive |
+| `hell let loose vietnam voice chat` | `/guides/voice-chat` | Input test -> lobby/in-match channel distinction -> position/direction/intent call | single-official-source | Do not publish a universal push-to-talk key without current capture |
+| `hell let loose vietnam helicopter controls` | `/guides/helicopter-controls` | Patch 1.3 inversion/Layout B boundary -> current bindings -> safe first transport flight | single-official-source | Controls and aircraft handling need current-build verification |
 | `hell let loose vietnam best settings` | `/guides/best-settings` | Requirements -> one-change testing -> visibility/stability | single-official-source | No universal preset or benchmark claim |
-| `hell let loose vietnam crashing fixes` | `/guides/crashing-fixes` | Failure stage -> official notes -> reversible local checks -> evidence report | single-official-source | Unlisted causes remain pending |
-| Six official map names | `/wiki/battlefield/<map>` | One roster record per map and a safe observation chain | single-official-source | No route, strongpoint, cover or role advice from names alone |
+| `hell let loose vietnam crashing fixes` | `/guides/crashing-fixes` | Failure stage -> official notes -> conditional AMD/launch-option checks -> evidence report | single-official-source | Unlisted causes remain pending; workarounds are not universal fixes |
+| Six official map names | `/wiki/battlefield/<map>` | Official environment profile -> first-match terrain question -> contextual field note | single-official-source | No route, strongpoint, cover or role advice without current-build evidence |
 | `hell let loose vietnam weapons` | `/wiki/roles/weapons` | Official historically accurate weapon theme + planned roadmap examples | single-official-source | Full launch roster needs direct current-build pass |
 | `hell let loose vietnam vehicles` | `/wiki/roles/vehicles` | Armour, mortar, helicopter and patrol-boat categories | single-official-source | Exact models, controls and performance pending |
 | `hell let loose vietnam editions buying` | `/wiki/access/editions-and-buying` | Live Steam/platform source path without static price | verified | Recheck region, tax, discount and edition at checkout |
@@ -370,7 +370,7 @@ User intent: Verify the current purchase path without freezing a regional price 
 | Claim family | Primary source | Cross-check | Result / next recheck |
 |---|---|---|---|
 | Scale, factions, roles, feature families | Official game page | Official Q&A #2 / launch material | Consistent for published overview; full role roster still pending |
-| Launch maps | Official launch article | Official game page launch context | Six names published; map tactics deferred |
+| Launch maps and terrain profiles | Official Launch Maps announcement | Official game page launch context | Six names plus published environment descriptions are usable; sector/route tactics remain deferred |
 | Launch modes | Official game modes guide | Official launch article and landing-page count | Four launch modes published; “six distinct gameplay modes” flagged for reconciliation |
 | Platforms and release date | Official launch article | Official Steam listing | PC/PS5/Xbox Series X|S and 13 Aug 2026 published; price excluded |
 | Cross-platform servers | Official crossplay announcement | Steam Cross-Platform Multiplayer label | Published with server-tag boundary; cross-progression excluded |
@@ -383,3 +383,11 @@ User intent: Verify the current purchase path without freezing a regional price 
 - No competitor page is used as a final fact source.
 - No exact full role roster, map tactical route, prices, player-count snapshot, review snapshot, cross-progression, shared entitlements or universal keybinds are published.
 - No YouTube/community image or video frame is used in this pass. The eight official visual assets and their boundaries are listed in `Docs/素材清单.md` and `public/assets/asset-manifest.json`.
+
+## 2026-08-30 content-helpfulness refresh
+
+- All 27 content records were reviewed against the page-builder action contract. Each now has a player-facing action chain of four to six complete steps, with a success signal and an explicit evidence boundary; `scripts/check-content.ts` enforces the step count and required fields.
+- The six map records no longer stop at map-name confirmation. They use the official [Launch Maps announcement](https://steamcommunity.com/app/3079210/announcements/detail/690891687156777529) for historical setting and published terrain descriptions, then ask the player to turn that profile into a contextual first-match observation. Routes, sectors, strongpoints and “best” roles remain pending.
+- The voice-chat page now distinguishes lobby Party Voice Chat from in-match Proximity, Unit and Command channels using the official news feed. The helicopter page records the Patch 1.3 inversion/Layout B/co-pilot boundary, and the crash page records the conditional AMD workaround branch and documented launch checks.
+- The home, Wiki, Guide and category shells were reviewed as navigation surfaces: every shell routes to a useful task page, while filters, search and latest content remain directory functions rather than unsupported standalone claims.
+- YouTube Skill review concluded that no new frame is necessary for this pass. Existing official static assets remain registered; exact controls and troubleshooting claims are sourced from written official material. A later frame must prove a specific current-build UI action and pass the public URL, timestamp, visible-frame and manifest checks before use.

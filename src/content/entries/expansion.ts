@@ -6,8 +6,11 @@ const checked = '2026-08-30';
 const official = {
   game: 'https://www.hellletloose.com/game/hll-vietnam',
   launch: 'https://www.hellletloose.com/blog/hllv-out-now',
+  maps: 'https://steamcommunity.com/games/3079210/announcements/detail/690891687156777529',
   crossplay: 'https://www.hellletloose.com/blog/beta-testing-and-crossplay',
   pcRequirements: 'https://www.hellletloose.com/pc-requirements',
+  patch13: 'https://www.hellletloose.com/blog/hllv-patch-1-3',
+  news: 'https://steamcommunity.com/app/3079210/allnews/',
   qna2: 'https://www.hellletloose.com/blog/dev-qna-2',
   steam: 'https://store.steampowered.com/app/3079210/Hell_Let_Loose_Vietnam/',
 } as const;
@@ -16,7 +19,7 @@ const officialNote =
   'Official source checked 2026-08-30; recheck after a new patch or platform change.';
 
 const launchNote =
-  'Official launch material checked 2026-08-30; map-specific tactics are not inferred from the roster list.';
+  'Official launch material checked 2026-08-30; map-specific tactics are not inferred beyond the published terrain profile.';
 
 const guideSteps = {
   join: [
@@ -173,6 +176,15 @@ const guideSteps = {
         'If the official notes do not mention it, keep the cause marked pending rather than assigning blame to one setting.',
     },
     {
+      title: 'Try one documented AMD check',
+      action:
+        'If you use an AMD GPU, test one official temporary workaround at a time: Patch 1.3 notes say disabling gore may reduce crash frequency, while the launch guidance also lists the documented launch options, High graphics and disabling the AMD in-game overlay. Results vary by system.',
+      successSignal:
+        'You know whether one reversible change altered the same crash trigger.',
+      failureCheck:
+        'If the crash continues, restore the prior setting, keep the evidence and do not present the workaround as a universal fix.',
+    },
+    {
       title: 'Apply reversible local checks',
       action:
         'Verify files through the platform launcher, close overlays and return to a known-good display or graphics setting one change at a time.',
@@ -193,65 +205,77 @@ const mapEntries = [
   {
     slug: 'thanh-hoa-bridge',
     title: 'Thanh Hóa Bridge',
+    history: 'Operation Rolling Thunder (1965–1968)',
+    terrain:
+      'Nam Ma River crossings, jungle and mountain terrain, villages and trainyards',
+    matchCue:
+      'which crossing or cross-river movement your squad is attempting, especially before the fight tightens near villages and trainyards',
     keywords: [
       'hll vietnam thanh hoa bridge',
       'hell let loose vietnam thanh hoa bridge map',
     ],
-    summary:
-      'One of the six maps named in the official launch roster; map-specific routes remain a separate verification task.',
-    lead: 'Thanh Hóa Bridge is named by the official launch article as one of the six launch maps. This page records the roster identity and gives a safe way to build a current match note without presenting unverified tactical claims as fact.',
   },
   {
     slug: 'hue-outskirts',
     title: 'Huế Outskirts',
+    history: 'the Tet Offensive (January 1968)',
+    terrain:
+      'mountain terrain, terraced farms, dense jungle, connected waterways, defended bases and concrete industrial areas',
+    matchCue:
+      'whether your squad is moving through vertical close terrain or toward a defended base or industrial space',
     keywords: [
       'hll vietnam hue outskirts',
       'hell let loose vietnam hue outskirts map',
     ],
-    summary:
-      'One of the six maps named in the official launch roster; current map tactics are not inferred from its name.',
-    lead: 'Huế Outskirts is named by the official launch article as one of the six launch maps. The official roster confirms the map name, while cover, sectors, routes and role advice need current-build verification before publication.',
   },
   {
     slug: 'van-tuong',
     title: 'Vạn Tường',
+    history: 'Operation Starlite (August 1965)',
+    terrain:
+      'small villages, dense jungle, a broad river network and bankside foliage',
+    matchCue:
+      'whether the current objective makes boats or water movement relevant; confirm availability from the live map and squad call',
     keywords: ['hll vietnam van tuong', 'hell let loose vietnam van tuong map'],
-    summary:
-      'One of the six maps named in the official launch roster; tactical details remain pending direct verification.',
-    lead: 'Vạn Tường is named by the official launch article as one of the six launch maps. This page keeps the confirmed map identity separate from player-route observations that may differ by mode, build or server.',
   },
   {
     slug: 'quang-ngai',
     title: 'Quảng Ngãi',
+    history: 'Operation Piranha (September 1965)',
+    terrain:
+      'monsoon flooding, rocky cliffs and caves, bamboo forests, open lowlands and cross-river spaces',
+    matchCue:
+      'where the terrain switches from tight jungle to exposed lowland or vertical cliff before your squad crosses or changes pace',
     keywords: [
       'hll vietnam quang ngai',
       'hell let loose vietnam quang ngai map',
     ],
-    summary:
-      'One of the six maps named in the official launch roster; a tactical brief is pending a direct evidence pass.',
-    lead: 'Quảng Ngãi is named by the official launch article as one of the six launch maps. Use this page as a directory entry until a current tactical map, in-game observation or clearly labelled player example supports more specific advice.',
   },
   {
     slug: 'dak-to-airfield',
     title: 'Đắk Tô Airfield',
+    history: 'the Battle of Đắk Tô (November 1967)',
+    terrain:
+      'a long airstrip, open surroundings, impact craters, destroyed vehicles and nearby hilltop fortifications',
+    matchCue:
+      'how much open ground separates your squad from the objective before asking for cover, vehicle or reconnaissance information',
     keywords: [
       'hll vietnam dak to airfield',
       'hell let loose vietnam dak to airfield map',
     ],
-    summary:
-      'One of the six maps named in the official launch roster; airfield route and vehicle claims remain unverified here.',
-    lead: 'Đắk Tô Airfield is named by the official launch article as one of the six launch maps. The airfield name alone is not evidence for sightlines, vehicle lanes or capture priorities, so those details remain outside this page until verified.',
   },
   {
     slug: 'cam-ranh-port',
     title: 'Cam Ranh Port',
+    history: 'the Cam Ranh Bay Logistics Facility (1969)',
+    terrain:
+      'militarised compounds, industrial docks, DeLong Piers, dry creek beds, rolling dunes and a southern waterway',
+    matchCue:
+      'whether the fight is in dense dock or compound space, or in the open dunes, creek beds and waterway',
     keywords: [
       'hll vietnam cam ranh port',
       'hell let loose vietnam cam ranh port map',
     ],
-    summary:
-      'One of the six maps named in the official launch roster; port routes and strongpoints remain pending direct verification.',
-    lead: 'Cam Ranh Port is named by the official launch article as one of the six launch maps. This record confirms the launch roster and gives a note-taking route while avoiding unsupported port, water or vehicle tactics.',
   },
 ] as const;
 
@@ -261,22 +285,22 @@ function makeMapEntry(map: (typeof mapEntries)[number]): WikiEntry {
     categorySlug: 'battlefield',
     title: map.title,
     pageType: 'entry',
-    summary: map.summary,
-    lead: map.lead,
+    summary: `Official profile: ${map.terrain}. Use the terrain cue to ask a better first-match question without treating it as a fixed winning route.`,
+    lead: `The official Launch Maps brief places ${map.title} in ${map.history} and describes ${map.terrain}. In a live match, use those visible cues to frame your first squad call; sector order, strongpoints and optimal routes still depend on mode, build and the current objective.`,
     metaTitle: `${map.title} — Hell Let Loose: Vietnam Map Wiki`,
-    metaDescription: `${map.title} is one of the six official launch maps for Hell Let Loose: Vietnam, with a clear boundary around unverified tactical claims.`,
-    status: 'Launch map roster confirmed; tactical brief pending',
+    metaDescription: `${map.title} map guide for Hell Let Loose: Vietnam: official terrain profile, first-match cues and current limits around sector tactics.`,
+    status: 'Official terrain profile; sector and route tactics pending',
     evidenceState: 'single-official-source',
     updated: checked,
     keywords: map.keywords,
     tags: ['maps', 'gameplay'],
     indexable: false,
     facts: [
-      { label: 'Roster status', value: 'Named in the official launch article' },
-      { label: 'Map family', value: 'Hell Let Loose: Vietnam launch map' },
+      { label: 'Historical setting', value: map.history },
+      { label: 'Official terrain', value: map.terrain },
       {
-        label: 'Tactical brief',
-        value: 'Pending a direct current-build evidence pass',
+        label: 'First-match cue',
+        value: map.matchCue,
       },
     ],
     steps: [
@@ -288,20 +312,26 @@ function makeMapEntry(map: (typeof mapEntries)[number]): WikiEntry {
           'A later player observation can be tied to a specific match context.',
       },
       {
-        title: 'Read the active objective',
-        action:
-          'Use the in-game tactical map and squad calls to identify the active objective rather than assuming this page contains a fixed route.',
+        title: 'Locate the official terrain cue',
+        action: `At deployment, identify ${map.matchCue}. Use the live tactical map and what you can see; this profile is an orientation aid, not a sector route.`,
         successSignal:
-          'You can name the current objective and your squad’s intended direction.',
+          'You can describe the next terrain problem before the squad starts moving.',
+      },
+      {
+        title: 'Turn the cue into a squad call',
+        action:
+          'Ask how the current objective changes the approach: crossing, close terrain, open ground, a defended base or a water route. Follow the live squad call over a generic map rule.',
+        successSignal:
+          'The squad has a shared next move and knows what terrain to watch.',
+        failureCheck:
+          'Do not turn one match observation into a universal map rule or “best route”.',
       },
       {
         title: 'Capture a player observation',
         action:
-          'If you record a route, sightline or role example, save the build, mode and timestamp so it can be labelled as a community example.',
+          'If you record a route, sightline or role example, save the build, mode, objective and timestamp so it can be labelled as a community example.',
         successSignal:
           'The observation has enough context to be checked or disputed later.',
-        failureCheck:
-          'Do not turn one match observation into a universal map rule.',
       },
       {
         title: 'Check the latest patch',
@@ -313,15 +343,31 @@ function makeMapEntry(map: (typeof mapEntries)[number]): WikiEntry {
     ],
     sections: [
       {
-        heading: 'What is confirmed',
+        heading: 'Official field profile',
         paragraphs: [
-          `The official launch article names ${map.title} as one of the six launch maps. That is the supported fact on this page.`,
+          `The official Launch Maps brief names ${map.title} as one of the six launch maps and places it in ${map.history}. It describes the battlefield through ${map.terrain}.`,
+        ],
+        bullets: [
+          `Historical context: ${map.history}.`,
+          `Terrain cue: ${map.terrain}.`,
+          `Player-use cue: ${map.matchCue}.`,
+        ],
+      },
+      {
+        heading: 'Use the profile in a live match',
+        paragraphs: [
+          'The value of this page is orientation: identify the terrain problem, check the current mode and objective, then ask the squad for a concrete next move. That keeps the official profile useful without pretending that a historical description reveals every sector or spawn route.',
+        ],
+        bullets: [
+          'Confirm the mode and active objective on the current tactical map.',
+          'Name the terrain change your squad is about to cross or enter.',
+          'Record any route or sightline with build, mode and timestamp before calling it a player example.',
         ],
       },
       {
         heading: 'What is still pending',
         paragraphs: [
-          'No fixed sector order, best class, vehicle lane, cover pattern or capture route is published here without a direct current-build source. Community footage can illustrate one player’s match, but it cannot by itself prove a universal mechanic.',
+          'No fixed sector order, best class, vehicle lane, cover pattern or capture route is published here without a direct current-build source. The official profile describes environments, while community footage can only illustrate one player’s match and cannot by itself prove a universal mechanic.',
         ],
       },
       {
@@ -333,10 +379,10 @@ function makeMapEntry(map: (typeof mapEntries)[number]): WikiEntry {
     ],
     sources: [
       {
-        label: 'Official HLL: Vietnam launch article',
-        href: official.launch,
+        label: 'Official Launch Maps announcement',
+        href: official.maps,
         type: 'official',
-        note: launchNote,
+        note: `${launchNote} The dedicated map announcement supports the historical setting and terrain profile; current sectors and routes remain build- and mode-sensitive.`,
       },
     ],
     relatedSlugs: ['launch-maps', 'game-modes', 'beginner-guide'],
@@ -393,6 +439,17 @@ export const expansionEntries: readonly WikiEntry[] = [
         ],
       },
       {
+        heading: 'If the server list looks full',
+        paragraphs: [
+          'The official launch updates say the Server Browser refreshes more often, hides full servers by default and can be adjusted with filters. If a server disappears or refuses the join, try another server with visible capacity before treating it as an account or network failure.',
+        ],
+        bullets: [
+          'Check the current platform label and the available-space filter.',
+          'Try an Official Server or another Community Server when a specific server is full or reserved.',
+          'Record the server name, platform label and visible error if the same failure repeats.',
+        ],
+      },
+      {
         heading: 'Failure check',
         paragraphs: [
           'If the server browser, squad list or voice channel behaves differently, record the platform and build, then check the latest official notes. Do not use a screenshot from another build as a universal UI reference.',
@@ -411,6 +468,12 @@ export const expansionEntries: readonly WikiEntry[] = [
         href: official.game,
         type: 'official',
         note: officialNote,
+      },
+      {
+        label: 'Official Steam news feed',
+        href: official.news,
+        type: 'official',
+        note: 'Checked 2026-08-30 for Server Browser capacity and filtering guidance.',
       },
     ],
     relatedSlugs: ['beginner-guide', 'voice-chat', 'roles-and-units'],
@@ -451,6 +514,10 @@ export const expansionEntries: readonly WikiEntry[] = [
         value:
           'Communication is a launch tip; exact audio UI is build-sensitive',
       },
+      {
+        label: 'Party Voice Chat',
+        value: 'Lobby only; in-match channels are Proximity, Unit and Command',
+      },
     ],
     steps: guideSteps.voice,
     sections: [
@@ -466,6 +533,17 @@ export const expansionEntries: readonly WikiEntry[] = [
           'Separate microphone input, channel selection, mute state and output volume. Test one variable at a time and keep the platform/build in the note. A community clip can show one working setup, but it does not establish the default keybind for every player.',
         ],
       },
+      {
+        heading: 'Lobby versus match channels',
+        paragraphs: [
+          'The official Community Update says Party Voice Chat is currently available in the lobby only. Once a match starts, use the current Proximity, Unit or Command channel shown by the game instead of waiting for a party channel to carry the call.',
+        ],
+        bullets: [
+          'Test the microphone and mute state in the current audio settings first.',
+          'Use Unit chat for the squad-level call and Command chat only when your role and channel access require it.',
+          'If a channel is missing or distorted, record platform, build and channel before reporting the issue.',
+        ],
+      },
     ],
     sources: [
       {
@@ -476,9 +554,9 @@ export const expansionEntries: readonly WikiEntry[] = [
       },
       {
         label: 'Official Steam news feed',
-        href: 'https://steamcommunity.com/app/3079210/allnews/',
+        href: official.news,
         type: 'official',
-        note: 'Use the current official feed for later VOIP or audio fixes.',
+        note: 'Checked 2026-08-30 for the current Party Voice Chat boundary and later VOIP fixes.',
       },
     ],
     relatedSlugs: ['join-a-squad', 'movement-and-teamplay', 'crashing-fixes'],
@@ -518,6 +596,11 @@ export const expansionEntries: readonly WikiEntry[] = [
         label: 'First-flight goal',
         value: 'Deliver one squad safely and return with a clear next task',
       },
+      {
+        label: 'Patch 1.3 control note',
+        value:
+          'Helicopter inversion and controller Layout B behavior were corrected',
+      },
     ],
     steps: guideSteps.helicopter,
     sections: [
@@ -534,6 +617,17 @@ export const expansionEntries: readonly WikiEntry[] = [
         ],
         visuals: [officialVisuals.lzApproach, officialVisuals.helicopterField],
       },
+      {
+        heading: 'Patch 1.3 control checks',
+        paragraphs: [
+          'Patch 1.3 says the Helicopter Inversion setting now applies correctly: pushing forward on the analogue pitches down by default, while invert changes that behavior. It also records a fix for helicopter pitch inversion with Controller Layout B and a fix that keeps a co-pilot’s control after the pilot dies.',
+        ],
+        bullets: [
+          'Open the current controller layout and confirm the displayed button assignments before takeoff.',
+          'Test the direction of pitch in a safe tutorial or practice context before a live transport run.',
+          'If the behavior differs, record platform, layout, inversion setting and build; do not copy a keyboard chart from another version.',
+        ],
+      },
     ],
     sources: [
       {
@@ -547,6 +641,12 @@ export const expansionEntries: readonly WikiEntry[] = [
         href: official.launch,
         type: 'official',
         note: officialNote,
+      },
+      {
+        label: 'Official Patch 1.3 notes',
+        href: official.patch13,
+        type: 'official',
+        note: 'Checked 2026-08-30 for helicopter inversion, Layout B and co-pilot control fixes.',
       },
     ],
     relatedSlugs: ['tunnels-helicopters', 'best-settings', 'beginner-guide'],
@@ -596,6 +696,12 @@ export const expansionEntries: readonly WikiEntry[] = [
         heading: 'Keep the test honest',
         paragraphs: [
           'Compare the same type of scene, keep the resolution and frame limit visible, and note the build. A community settings video is a useful example of one player’s setup only; it cannot prove the same result on another machine.',
+        ],
+      },
+      {
+        heading: 'Stability comes before a preset',
+        paragraphs: [
+          'If the failure is an AMD-related crash rather than low frame rate, switch to the Crashing and Connection Checks guide. The official launch notes list temporary AMD workarounds, while the later official update says results vary and the underlying investigation is still version-sensitive.',
         ],
       },
     ],
@@ -648,6 +754,10 @@ export const expansionEntries: readonly WikiEntry[] = [
       },
       { label: 'Safe method', value: 'One reversible change at a time' },
       { label: 'Evidence rule', value: 'Unconfirmed causes stay pending' },
+      {
+        label: 'AMD note',
+        value: 'Official workaround may reduce crashes; results vary by system',
+      },
     ],
     steps: guideSteps.crash,
     sections: [
@@ -661,6 +771,17 @@ export const expansionEntries: readonly WikiEntry[] = [
         heading: 'What not to promise',
         paragraphs: [
           'The official patch notes can confirm listed fixes, but they do not prove that every unlisted crash has one cause. Avoid claiming that one driver, overlay or graphics option fixes all systems without a reproducible evidence set.',
+        ],
+      },
+      {
+        heading: 'AMD-specific temporary branch',
+        paragraphs: [
+          'The official launch guidance lists two temporary Steam launch-option combinations: -dx12 -USEALLAVAILABLECORES -malloc=system, or -dx11 -USEALLAVAILABLECORES -malloc=system. It also lists High in-game graphics and disabling the AMD Software: Adrenalin Edition in-game overlay. Patch 1.3 adds that disabling gore may reduce AMD crash frequency. Test one change at a time, keep the change reversible and expect results to vary.',
+        ],
+        bullets: [
+          'Use the branch only when the machine has an AMD GPU and the failure is a crash or stability problem.',
+          'If it does not help, restore the previous value before testing the next change.',
+          'Escalate with build, GPU, driver, trigger and the exact change that was tested.',
         ],
       },
     ],

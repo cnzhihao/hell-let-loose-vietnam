@@ -49,6 +49,18 @@ for (const entry of wikiEntries) {
   if (new Set(entry.tags).size !== entry.tags.length) {
     errors.push(`entry has duplicate topic tags: ${entry.slug}`);
   }
+  if (!entry.steps || entry.steps.length < 4 || entry.steps.length > 6) {
+    errors.push(`entry must have 4–6 actionable steps: ${entry.slug}`);
+  }
+  for (const step of entry.steps ?? []) {
+    if (
+      !step.title.trim() ||
+      !step.action.trim() ||
+      !step.successSignal.trim()
+    ) {
+      errors.push(`entry has an incomplete action step: ${entry.slug}`);
+    }
+  }
 
   const visuals = [
     ...entry.sections.flatMap((section) => section.visuals ?? []),

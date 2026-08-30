@@ -6,7 +6,7 @@
 |---|---|---|---|---|---|---|---|---|---|
 | hell let loose vietnam | Overview | Hub | `/wiki/basics/game-overview` | P0 | `/wiki` | beginner, modes, platforms | Official game page | verified | No |
 | hell let loose vietnam beginner guide | First match | Guide | `/guides/beginner` | P0 | `/guides` | roles, modes | Official launch article | verified | No |
-| hell let loose vietnam maps | Map list | Directory | `/wiki/battlefield/launch-maps` | P0 | `/wiki/battlefield` | modes, overview | Official launch article | single-official-source | No |
+| hell let loose vietnam maps | Map roster and terrain profiles | Directory | `/wiki/battlefield/launch-maps` | P0 | `/wiki/battlefield` | modes, overview | Official Launch Maps announcement | single-official-source | No |
 | hell let loose vietnam game modes | Win conditions | Reference | `/wiki/battlefield/game-modes` | P0 | `/wiki/battlefield` | maps, beginner | Official game modes guide | single-official-source | No |
 | hell let loose vietnam roles | Role discovery | Reference | `/wiki/roles/roles-and-units` | P1 | `/wiki/roles` | beginner, systems | Official game page | single-official-source | No |
 | hell let loose vietnam tunnels | Vietnam-specific systems | Reference | `/wiki/systems/tunnels-helicopters` | P1 | `/wiki/systems` | movement, roles | Official game page + Patch 1.3 | verified | No |
@@ -33,12 +33,12 @@ These rows were added after the competitor-structure review. The route exists lo
 | hell let loose vietnam helicopter controls | First aircraft flight | Guide | `/guides/helicopter-controls` | P1 | `/guides` | Official game page | single-official-source | No |
 | hell let loose vietnam best settings | PC tuning | Guide | `/guides/best-settings` | P0 | `/guides` | Official PC requirements | single-official-source | No |
 | hell let loose vietnam crashing fixes | Troubleshooting | Guide | `/guides/crashing-fixes` | P0 | `/guides` | Official patch/news feed | single-official-source | No |
-| hell let loose vietnam Thanh Hóa Bridge | Map identity | Reference | `/wiki/battlefield/thanh-hoa-bridge` | P1 | `/wiki/battlefield` | Official launch article | single-official-source | No |
-| hell let loose vietnam Huế Outskirts | Map identity | Reference | `/wiki/battlefield/hue-outskirts` | P1 | `/wiki/battlefield` | Official launch article | single-official-source | No |
-| hell let loose vietnam Vạn Tường | Map identity | Reference | `/wiki/battlefield/van-tuong` | P1 | `/wiki/battlefield` | Official launch article | single-official-source | No |
-| hell let loose vietnam Quảng Ngãi | Map identity | Reference | `/wiki/battlefield/quang-ngai` | P1 | `/wiki/battlefield` | Official launch article | single-official-source | No |
-| hell let loose vietnam Đắk Tô Airfield | Map identity | Reference | `/wiki/battlefield/dak-to-airfield` | P1 | `/wiki/battlefield` | Official launch article | single-official-source | No |
-| hell let loose vietnam Cam Ranh Port | Map identity | Reference | `/wiki/battlefield/cam-ranh-port` | P1 | `/wiki/battlefield` | Official launch article | single-official-source | No |
+| hell let loose vietnam Thanh Hóa Bridge | Official terrain profile | Reference | `/wiki/battlefield/thanh-hoa-bridge` | P1 | `/wiki/battlefield` | Official Launch Maps announcement | single-official-source | No |
+| hell let loose vietnam Huế Outskirts | Official terrain profile | Reference | `/wiki/battlefield/hue-outskirts` | P1 | `/wiki/battlefield` | Official Launch Maps announcement | single-official-source | No |
+| hell let loose vietnam Vạn Tường | Official terrain profile | Reference | `/wiki/battlefield/van-tuong` | P1 | `/wiki/battlefield` | Official Launch Maps announcement | single-official-source | No |
+| hell let loose vietnam Quảng Ngãi | Official terrain profile | Reference | `/wiki/battlefield/quang-ngai` | P1 | `/wiki/battlefield` | Official Launch Maps announcement | single-official-source | No |
+| hell let loose vietnam Đắk Tô Airfield | Official terrain profile | Reference | `/wiki/battlefield/dak-to-airfield` | P1 | `/wiki/battlefield` | Official Launch Maps announcement | single-official-source | No |
+| hell let loose vietnam Cam Ranh Port | Official terrain profile | Reference | `/wiki/battlefield/cam-ranh-port` | P1 | `/wiki/battlefield` | Official Launch Maps announcement | single-official-source | No |
 | hell let loose vietnam weapons | Roster boundary | Reference | `/wiki/roles/weapons` | P1 | `/wiki/roles` | Official game page + roadmap | single-official-source | No |
 | hell let loose vietnam vehicles | Vehicle systems | Reference | `/wiki/roles/vehicles` | P1 | `/wiki/roles` | Official game page | single-official-source | No |
 | hell let loose vietnam editions buying | Purchase verification | Access | `/wiki/access/editions-and-buying` | P1 | `/wiki/access` | Official Steam listing | verified | No |
